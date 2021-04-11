@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prime_Legal.Windows"
         mc:Ignorable="d"
-        Title="WinAuthorization" Height="450" Width="800">
+        Title="WinAuthorization" Height="494" Width="878">
     <Grid>
+        <Grid >
+            <Grid.Background>
+                <ImageBrush ImageSource="/Prime Legal;component/Resources/BG.jpg"/>
+            </Grid.Background>
+
+        </Grid>
+        <Rectangle Width="486.5" HorizontalAlignment="Left"
+                   RenderTransformOrigin="0.5,0.5" Margin="-47,0,0,0"
+                    Fill="#515151">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="10"/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
         
     </Grid>
 </Window>
