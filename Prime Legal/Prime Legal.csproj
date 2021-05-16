@@ -67,6 +67,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Services\ActionWindowClass.cs" />
     <Compile Include="Windows\WinAuthorization.xaml.cs">
       <DependentUpon>WinAuthorization.xaml</DependentUpon>
     </Compile>
@@ -100,7 +101,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Resources\Dictionary.xaml">
