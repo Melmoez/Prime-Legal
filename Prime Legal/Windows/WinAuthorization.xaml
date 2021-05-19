@@ -6,12 +6,18 @@
     xmlns:local="clr-namespace:Prime_Legal.Windows"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    WindowStyle="None" ResizeMode="NoResize"
     Title="Авторизация"
     Width="878"
-    Height="494" WindowStartupLocation="CenterScreen"
+    Height="494"
+    Loaded="Window_Loaded"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
     mc:Ignorable="d">
-    <Grid x:Name="GridMain" Background="Black" MouseLeftButtonDown="GridMain_MouseLeftButtonDown">
+    <Grid
+        x:Name="GridMain"
+        Background="Black"
+        MouseLeftButtonDown="GridMain_MouseLeftButtonDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="457*" />
             <ColumnDefinition Width="413*" />
@@ -22,84 +28,48 @@
             </Grid.Background>
         </Grid>
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="20" />
-                <ColumnDefinition />
-                <ColumnDefinition Width="20" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="15" />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition Height="20" />
-            </Grid.RowDefinitions>
-            <Rectangle
-                x:Name="rec"
-                Grid.RowSpan="10"
-                Grid.ColumnSpan="3">
+            <Rectangle Panel.ZIndex="0"
+                x:Name="rec">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/Prime Legal;component/Resources/BG2.png" />
                 </Rectangle.Fill>
             </Rectangle>
-            <StackPanel Orientation="Horizontal"
-                Grid.Row="1"
-                Grid.Column="1"
-                >
-                <Image Width="65"  />
-                <Label Content="Войдите в свой аккаунт" DockPanel.Dock="Left"
-                           Style="{DynamicResource LblMain}" Width="291"
-                           />
-            </StackPanel>
-            <Label Style="{DynamicResource LblDefoltWhite}" Grid.Row="2" Grid.Column="1"
-                   HorizontalContentAlignment="Center" Margin="0,0,30,0">
-                <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="Войдите в свой аккаунт затем вы сможете продолжить работать с этой программой"/>
-            </Label>
-            <StackPanel Grid.Row="3" Grid.Column="1" Grid.RowSpan="2" Orientation="Vertical" Margin="0,0,30,0">
-                <Label Style="{DynamicResource LblDefoltWhite}"
-                       Content="Email" Margin="10,0,0,0" FontWeight="DemiBold"/>
-                <TextBox materialDesign:HintAssist.Hint="Введите Email"
-                         materialDesign:HintAssist.IsFloating="False"
-                         Background="White"
-                         materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                         materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                         CaretBrush="Black" BorderBrush="#FFA6A6A6"
-                         BorderThickness="2" Width="391" />
-                <Label Style="{DynamicResource LblDefoltWhite}"
-                       Content="Пароль" Margin="10,20,0,0" FontWeight="DemiBold"/>
-                <PasswordBox materialDesign:HintAssist.Hint="Введите пароль"
-                         materialDesign:HintAssist.IsFloating="False"
-                         Background="White"
-                         materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                         materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                         CaretBrush="Black"
-                         BorderThickness="2" />
-                <CheckBox Content="Запомнить меня" Margin="0 10 0 0"  />
-            </StackPanel>
-            <Button x:Name="BtnJoin" Grid.Column="1" Grid.Row="5"
-                    materialDesign:ButtonAssist.CornerRadius="4"
-                    Margin="0,30,30,30" BorderBrush="Transparent"
-                    Content="Войти"/>
+            <Frame x:Name="FrameMain" VerticalAlignment="Bottom" 
+                   HorizontalAlignment="Right" 
+                   NavigationUIVisibility="Hidden" Width="461" Height="494"/>
         </Grid>
         <Grid Grid.Column="2">
-            <UniformGrid Width="69" Height="25" HorizontalAlignment="Right"
-                       VerticalAlignment="Top" Columns="2"
-                       >
-                <Button Background="Transparent" Padding="0"
-                        VerticalContentAlignment="Bottom" Height="Auto"
-                        x:Name="BtnMinimize">
-                    <materialDesign:PackIcon Kind="WindowMinimize"
-                                             Width="31" Foreground="#FF3F3F3F"
-                                             Height="17" VerticalContentAlignment="Bottom"/>
+            <UniformGrid
+                Width="69"
+                Height="25"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Columns="2">
+                <Button
+                    x:Name="BtnMinimize"
+                    Height="Auto"
+                    Padding="0"
+                    VerticalContentAlignment="Bottom"
+                    Background="Transparent">
+                    <materialDesign:PackIcon
+                        Width="31"
+                        Height="17"
+                        VerticalContentAlignment="Bottom"
+                        Foreground="#FF3F3F3F"
+                        Kind="WindowMinimize" />
                 </Button>
-                <Button Background="Transparent" Padding="0"
-                        VerticalContentAlignment="Bottom" Height="Auto"
-                        x:Name="BtnClose">
-                    <materialDesign:PackIcon Kind="WindowClose"
-                                             Width="31" Foreground="#FF3F3F3F"
-                                             Height="17" VerticalContentAlignment="Bottom"/>
+                <Button
+                    x:Name="BtnClose"
+                    Height="Auto"
+                    Padding="0"
+                    VerticalContentAlignment="Bottom"
+                    Background="Transparent">
+                    <materialDesign:PackIcon
+                        Width="31"
+                        Height="17"
+                        VerticalContentAlignment="Bottom"
+                        Foreground="#FF3F3F3F"
+                        Kind="WindowClose" />
                 </Button>
             </UniformGrid>
         </Grid>

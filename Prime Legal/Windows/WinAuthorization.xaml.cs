@@ -1,4 +1,5 @@
-﻿using Prime_Legal.Services;
+﻿using Prime_Legal.Pages.Authorization;
+using Prime_Legal.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,11 +26,19 @@ namespace Prime_Legal.Windows
             InitializeComponent();
             BtnClose.Click += (sender, e) => { ActionWindowClass.CloseStateButton(); };
             BtnMinimize.Click += (sender, e) => { ActionWindowClass.MinimizedStateButton(this); };
+            FrameMain.Navigate(new PageAuthorization());
         }
 
         private void GridMain_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+            
+        }
+
     }
 }
