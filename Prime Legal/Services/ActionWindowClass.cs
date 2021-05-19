@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Prime_Legal.Services
 {
@@ -27,5 +28,6 @@ namespace Prime_Legal.Services
             current.Close();
             newWindow.Show();
         }
+        public static Frame MainFrame { get; set; }
     }
 }

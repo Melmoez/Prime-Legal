@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prime_Legal.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,7 +38,8 @@ namespace Prime_Legal.Pages.Authorization
 
         private void Runtb2_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("");
+            ActionWindowClass.MainFrame.NavigationService.RemoveBackEntry();
+            ActionWindowClass.MainFrame.Navigate(new PageEmailInput());
         }
     }
 }

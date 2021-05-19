@@ -70,6 +70,9 @@
     <Compile Include="Pages\Authorization\PageAuthorization.xaml.cs">
       <DependentUpon>PageAuthorization.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Authorization\PageEmailInput.xaml.cs">
+      <DependentUpon>PageEmailInput.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Services\ActionWindowClass.cs" />
     <Compile Include="Windows\WinAuthorization.xaml.cs">
       <DependentUpon>WinAuthorization.xaml</DependentUpon>
@@ -107,6 +110,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Pages\Authorization\PageAuthorization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Authorization\PageEmailInput.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
