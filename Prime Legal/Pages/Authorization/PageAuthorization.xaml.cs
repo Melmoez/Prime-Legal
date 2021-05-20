@@ -34,6 +34,8 @@ namespace Prime_Legal.Pages.Authorization
             Runtb2.Inlines.Add("Забыли пароль?");
             TbLogin.BorderBrush = Brushes.OrangeRed;
             PBPassword.BorderBrush = Brushes.OrangeRed;
+            TbLogin.Clear();
+            PBPassword.Clear();
         }
 
         private void Runtb2_Click(object sender, RoutedEventArgs e)

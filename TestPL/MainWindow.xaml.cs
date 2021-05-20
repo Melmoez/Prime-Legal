@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -32,9 +34,26 @@ namespace TestPL
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Runtb.Text += "Введи пароль";
-            HL.Inlines.Add("афыа");
 
+        }
+
+        private void BtnGo_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string a = "melmoes1233@mail.ru";
+                var client = new SmtpClient("smtp.mail.ru", 25);
+                client.Credentials = new NetworkCredential(a, "Ilyame123");
+                client.EnableSsl = true;
+                client.Send(a, TbEmail.Text, "Тест", "sfa");
+
+                MessageBox.Show("ОООо Повезло повезло");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

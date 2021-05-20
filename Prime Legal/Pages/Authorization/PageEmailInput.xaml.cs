@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -30,6 +32,25 @@ namespace Prime_Legal.Pages.Authorization
         {
             ActionWindowClass.MainFrame.NavigationService.RemoveBackEntry();
             ActionWindowClass.MainFrame.Navigate(new PageAuthorization());
+        }
+
+        private void BtnNext_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string Code = RandomClass.Rand(6);
+                string a = "melmoes1233@mail.ru";
+                var client = new SmtpClient("smtp.mail.ru", 25);
+                client.Credentials = new NetworkCredential(a, "Ilyame123");
+                client.EnableSsl = true;
+                client.Send(a, TbLogin.Text, "Тест", Code);
+                RandomClass.Saver = Code;
+                ActionWindowClass.MainFrame.Navigate(new PageEmailCode());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

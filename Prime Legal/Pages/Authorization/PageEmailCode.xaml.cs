@@ -31,5 +31,20 @@ namespace Prime_Legal.Pages.Authorization
             ActionWindowClass.MainFrame.NavigationService.RemoveBackEntry();
             ActionWindowClass.MainFrame.Navigate(new PageAuthorization());
         }
+
+        private void BtnNext_Click(object sender, RoutedEventArgs e)
+        {
+            if (TbLogin.Text == RandomClass.Saver)
+            {
+                ActionWindowClass.MainFrame.NavigationService.RemoveBackEntry();
+                ActionWindowClass.MainFrame.Navigate(new PageChangePassword());
+            }
+            else
+            {
+
+                TbLogin.BorderBrush = Brushes.OrangeRed;
+                TbLogin.Clear();
+            }
+        }
     }
 }

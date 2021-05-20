@@ -89,7 +89,7 @@
                 Margin="0,30,30,30"
                 materialDesign:ButtonAssist.CornerRadius="4"
                 BorderBrush="Transparent"
-                Content="Войти" />
+                Content="Войти" Click="BtnNext_Click" />
         </UniformGrid>
 
     </Grid>

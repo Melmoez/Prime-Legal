@@ -10,14 +10,10 @@
     Height="450"
     Loaded="Window_Loaded"
     mc:Ignorable="d">
-    <Grid>
-        <TextBlock
-            x:Name="TbPod"
-            TextAlignment="Center"
-            TextWrapping="Wrap">
-            Войдите в свой аккаунт затем вы сможете продолжить работать с этой программой<LineBreak />
-            <Run x:Name="Runtb" Foreground="Red" />
-            <Hyperlink x:Name="HL" Click="Runtb2_Click" />
-        </TextBlock>
-    </Grid>
+    <StackPanel>
+        <TextBox x:Name="TbEmail" />
+        <Button x:Name="BtnGo" Content="го" Click="BtnGo_Click"/>
+        <TextBox x:Name="TbCode" />
+        <Button x:Name="BtnGo2" Content="го2"/>
+    </StackPanel>
 </Window>

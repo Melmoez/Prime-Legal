@@ -158,6 +158,8 @@
       <DependentUpon>PageEmailInput.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\ActionWindowClass.cs" />
+    <Compile Include="Services\DataClass.cs" />
+    <Compile Include="Services\RandomClass.cs" />
     <Compile Include="Windows\WinAuthorization.xaml.cs">
       <DependentUpon>WinAuthorization.xaml</DependentUpon>
     </Compile>
