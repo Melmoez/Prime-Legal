@@ -1,4 +1,5 @@
-﻿using Prime_Legal.Services;
+﻿using Prime_Legal.DataFolder;
+using Prime_Legal.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,20 +37,31 @@ namespace Prime_Legal.Pages.Authorization
 
         private void BtnNext_Click(object sender, RoutedEventArgs e)
         {
-            try
+            User user = DataClass.GetContext().User.FirstOrDefault(u => u.Login == TbLogin.Text);
+            if (user == null)
             {
-                string Code = RandomClass.Rand(6);
-                string a = "melmoes1233@mail.ru";
-                var client = new SmtpClient("smtp.mail.ru", 25);
-                client.Credentials = new NetworkCredential(a, "Ilyame123");
-                client.EnableSsl = true;
-                client.Send(a, TbLogin.Text, "Тест", Code);
-                RandomClass.Saver = Code;
-                ActionWindowClass.MainFrame.Navigate(new PageEmailCode());
+                RunError.Text = null;
+                RunError.Text = "Пользователя с таким логином не существует";
+                TbLogin.BorderBrush = Brushes.OrangeRed;
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    string Code = RandomClass.Rand(6);
+                    string a = "primelegalestate@mail.ru";
+                    var client = new SmtpClient("smtp.mail.ru", 25);
+                    client.Credentials = new NetworkCredential(a, "WASD1337");
+                    client.EnableSsl = true;
+                    client.Send(a, TbLogin.Text, "Код для смены пароля", Code);
+                    RandomClass.Saver = Code;
+                    ActionWindowClass.MainFrame.Navigate(new PageEmailCode());
+                    ActionWindowClass.UserTransition = user;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     }

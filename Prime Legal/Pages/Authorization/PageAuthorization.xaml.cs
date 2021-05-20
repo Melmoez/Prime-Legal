@@ -1,4 +1,5 @@
-﻿using Prime_Legal.Services;
+﻿using Prime_Legal.DataFolder;
+using Prime_Legal.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,14 +29,51 @@ namespace Prime_Legal.Pages.Authorization
 
         private void BtnJoin_Click(object sender, RoutedEventArgs e)
         {
-            Runtb.Text = null;
-            Runtb2.Inlines.Clear();
-            Runtb.Text += "Вы ввели неверный логин или пароль.";
-            Runtb2.Inlines.Add("Забыли пароль?");
-            TbLogin.BorderBrush = Brushes.OrangeRed;
-            PBPassword.BorderBrush = Brushes.OrangeRed;
-            TbLogin.Clear();
-            PBPassword.Clear();
+            if (string.IsNullOrWhiteSpace(TbLogin.Text))
+            {
+                Runtb.Text = null;
+                Runtb2.Inlines.Clear();
+                Runtb.Text += "Вы не ввели пароль.";
+                Runtb2.Inlines.Add("Забыли пароль?");
+                PBPassword.BorderBrush = Brushes.OrangeRed;
+            }
+            else if (string.IsNullOrWhiteSpace(PBPassword.Password))
+            {
+                Runtb.Text = null;
+                Runtb2.Inlines.Clear();
+                Runtb.Text += "Вы не ввели логин.";
+                Runtb2.Inlines.Add("Забыли пароль?");
+                TbLogin.BorderBrush = Brushes.OrangeRed;
+                PBPassword.BorderBrush = Brushes.OrangeRed;
+                TbLogin.Clear();
+                PBPassword.Clear();
+            }
+            else
+            {
+                var user = DataClass.GetContext().User.FirstOrDefault(u => u.Login == TbLogin.Text);
+                if ((user == null) || (user.Password != PBPassword.Password))
+                {
+                    Runtb.Text = null;
+                    Runtb2.Inlines.Clear();
+                    Runtb.Text += "Вы ввели неверный логин или пароль.";
+                    Runtb2.Inlines.Add("Забыли пароль?");
+                    TbLogin.BorderBrush = Brushes.OrangeRed;
+                    PBPassword.BorderBrush = Brushes.OrangeRed;
+                    TbLogin.Clear();
+                    PBPassword.Clear();
+                }
+                else
+                {
+                    switch (user.IdRole)
+                    {
+                        case 1:
+                            MessageBox.Show("");
+                            break;
+                    }
+                }
+
+            }
+            
         }
 
         private void Runtb2_Click(object sender, RoutedEventArgs e)

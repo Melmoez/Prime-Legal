@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prime_Legal.DataFolder;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,5 +30,6 @@ namespace Prime_Legal.Services
             newWindow.Show();
         }
         public static Frame MainFrame { get; set; }
+        public static User UserTransition { get; set; }
     }
 }

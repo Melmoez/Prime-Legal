@@ -1,4 +1,5 @@
-﻿using Prime_Legal.Services;
+﻿using Prime_Legal.DataFolder;
+using Prime_Legal.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace Prime_Legal.Pages.Authorization
     /// </summary>
     public partial class PageChangePassword : Page
     {
+        
         public PageChangePassword()
         {
             InitializeComponent();
@@ -30,6 +32,48 @@ namespace Prime_Legal.Pages.Authorization
         {
             ActionWindowClass.MainFrame.NavigationService.RemoveBackEntry();
             ActionWindowClass.MainFrame.Navigate(new PageAuthorization());
+        }
+
+        private void BtnNext_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TbPassword.Text))
+            {
+                RunError.Text = null;
+                RunError.Text = "Пароль не указан";
+                TbPassword.BorderBrush = Brushes.OrangeRed;
+                
+            }
+            else if (string.IsNullOrWhiteSpace(TbPasswordConfirm.Text))
+            {
+                RunError.Text = null;
+                RunError.Text = "Пароль не подтвержден";
+                TbPasswordConfirm.BorderBrush = Brushes.OrangeRed;
+                TbPassword.Clear();
+            }
+            else if (TbPassword.Text != TbPasswordConfirm.Text)
+            {
+                RunError.Text = null;
+                RunError.Text = "Пароли не совпадают. Повторите попытку.";
+                TbPasswordConfirm.BorderBrush = Brushes.OrangeRed;
+                TbPassword.Clear();
+                TbPasswordConfirm.Clear();
+            }
+            else
+            {
+                try
+                {
+                    User user = ActionWindowClass.UserTransition;
+                    user.Password = TbPassword.Text;
+                    DataClass.GetContext().SaveChanges();
+                    ActionWindowClass.MainFrame.NavigationService.RemoveBackEntry();
+                    ActionWindowClass.MainFrame.Navigate(new PageAuthorization());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+           
         }
     }
 }

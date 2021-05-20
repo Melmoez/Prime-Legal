@@ -12,8 +12,11 @@
     mc:Ignorable="d">
     <StackPanel>
         <TextBox x:Name="TbEmail" />
-        <Button x:Name="BtnGo" Content="го" Click="BtnGo_Click"/>
+        <Button
+            x:Name="BtnGo"
+            Click="BtnGo_Click"
+            Content="го" />
         <TextBox x:Name="TbCode" />
-        <Button x:Name="BtnGo2" Content="го2"/>
+        <Button x:Name="BtnGo2" Content="го2" />
     </StackPanel>
 </Window>

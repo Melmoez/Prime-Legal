@@ -28,15 +28,18 @@
             </Grid.Background>
         </Grid>
         <Grid>
-            <Rectangle Panel.ZIndex="0"
-                x:Name="rec">
+            <Rectangle x:Name="rec" Panel.ZIndex="0">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="/Prime Legal;component/Resources/BG2.png" />
                 </Rectangle.Fill>
             </Rectangle>
-            <Frame x:Name="FrameMain" VerticalAlignment="Bottom" 
-                   HorizontalAlignment="Right" 
-                   NavigationUIVisibility="Hidden" Width="461" Height="494"/>
+            <Frame
+                x:Name="FrameMain"
+                Width="461"
+                Height="494"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                NavigationUIVisibility="Hidden" />
         </Grid>
         <Grid Grid.Column="2">
             <UniformGrid
