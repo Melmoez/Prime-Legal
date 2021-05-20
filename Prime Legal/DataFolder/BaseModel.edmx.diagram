@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7ad2baad5ecb4a298b97e322c543dc4d" Name="Diagram1">
+        <EntityTypeShape EntityType="PrimeLegalEstateModel.Role" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PrimeLegalEstateModel.Staff" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PrimeLegalEstateModel.User" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="PrimeLegalEstateModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="PrimeLegalEstateModel.FK_Staff_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PrimeLegalEstateModel.Adress" Width="1.5" PointX="1.5" PointY="16.5" />
+        <EntityTypeShape EntityType="PrimeLegalEstateModel.City" Width="1.5" PointX="1.5" PointY="20.875" />
+        <EntityTypeShape EntityType="PrimeLegalEstateModel.Client" Width="1.5" PointX="3" PointY="7.75" />
+        <EntityTypeShape EntityType="PrimeLegalEstateModel.Company" Width="1.5" PointX="0.75" PointY="12.625" />
+        <EntityTypeShape EntityType="PrimeLegalEstateModel.Deal" Width="1.5" PointX="5.25" PointY="8.5" />
+        <EntityTypeShape EntityType="PrimeLegalEstateModel.Passport" Width="1.5" PointX="3.375" PointY="5" />
+        <EntityTypeShape EntityType="PrimeLegalEstateModel.Position" Width="1.5" PointX="0.75" PointY="4.875" />
+        <EntityTypeShape EntityType="PrimeLegalEstateModel.Renovation" Width="1.5" PointX="6" PointY="5.75" />
+        <EntityTypeShape EntityType="PrimeLegalEstateModel.Room" Width="1.5" PointX="6" PointY="14.5" />
+        <EntityTypeShape EntityType="PrimeLegalEstateModel.State" Width="1.5" PointX="8.25" PointY="8" />
+        <EntityTypeShape EntityType="PrimeLegalEstateModel.Street" Width="1.5" PointX="1.5" PointY="23.25" />
+        <EntityTypeShape EntityType="PrimeLegalEstateModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PrimeLegalEstateModel.TypeClient" Width="1.5" PointX="0.75" PointY="9.125" />
+        <EntityTypeShape EntityType="PrimeLegalEstateModel.TypeDeal" Width="1.5" PointX="3" PointY="13.625" />
+        <EntityTypeShape EntityType="PrimeLegalEstateModel.TypeState" Width="1.5" PointX="6" PointY="12.125" />
+        <AssociationConnector Association="PrimeLegalEstateModel.FK_Adress_City" />
+        <AssociationConnector Association="PrimeLegalEstateModel.FK_Adress_Street" />
+        <AssociationConnector Association="PrimeLegalEstateModel.FK_Company_Adress" />
+        <AssociationConnector Association="PrimeLegalEstateModel.FK_State_Adress" />
+        <AssociationConnector Association="PrimeLegalEstateModel.FK_Client_Company" />
+        <AssociationConnector Association="PrimeLegalEstateModel.FK_Client_TypeClient" />
+        <AssociationConnector Association="PrimeLegalEstateModel.FK_Deal_Client" />
+        <AssociationConnector Association="PrimeLegalEstateModel.FK_Deal_Client1" />
+        <AssociationConnector Association="PrimeLegalEstateModel.FK_State_Client" />
+        <AssociationConnector Association="PrimeLegalEstateModel.FK_Deal_State" />
+        <AssociationConnector Association="PrimeLegalEstateModel.FK_Deal_TypeDeal" />
+        <AssociationConnector Association="PrimeLegalEstateModel.FK_Staff_Passport" />
+        <AssociationConnector Association="PrimeLegalEstateModel.FK_Staff_Position" />
+        <AssociationConnector Association="PrimeLegalEstateModel.FK_State_Renovation" />
+        <AssociationConnector Association="PrimeLegalEstateModel.FK_State_Room" />
+        <AssociationConnector Association="PrimeLegalEstateModel.FK_State_TypeState" />
+        <AssociationConnector Association="PrimeLegalEstateModel.FK_Client_Passport" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

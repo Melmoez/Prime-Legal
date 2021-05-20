@@ -1,0 +1,1252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище PrimeLegalEstateModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdStreet" Type="int" Nullable="false" />
+          <Property Name="IdCity" Type="int" Nullable="false" />
+          <Property Name="Home" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="NumberApartament" Type="int" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FName" Type="nvarchar" MaxLength="55" />
+          <Property Name="LName" Type="nvarchar" MaxLength="55" />
+          <Property Name="MName" Type="nvarchar" MaxLength="55" />
+          <Property Name="INN" Type="bigint" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="12" />
+          <Property Name="Email" Type="nvarchar" MaxLength="55" />
+          <Property Name="IdPassport" Type="int" />
+          <Property Name="SNILS" Type="nvarchar" MaxLength="13" />
+          <Property Name="BirthDate" Type="date" />
+          <Property Name="IdTypeClient" Type="int" />
+          <Property Name="IdCompany" Type="int" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="55" />
+          <Property Name="IdAdress" Type="int" />
+          <Property Name="R/S" Type="bigint" />
+          <Property Name="BIK" Type="bigint" />
+          <Property Name="INN" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Deal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdClient" Type="int" Nullable="false" />
+          <Property Name="IdTypeDeal" Type="int" />
+          <Property Name="IdState" Type="int" />
+          <Property Name="IdOwner" Type="int" />
+        </EntityType>
+        <EntityType Name="Passport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="Serial" Type="nvarchar" MaxLength="6" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="55" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Renovation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="55" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="55" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MName" Type="nvarchar" MaxLength="55" />
+          <Property Name="FName" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="LName" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="55" />
+          <Property Name="IdPassport" Type="int" Nullable="false" />
+          <Property Name="BirthDate" Type="date" Nullable="false" />
+          <Property Name="Salary" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="IdPosition" Type="int" Nullable="false" />
+          <Property Name="IdUser" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTypeState" Type="int" Nullable="false" />
+          <Property Name="IdAddress" Type="int" Nullable="false" />
+          <Property Name="IdOwner" Type="int" Nullable="false" />
+          <Property Name="CadastralNumber" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="Floor" Type="int" Nullable="false" />
+          <Property Name="TotalArea" Type="int" Nullable="false" />
+          <Property Name="IdRenovation" Type="int" Nullable="false" />
+          <Property Name="IdRoom" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Street">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TypeClient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeDeal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeState">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="IdRole" Type="int" Nullable="false" />
+          <Property Name="LastJoin" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Adress_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Adress">
+              <PropertyRef Name="IdCity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Adress_Street">
+          <End Role="Street" Type="Self.Street" Multiplicity="1" />
+          <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Street">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Adress">
+              <PropertyRef Name="IdStreet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="IdCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Passport">
+          <End Role="Passport" Type="Self.Passport" Multiplicity="0..1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Passport">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="IdPassport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_TypeClient">
+          <End Role="TypeClient" Type="Self.TypeClient" Multiplicity="0..1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeClient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="IdTypeClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_Adress">
+          <End Role="Adress" Type="Self.Adress" Multiplicity="0..1" />
+          <End Role="Company" Type="Self.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adress">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="IdAdress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deal_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Deal" Type="Self.Deal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deal">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deal_Client1">
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="Deal" Type="Self.Deal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deal">
+              <PropertyRef Name="IdOwner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deal_State">
+          <End Role="State" Type="Self.State" Multiplicity="0..1" />
+          <End Role="Deal" Type="Self.Deal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deal">
+              <PropertyRef Name="IdState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deal_TypeDeal">
+          <End Role="TypeDeal" Type="Self.TypeDeal" Multiplicity="0..1" />
+          <End Role="Deal" Type="Self.Deal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeDeal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deal">
+              <PropertyRef Name="IdTypeDeal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Passport">
+          <End Role="Passport" Type="Self.Passport" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Passport">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IdPassport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Position">
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IdPosition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_State_Adress">
+          <End Role="Adress" Type="Self.Adress" Multiplicity="1" />
+          <End Role="State" Type="Self.State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adress">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="IdAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_State_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="State" Type="Self.State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="IdOwner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_State_Renovation">
+          <End Role="Renovation" Type="Self.Renovation" Multiplicity="1" />
+          <End Role="State" Type="Self.State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Renovation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="IdRenovation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_State_Room">
+          <End Role="Room" Type="Self.Room" Multiplicity="1" />
+          <End Role="State" Type="Self.State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="IdRoom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_State_TypeState">
+          <End Role="TypeState" Type="Self.TypeState" Multiplicity="1" />
+          <End Role="State" Type="Self.State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeState">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="IdTypeState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище PrimeLegalEstateModelContainer">
+          <EntitySet Name="Adress" EntityType="Self.Adress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Deal" EntityType="Self.Deal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Passport" EntityType="Self.Passport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Renovation" EntityType="Self.Renovation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Street" EntityType="Self.Street" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeClient" EntityType="Self.TypeClient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeDeal" EntityType="Self.TypeDeal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeState" EntityType="Self.TypeState" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Adress_City" Association="Self.FK_Adress_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Adress" EntitySet="Adress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Adress_Street" Association="Self.FK_Adress_Street">
+            <End Role="Street" EntitySet="Street" />
+            <End Role="Adress" EntitySet="Adress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Company" Association="Self.FK_Client_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Passport" Association="Self.FK_Client_Passport">
+            <End Role="Passport" EntitySet="Passport" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_TypeClient" Association="Self.FK_Client_TypeClient">
+            <End Role="TypeClient" EntitySet="TypeClient" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_Adress" Association="Self.FK_Company_Adress">
+            <End Role="Adress" EntitySet="Adress" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deal_Client" Association="Self.FK_Deal_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Deal" EntitySet="Deal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deal_Client1" Association="Self.FK_Deal_Client1">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Deal" EntitySet="Deal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deal_State" Association="Self.FK_Deal_State">
+            <End Role="State" EntitySet="State" />
+            <End Role="Deal" EntitySet="Deal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deal_TypeDeal" Association="Self.FK_Deal_TypeDeal">
+            <End Role="TypeDeal" EntitySet="TypeDeal" />
+            <End Role="Deal" EntitySet="Deal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Passport" Association="Self.FK_Staff_Passport">
+            <End Role="Passport" EntitySet="Passport" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Position" Association="Self.FK_Staff_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_User" Association="Self.FK_Staff_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_State_Adress" Association="Self.FK_State_Adress">
+            <End Role="Adress" EntitySet="Adress" />
+            <End Role="State" EntitySet="State" />
+          </AssociationSet>
+          <AssociationSet Name="FK_State_Client" Association="Self.FK_State_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="State" EntitySet="State" />
+          </AssociationSet>
+          <AssociationSet Name="FK_State_Renovation" Association="Self.FK_State_Renovation">
+            <End Role="Renovation" EntitySet="Renovation" />
+            <End Role="State" EntitySet="State" />
+          </AssociationSet>
+          <AssociationSet Name="FK_State_Room" Association="Self.FK_State_Room">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="State" EntitySet="State" />
+          </AssociationSet>
+          <AssociationSet Name="FK_State_TypeState" Association="Self.FK_State_TypeState">
+            <End Role="TypeState" EntitySet="TypeState" />
+            <End Role="State" EntitySet="State" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PrimeLegalEstateModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MName" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="FName" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LName" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="IdPassport" Type="Int32" Nullable="false" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Salary" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="IdPosition" Type="Int32" Nullable="false" />
+          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Staff_User" FromRole="Staff" ToRole="User" />
+          <NavigationProperty Name="Passport" Relationship="PrimeLegalEstateModel.FK_Staff_Passport" FromRole="Staff" ToRole="Passport" />
+          <NavigationProperty Name="Position" Relationship="PrimeLegalEstateModel.FK_Staff_Position" FromRole="Staff" ToRole="Position" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdRole" Type="Int32" Nullable="false" />
+          <Property Name="LastJoin" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_User" FromRole="User" ToRole="Staff" />
+        </EntityType>
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PrimeLegalEstateEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_User" Association="Self.FK_Staff_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <EntitySet Name="Adress" EntityType="PrimeLegalEstateModel.Adress" />
+          <EntitySet Name="City" EntityType="PrimeLegalEstateModel.City" />
+          <EntitySet Name="Client" EntityType="PrimeLegalEstateModel.Client" />
+          <EntitySet Name="Company" EntityType="PrimeLegalEstateModel.Company" />
+          <EntitySet Name="Deal" EntityType="PrimeLegalEstateModel.Deal" />
+          <EntitySet Name="Passport" EntityType="PrimeLegalEstateModel.Passport" />
+          <EntitySet Name="Position" EntityType="PrimeLegalEstateModel.Position" />
+          <EntitySet Name="Renovation" EntityType="PrimeLegalEstateModel.Renovation" />
+          <EntitySet Name="Room" EntityType="PrimeLegalEstateModel.Room" />
+          <EntitySet Name="State" EntityType="PrimeLegalEstateModel.State" />
+          <EntitySet Name="Street" EntityType="PrimeLegalEstateModel.Street" />
+          <EntitySet Name="sysdiagrams" EntityType="PrimeLegalEstateModel.sysdiagrams" />
+          <EntitySet Name="TypeClient" EntityType="PrimeLegalEstateModel.TypeClient" />
+          <EntitySet Name="TypeDeal" EntityType="PrimeLegalEstateModel.TypeDeal" />
+          <EntitySet Name="TypeState" EntityType="PrimeLegalEstateModel.TypeState" />
+          <AssociationSet Name="FK_Adress_City" Association="PrimeLegalEstateModel.FK_Adress_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Adress" EntitySet="Adress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Adress_Street" Association="PrimeLegalEstateModel.FK_Adress_Street">
+            <End Role="Street" EntitySet="Street" />
+            <End Role="Adress" EntitySet="Adress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_Adress" Association="PrimeLegalEstateModel.FK_Company_Adress">
+            <End Role="Adress" EntitySet="Adress" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="FK_State_Adress" Association="PrimeLegalEstateModel.FK_State_Adress">
+            <End Role="Adress" EntitySet="Adress" />
+            <End Role="State" EntitySet="State" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Company" Association="PrimeLegalEstateModel.FK_Client_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_TypeClient" Association="PrimeLegalEstateModel.FK_Client_TypeClient">
+            <End Role="TypeClient" EntitySet="TypeClient" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deal_Client" Association="PrimeLegalEstateModel.FK_Deal_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Deal" EntitySet="Deal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deal_Client1" Association="PrimeLegalEstateModel.FK_Deal_Client1">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Deal" EntitySet="Deal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_State_Client" Association="PrimeLegalEstateModel.FK_State_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="State" EntitySet="State" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deal_State" Association="PrimeLegalEstateModel.FK_Deal_State">
+            <End Role="State" EntitySet="State" />
+            <End Role="Deal" EntitySet="Deal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deal_TypeDeal" Association="PrimeLegalEstateModel.FK_Deal_TypeDeal">
+            <End Role="TypeDeal" EntitySet="TypeDeal" />
+            <End Role="Deal" EntitySet="Deal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Passport" Association="PrimeLegalEstateModel.FK_Staff_Passport">
+            <End Role="Passport" EntitySet="Passport" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Position" Association="PrimeLegalEstateModel.FK_Staff_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_State_Renovation" Association="PrimeLegalEstateModel.FK_State_Renovation">
+            <End Role="Renovation" EntitySet="Renovation" />
+            <End Role="State" EntitySet="State" />
+          </AssociationSet>
+          <AssociationSet Name="FK_State_Room" Association="PrimeLegalEstateModel.FK_State_Room">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="State" EntitySet="State" />
+          </AssociationSet>
+          <AssociationSet Name="FK_State_TypeState" Association="PrimeLegalEstateModel.FK_State_TypeState">
+            <End Role="TypeState" EntitySet="TypeState" />
+            <End Role="State" EntitySet="State" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Passport" Association="PrimeLegalEstateModel.FK_Client_Passport">
+            <End Role="Passport" EntitySet="Passport" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Adress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdStreet" Type="Int32" Nullable="false" />
+          <Property Name="IdCity" Type="Int32" Nullable="false" />
+          <Property Name="Home" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="NumberApartament" Type="Int32" />
+          <NavigationProperty Name="City" Relationship="PrimeLegalEstateModel.FK_Adress_City" FromRole="Adress" ToRole="City" />
+          <NavigationProperty Name="Street" Relationship="PrimeLegalEstateModel.FK_Adress_Street" FromRole="Adress" ToRole="Street" />
+          <NavigationProperty Name="Company" Relationship="PrimeLegalEstateModel.FK_Company_Adress" FromRole="Adress" ToRole="Company" />
+          <NavigationProperty Name="State" Relationship="PrimeLegalEstateModel.FK_State_Adress" FromRole="Adress" ToRole="State" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Adress" Relationship="PrimeLegalEstateModel.FK_Adress_City" FromRole="City" ToRole="Adress" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FName" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="LName" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="MName" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="INN" Type="Int64" />
+          <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="IdPassport" Type="Int32" />
+          <Property Name="SNILS" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Precision="0" />
+          <Property Name="IdTypeClient" Type="Int32" />
+          <Property Name="IdCompany" Type="Int32" />
+          <NavigationProperty Name="Company" Relationship="PrimeLegalEstateModel.FK_Client_Company" FromRole="Client" ToRole="Company" />
+          <NavigationProperty Name="TypeClient" Relationship="PrimeLegalEstateModel.FK_Client_TypeClient" FromRole="Client" ToRole="TypeClient" />
+          <NavigationProperty Name="Deal" Relationship="PrimeLegalEstateModel.FK_Deal_Client" FromRole="Client" ToRole="Deal" />
+          <NavigationProperty Name="Deal1" Relationship="PrimeLegalEstateModel.FK_Deal_Client1" FromRole="Client" ToRole="Deal" />
+          <NavigationProperty Name="State" Relationship="PrimeLegalEstateModel.FK_State_Client" FromRole="Client" ToRole="State" />
+          <NavigationProperty Name="Passport" Relationship="PrimeLegalEstateModel.FK_Client_Passport" FromRole="Client" ToRole="Passport" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="IdAdress" Type="Int32" />
+          <Property Name="R_S" Type="Int64" />
+          <Property Name="BIK" Type="Int64" />
+          <Property Name="INN" Type="Int64" />
+          <NavigationProperty Name="Adress" Relationship="PrimeLegalEstateModel.FK_Company_Adress" FromRole="Company" ToRole="Adress" />
+          <NavigationProperty Name="Client" Relationship="PrimeLegalEstateModel.FK_Client_Company" FromRole="Company" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="Deal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdClient" Type="Int32" Nullable="false" />
+          <Property Name="IdTypeDeal" Type="Int32" />
+          <Property Name="IdState" Type="Int32" />
+          <Property Name="IdOwner" Type="Int32" />
+          <NavigationProperty Name="Client" Relationship="PrimeLegalEstateModel.FK_Deal_Client" FromRole="Deal" ToRole="Client" />
+          <NavigationProperty Name="Client1" Relationship="PrimeLegalEstateModel.FK_Deal_Client1" FromRole="Deal" ToRole="Client" />
+          <NavigationProperty Name="State" Relationship="PrimeLegalEstateModel.FK_Deal_State" FromRole="Deal" ToRole="State" />
+          <NavigationProperty Name="TypeDeal" Relationship="PrimeLegalEstateModel.FK_Deal_TypeDeal" FromRole="Deal" ToRole="TypeDeal" />
+        </EntityType>
+        <EntityType Name="Passport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Serial" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Staff" Relationship="PrimeLegalEstateModel.FK_Staff_Passport" FromRole="Passport" ToRole="Staff" />
+          <NavigationProperty Name="Client" Relationship="PrimeLegalEstateModel.FK_Client_Passport" FromRole="Passport" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="55" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Staff" Relationship="PrimeLegalEstateModel.FK_Staff_Position" FromRole="Position" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="Renovation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="55" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="State" Relationship="PrimeLegalEstateModel.FK_State_Renovation" FromRole="Renovation" ToRole="State" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="State" Relationship="PrimeLegalEstateModel.FK_State_Room" FromRole="Room" ToRole="State" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTypeState" Type="Int32" Nullable="false" />
+          <Property Name="IdAddress" Type="Int32" Nullable="false" />
+          <Property Name="IdOwner" Type="Int32" Nullable="false" />
+          <Property Name="CadastralNumber" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Floor" Type="Int32" Nullable="false" />
+          <Property Name="TotalArea" Type="Int32" Nullable="false" />
+          <Property Name="IdRenovation" Type="Int32" Nullable="false" />
+          <Property Name="IdRoom" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Adress" Relationship="PrimeLegalEstateModel.FK_State_Adress" FromRole="State" ToRole="Adress" />
+          <NavigationProperty Name="Client" Relationship="PrimeLegalEstateModel.FK_State_Client" FromRole="State" ToRole="Client" />
+          <NavigationProperty Name="Deal" Relationship="PrimeLegalEstateModel.FK_Deal_State" FromRole="State" ToRole="Deal" />
+          <NavigationProperty Name="Renovation" Relationship="PrimeLegalEstateModel.FK_State_Renovation" FromRole="State" ToRole="Renovation" />
+          <NavigationProperty Name="Room" Relationship="PrimeLegalEstateModel.FK_State_Room" FromRole="State" ToRole="Room" />
+          <NavigationProperty Name="TypeState" Relationship="PrimeLegalEstateModel.FK_State_TypeState" FromRole="State" ToRole="TypeState" />
+        </EntityType>
+        <EntityType Name="Street">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Adress" Relationship="PrimeLegalEstateModel.FK_Adress_Street" FromRole="Street" ToRole="Adress" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TypeClient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Client" Relationship="PrimeLegalEstateModel.FK_Client_TypeClient" FromRole="TypeClient" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="TypeDeal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Deal" Relationship="PrimeLegalEstateModel.FK_Deal_TypeDeal" FromRole="TypeDeal" ToRole="Deal" />
+        </EntityType>
+        <EntityType Name="TypeState">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="State" Relationship="PrimeLegalEstateModel.FK_State_TypeState" FromRole="TypeState" ToRole="State" />
+        </EntityType>
+        <Association Name="FK_Adress_City">
+          <End Type="PrimeLegalEstateModel.City" Role="City" Multiplicity="1" />
+          <End Type="PrimeLegalEstateModel.Adress" Role="Adress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Adress">
+              <PropertyRef Name="IdCity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Adress_Street">
+          <End Type="PrimeLegalEstateModel.Street" Role="Street" Multiplicity="1" />
+          <End Type="PrimeLegalEstateModel.Adress" Role="Adress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Street">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Adress">
+              <PropertyRef Name="IdStreet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_Adress">
+          <End Type="PrimeLegalEstateModel.Adress" Role="Adress" Multiplicity="0..1" />
+          <End Type="PrimeLegalEstateModel.Company" Role="Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adress">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="IdAdress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_State_Adress">
+          <End Type="PrimeLegalEstateModel.Adress" Role="Adress" Multiplicity="1" />
+          <End Type="PrimeLegalEstateModel.State" Role="State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adress">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="IdAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Company">
+          <End Type="PrimeLegalEstateModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="PrimeLegalEstateModel.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="IdCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_TypeClient">
+          <End Type="PrimeLegalEstateModel.TypeClient" Role="TypeClient" Multiplicity="0..1" />
+          <End Type="PrimeLegalEstateModel.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeClient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="IdTypeClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deal_Client">
+          <End Type="PrimeLegalEstateModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="PrimeLegalEstateModel.Deal" Role="Deal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deal">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deal_Client1">
+          <End Type="PrimeLegalEstateModel.Client" Role="Client" Multiplicity="0..1" />
+          <End Type="PrimeLegalEstateModel.Deal" Role="Deal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deal">
+              <PropertyRef Name="IdOwner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_State_Client">
+          <End Type="PrimeLegalEstateModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="PrimeLegalEstateModel.State" Role="State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="IdOwner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deal_State">
+          <End Type="PrimeLegalEstateModel.State" Role="State" Multiplicity="0..1" />
+          <End Type="PrimeLegalEstateModel.Deal" Role="Deal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deal">
+              <PropertyRef Name="IdState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deal_TypeDeal">
+          <End Type="PrimeLegalEstateModel.TypeDeal" Role="TypeDeal" Multiplicity="0..1" />
+          <End Type="PrimeLegalEstateModel.Deal" Role="Deal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeDeal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deal">
+              <PropertyRef Name="IdTypeDeal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Passport">
+          <End Type="PrimeLegalEstateModel.Passport" Role="Passport" Multiplicity="1" />
+          <End Type="PrimeLegalEstateModel.Staff" Role="Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Passport">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IdPassport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Position">
+          <End Type="PrimeLegalEstateModel.Position" Role="Position" Multiplicity="1" />
+          <End Type="PrimeLegalEstateModel.Staff" Role="Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="IdPosition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_State_Renovation">
+          <End Type="PrimeLegalEstateModel.Renovation" Role="Renovation" Multiplicity="1" />
+          <End Type="PrimeLegalEstateModel.State" Role="State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Renovation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="IdRenovation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_State_Room">
+          <End Type="PrimeLegalEstateModel.Room" Role="Room" Multiplicity="1" />
+          <End Type="PrimeLegalEstateModel.State" Role="State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="IdRoom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_State_TypeState">
+          <End Type="PrimeLegalEstateModel.TypeState" Role="TypeState" Multiplicity="1" />
+          <End Type="PrimeLegalEstateModel.State" Role="State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeState">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="IdTypeState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Passport">
+          <End Type="PrimeLegalEstateModel.Passport" Role="Passport" Multiplicity="0..1" />
+          <End Type="PrimeLegalEstateModel.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Passport">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="IdPassport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище PrimeLegalEstateModelContainer" CdmEntityContainer="PrimeLegalEstateEntities">
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="PrimeLegalEstateModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staff">
+            <EntityTypeMapping TypeName="PrimeLegalEstateModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MName" ColumnName="MName" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IdPassport" ColumnName="IdPassport" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="IdPosition" ColumnName="IdPosition" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="PrimeLegalEstateModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="LastJoin" ColumnName="LastJoin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Adress">
+            <EntityTypeMapping TypeName="PrimeLegalEstateModel.Adress">
+              <MappingFragment StoreEntitySet="Adress">
+                <ScalarProperty Name="NumberApartament" ColumnName="NumberApartament" />
+                <ScalarProperty Name="Home" ColumnName="Home" />
+                <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+                <ScalarProperty Name="IdStreet" ColumnName="IdStreet" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="PrimeLegalEstateModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="PrimeLegalEstateModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="IdCompany" ColumnName="IdCompany" />
+                <ScalarProperty Name="IdTypeClient" ColumnName="IdTypeClient" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="SNILS" ColumnName="SNILS" />
+                <ScalarProperty Name="IdPassport" ColumnName="IdPassport" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="MName" ColumnName="MName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Company">
+            <EntityTypeMapping TypeName="PrimeLegalEstateModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="BIK" ColumnName="BIK" />
+                <ScalarProperty Name="R_S" ColumnName="R/S" />
+                <ScalarProperty Name="IdAdress" ColumnName="IdAdress" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Deal">
+            <EntityTypeMapping TypeName="PrimeLegalEstateModel.Deal">
+              <MappingFragment StoreEntitySet="Deal">
+                <ScalarProperty Name="IdOwner" ColumnName="IdOwner" />
+                <ScalarProperty Name="IdState" ColumnName="IdState" />
+                <ScalarProperty Name="IdTypeDeal" ColumnName="IdTypeDeal" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Passport">
+            <EntityTypeMapping TypeName="PrimeLegalEstateModel.Passport">
+              <MappingFragment StoreEntitySet="Passport">
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Position">
+            <EntityTypeMapping TypeName="PrimeLegalEstateModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Renovation">
+            <EntityTypeMapping TypeName="PrimeLegalEstateModel.Renovation">
+              <MappingFragment StoreEntitySet="Renovation">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Room">
+            <EntityTypeMapping TypeName="PrimeLegalEstateModel.Room">
+              <MappingFragment StoreEntitySet="Room">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="State">
+            <EntityTypeMapping TypeName="PrimeLegalEstateModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="IdRoom" ColumnName="IdRoom" />
+                <ScalarProperty Name="IdRenovation" ColumnName="IdRenovation" />
+                <ScalarProperty Name="TotalArea" ColumnName="TotalArea" />
+                <ScalarProperty Name="Floor" ColumnName="Floor" />
+                <ScalarProperty Name="CadastralNumber" ColumnName="CadastralNumber" />
+                <ScalarProperty Name="IdOwner" ColumnName="IdOwner" />
+                <ScalarProperty Name="IdAddress" ColumnName="IdAddress" />
+                <ScalarProperty Name="IdTypeState" ColumnName="IdTypeState" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Street">
+            <EntityTypeMapping TypeName="PrimeLegalEstateModel.Street">
+              <MappingFragment StoreEntitySet="Street">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PrimeLegalEstateModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeClient">
+            <EntityTypeMapping TypeName="PrimeLegalEstateModel.TypeClient">
+              <MappingFragment StoreEntitySet="TypeClient">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeDeal">
+            <EntityTypeMapping TypeName="PrimeLegalEstateModel.TypeDeal">
+              <MappingFragment StoreEntitySet="TypeDeal">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeState">
+            <EntityTypeMapping TypeName="PrimeLegalEstateModel.TypeState">
+              <MappingFragment StoreEntitySet="TypeState">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

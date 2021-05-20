@@ -1,0 +1,22 @@
+﻿<Window
+    x:Class="TestPL.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:TestPL"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    Loaded="Window_Loaded"
+    mc:Ignorable="d">
+    <StackPanel>
+        <TextBox x:Name="TbEmail" />
+        <Button
+            x:Name="BtnGo"
+            Click="BtnGo_Click"
+            Content="го" />
+        <TextBox x:Name="TbCode" />
+        <Button x:Name="BtnGo2" Content="го2" />
+    </StackPanel>
+</Window>
