@@ -1,5 +1,6 @@
 ﻿using Prime_Legal.DataFolder;
 using Prime_Legal.Services;
+using Prime_Legal.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace Prime_Legal.Pages.Authorization
     /// </summary>
     public partial class PageAuthorization : Page
     {
+        Window winAuth = ActionWindowClass.CurrentWindow;
         public PageAuthorization()
         {
             InitializeComponent();
@@ -67,7 +69,8 @@ namespace Prime_Legal.Pages.Authorization
                     switch (user.IdRole)
                     {
                         case 1:
-                            MessageBox.Show("");
+                            new WinAdmin().Show();
+                            winAuth.Close();
                             break;
                     }
                 }

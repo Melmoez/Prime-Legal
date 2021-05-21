@@ -26,6 +26,7 @@ namespace Prime_Legal.Windows
             InitializeComponent();
             BtnClose.Click += (sender, e) => { ActionWindowClass.CloseStateButton(); };
             BtnMinimize.Click += (sender, e) => { ActionWindowClass.MinimizedStateButton(this); };
+            ActionWindowClass.CurrentWindow = this;
             FrameMain.Navigate(new PageAuthorization());
             ActionWindowClass.MainFrame = FrameMain;
         }
@@ -33,7 +34,7 @@ namespace Prime_Legal.Windows
         private void GridMain_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
-        }
+         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
