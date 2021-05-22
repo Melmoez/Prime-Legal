@@ -35,20 +35,20 @@ namespace Prime_Legal.Pages.Authorization
             {
                 Runtb.Text = null;
                 Runtb2.Inlines.Clear();
-                Runtb.Text += "Вы не ввели пароль.";
-                Runtb2.Inlines.Add("Забыли пароль?");
-                PBPassword.BorderBrush = Brushes.OrangeRed;
-            }
-            else if (string.IsNullOrWhiteSpace(PBPassword.Password))
-            {
-                Runtb.Text = null;
-                Runtb2.Inlines.Clear();
                 Runtb.Text += "Вы не ввели логин.";
                 Runtb2.Inlines.Add("Забыли пароль?");
                 TbLogin.BorderBrush = Brushes.OrangeRed;
                 PBPassword.BorderBrush = Brushes.OrangeRed;
                 TbLogin.Clear();
                 PBPassword.Clear();
+            }
+            else if (string.IsNullOrWhiteSpace(PBPassword.Password))
+            {
+                Runtb.Text = null;
+                Runtb2.Inlines.Clear();
+                Runtb.Text += "Вы не ввели пароль.";
+                Runtb2.Inlines.Add("Забыли пароль?");
+                PBPassword.BorderBrush = Brushes.OrangeRed;
             }
             else
             {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prime_Legal.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,20 @@ namespace Prime_Legal.Windows
         public WinAdmin()
         {
             InitializeComponent();
+            BtnClose.Click += (sender, e) => { ActionWindowClass.CloseStateButton(); };
+            BtnMinimize.Click += (sender, e) => { ActionWindowClass.MinimizedStateButton(this); };
+        }
+
+        private void BtnOpenMenu_Click(object sender, RoutedEventArgs e)
+        {
+            BtnOpenMenu.Visibility = Visibility.Collapsed;
+            BtnCloseMenu.Visibility = Visibility.Visible;
+        }
+
+        private void BtnCloseMenu_Click(object sender, RoutedEventArgs e)
+        {
+            BtnOpenMenu.Visibility = Visibility.Visible;
+            BtnCloseMenu.Visibility = Visibility.Collapsed;
         }
     }
 }

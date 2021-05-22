@@ -1,13 +1,164 @@
-﻿<Window x:Class="Prime_Legal.Windows.WinAdmin"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Prime_Legal.Windows"
-        mc:Ignorable="d"
-         Title="WinAdmin" Height="1000" Width="800" WindowState="Maximized" ResizeMode="NoResize"
-        WindowStyle="None">
+﻿<Window
+    x:Class="Prime_Legal.Windows.WinAdmin"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Prime_Legal.Windows"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="WinAdmin"
+    Width="1980"
+    Height="1080"
+    ResizeMode="NoResize"
+    WindowState="Maximized"
+    WindowStyle="None"
+    mc:Ignorable="d">
     <Grid>
-        
+        <UniformGrid
+            Width="69"
+            Height="25"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Columns="2">
+            <Button
+                x:Name="BtnMinimize"
+                Height="Auto"
+                Padding="0"
+                VerticalContentAlignment="Bottom"
+                Background="Transparent"
+                BorderBrush="Transparent">
+                <materialDesign:PackIcon
+                    Width="31"
+                    Height="17"
+                    VerticalContentAlignment="Bottom"
+                    Foreground="#FF3F3F3F"
+                    Kind="WindowMinimize" />
+            </Button>
+            <Button
+                x:Name="BtnClose"
+                Height="Auto"
+                Padding="0"
+                VerticalContentAlignment="Bottom"
+                Background="Transparent"
+                BorderBrush="Transparent">
+                <materialDesign:PackIcon
+                    Width="31"
+                    Height="17"
+                    VerticalContentAlignment="Bottom"
+                    Foreground="#FF3F3F3F"
+                    Kind="WindowClose" />
+            </Button>
+        </UniformGrid>
+        <Grid Width="376" x:Name="GridHamburger"
+              HorizontalAlignment="Left">
+
+            <Grid 
+                Width="376"
+                HorizontalAlignment="Left"
+                Background="#FF3F3F3F">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="86" />
+                    <RowDefinition Height="3" />
+                    <RowDefinition />
+                    <RowDefinition Height="142" />
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="68" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Button
+                        x:Name="BtnOpenMenu"
+                        Width="68"
+                        Height="86"
+                        Background="Transparent" Panel.ZIndex="1"
+                        Click="BtnOpenMenu_Click">
+                        <Image Width="52" Height="60" />
+                    </Button>
+                    <Button
+                        x:Name="BtnCloseMenu"
+                        Width="68"
+                        Height="86"
+                        Background="Transparent" Panel.ZIndex="1"
+                        Click="BtnCloseMenu_Click"
+                        Visibility="Collapsed">
+                        <Image Width="52" Height="60" />
+                    </Button>
+                    <Label Grid.ColumnSpan="2" Content="Меню" 
+                           Style="{DynamicResource LblMain}" Panel.ZIndex="0"
+                           />
+
+                </Grid>
+                <materialDesign:ColorZone Grid.Row="1" Background="#E3E3E3" Height="1"
+                                          VerticalAlignment="Center" Margin="20,1"/>
+                <ListBox x:Name="LBMenu" Grid.Row="2" Margin="0 30 0 0" >
+                    <ListBoxItem Padding="0 0 0 10">
+                        <DockPanel LastChildFill="True" >
+                            <materialDesign:PackIcon Width="61" Height="61" DockPanel.Dock="Left"
+                                                     Foreground="#E3E3E3"
+                                                     Kind="AccountCircle"/>
+                            <Label Content="Пользователи" HorizontalContentAlignment="Left"
+                                   Style="{DynamicResource LblMain}"
+                                   Margin="20 0 0 0"/>
+                        </DockPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Padding="0 0 0 10">
+                        <DockPanel LastChildFill="True" >
+                            <materialDesign:PackIcon Width="61" Height="61" DockPanel.Dock="Left"
+                                                     Foreground="#E3E3E3"
+                                                     Kind="UserSupervisorCircle"/>
+                            <Label Content="Сотрудники" HorizontalContentAlignment="Left"
+                                   Style="{DynamicResource LblMain}"
+                                   Margin="20 0 0 0"/>
+                        </DockPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Padding="0 0 0 10">
+                        <DockPanel LastChildFill="True" >
+                            <materialDesign:PackIcon Width="61" Height="61" DockPanel.Dock="Left"
+                                                     Foreground="#E3E3E3"
+                                                     Kind="Mood"/>
+                            <Label Content="Клиенты" HorizontalContentAlignment="Left"
+                                   Style="{DynamicResource LblMain}"
+                                   Margin="20 0 0 0"/>
+                        </DockPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Padding="0 0 0 10">
+                        <DockPanel LastChildFill="True" >
+                            <materialDesign:PackIcon Width="61" Height="61" DockPanel.Dock="Left"
+                                                     Foreground="#E3E3E3"
+                                                     Kind="PhotoLibrary"/>
+                            <Label Content="Сделки" HorizontalContentAlignment="Left"
+                                   Style="{DynamicResource LblMain}"
+                                   Margin="20 0 0 0"/>
+                        </DockPanel>
+                    </ListBoxItem>
+
+                </ListBox>
+                <ListBox x:Name="LBMenuProgram" Grid.Row="3" >
+                    <ListBoxItem Padding="0 0 0 10">
+                        <DockPanel LastChildFill="True" >
+                            <materialDesign:PackIcon Width="61" Height="61" DockPanel.Dock="Left"
+                                                     Foreground="#E3E3E3"
+                                                     Kind="About"/>
+                            <Label Content="О программе" HorizontalContentAlignment="Left"
+                                   Style="{DynamicResource LblMain}"
+                                   Margin="20 0 0 0"/>
+                        </DockPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Padding="0 0 0 10">
+                        <DockPanel LastChildFill="True" >
+                            <materialDesign:PackIcon Width="61" Height="61" DockPanel.Dock="Left"
+                                                     Foreground="#E3E3E3"
+                                                     Kind="Logout"/>
+                            <Label Content="Сменить пользователя" HorizontalContentAlignment="Left"
+                                   Style="{DynamicResource LblMain}"
+                                   Margin="20 0 0 0"/>
+                        </DockPanel>
+                    </ListBoxItem>
+                </ListBox>
+            </Grid>
+
+        </Grid>
+
     </Grid>
 </Window>

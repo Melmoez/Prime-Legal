@@ -10,7 +10,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="Image">
-        <Setter Property="Source" Value="/Resources/Logo.png" />
+        <Setter Property="Source" Value="/Resources/Logo.ico" />
     </Style>
 
     <Style x:Key="LblMain" TargetType="Label">
