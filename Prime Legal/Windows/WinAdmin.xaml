@@ -49,10 +49,12 @@
                     Kind="WindowClose" />
             </Button>
         </UniformGrid>
-        <Grid Width="376" x:Name="GridHamburger"
-              HorizontalAlignment="Left">
+        <Grid
+            x:Name="GridHamburger"
+            Width="376"
+            HorizontalAlignment="Left">
 
-            <Grid 
+            <Grid
                 Width="376"
                 HorizontalAlignment="Left"
                 Background="#FF3F3F3F">
@@ -71,88 +73,135 @@
                         x:Name="BtnOpenMenu"
                         Width="68"
                         Height="86"
-                        Background="Transparent" Panel.ZIndex="1"
-                        Click="BtnOpenMenu_Click">
+                        Panel.ZIndex="1"
+                        Background="Transparent"
+                        Click="BtnOpenMenu_Click"
+                        Visibility="Collapsed">
                         <Image Width="52" Height="60" />
                     </Button>
                     <Button
                         x:Name="BtnCloseMenu"
                         Width="68"
                         Height="86"
-                        Background="Transparent" Panel.ZIndex="1"
+                        Panel.ZIndex="1"
+                        Background="Transparent"
                         Click="BtnCloseMenu_Click"
-                        Visibility="Collapsed">
+                        Visibility="Visible">
                         <Image Width="52" Height="60" />
                     </Button>
-                    <Label Grid.ColumnSpan="2" Content="Меню" 
-                           Style="{DynamicResource LblMain}" Panel.ZIndex="0"
-                           />
+                    <Label
+                        Grid.ColumnSpan="2"
+                        Panel.ZIndex="0"
+                        Content="Меню"
+                        Style="{DynamicResource LblMain}" />
 
                 </Grid>
-                <materialDesign:ColorZone Grid.Row="1" Background="#E3E3E3" Height="1"
-                                          VerticalAlignment="Center" Margin="20,1"/>
-                <ListBox x:Name="LBMenu" Grid.Row="2" Margin="0 30 0 0" >
-                    <ListBoxItem Padding="0 0 0 10">
-                        <DockPanel LastChildFill="True" >
-                            <materialDesign:PackIcon Width="61" Height="61" DockPanel.Dock="Left"
-                                                     Foreground="#E3E3E3"
-                                                     Kind="AccountCircle"/>
-                            <Label Content="Пользователи" HorizontalContentAlignment="Left"
-                                   Style="{DynamicResource LblMain}"
-                                   Margin="20 0 0 0"/>
+                <Rectangle
+                    x:Name="RectangleMenu"
+                    Grid.Row="1"
+                    Width="356"
+                    Height="1"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Fill="#E3E3E3"
+                    RadiusX="0.594"
+                    RadiusY="0.594"
+                    Margin=" 10 0 0 0"/>
+                <ListBox
+                    x:Name="LBMenu"
+                    Grid.Row="2"
+                    Margin="0,30,0,0">
+                    <ListBoxItem Padding="0,0,0,10">
+                        <DockPanel LastChildFill="True">
+                            <materialDesign:PackIcon
+                                Width="61"
+                                Height="61"
+                                DockPanel.Dock="Left"
+                                Foreground="#E3E3E3"
+                                Kind="AccountCircle" />
+                            <Label
+                                Margin="20,0,0,0"
+                                HorizontalContentAlignment="Left"
+                                Content="Пользователи"
+                                Style="{DynamicResource LblMain}" />
                         </DockPanel>
                     </ListBoxItem>
-                    <ListBoxItem Padding="0 0 0 10">
-                        <DockPanel LastChildFill="True" >
-                            <materialDesign:PackIcon Width="61" Height="61" DockPanel.Dock="Left"
-                                                     Foreground="#E3E3E3"
-                                                     Kind="UserSupervisorCircle"/>
-                            <Label Content="Сотрудники" HorizontalContentAlignment="Left"
-                                   Style="{DynamicResource LblMain}"
-                                   Margin="20 0 0 0"/>
+                    <ListBoxItem Padding="0,0,0,10">
+                        <DockPanel LastChildFill="True">
+                            <materialDesign:PackIcon
+                                Width="61"
+                                Height="61"
+                                DockPanel.Dock="Left"
+                                Foreground="#E3E3E3"
+                                Kind="UserSupervisorCircle" />
+                            <Label
+                                Margin="20,0,0,0"
+                                HorizontalContentAlignment="Left"
+                                Content="Сотрудники"
+                                Style="{DynamicResource LblMain}" />
                         </DockPanel>
                     </ListBoxItem>
-                    <ListBoxItem Padding="0 0 0 10">
-                        <DockPanel LastChildFill="True" >
-                            <materialDesign:PackIcon Width="61" Height="61" DockPanel.Dock="Left"
-                                                     Foreground="#E3E3E3"
-                                                     Kind="Mood"/>
-                            <Label Content="Клиенты" HorizontalContentAlignment="Left"
-                                   Style="{DynamicResource LblMain}"
-                                   Margin="20 0 0 0"/>
+                    <ListBoxItem Padding="0,0,0,10">
+                        <DockPanel LastChildFill="True">
+                            <materialDesign:PackIcon
+                                Width="61"
+                                Height="61"
+                                DockPanel.Dock="Left"
+                                Foreground="#E3E3E3"
+                                Kind="Mood" />
+                            <Label
+                                Margin="20,0,0,0"
+                                HorizontalContentAlignment="Left"
+                                Content="Клиенты"
+                                Style="{DynamicResource LblMain}" />
                         </DockPanel>
                     </ListBoxItem>
-                    <ListBoxItem Padding="0 0 0 10">
-                        <DockPanel LastChildFill="True" >
-                            <materialDesign:PackIcon Width="61" Height="61" DockPanel.Dock="Left"
-                                                     Foreground="#E3E3E3"
-                                                     Kind="PhotoLibrary"/>
-                            <Label Content="Сделки" HorizontalContentAlignment="Left"
-                                   Style="{DynamicResource LblMain}"
-                                   Margin="20 0 0 0"/>
+                    <ListBoxItem Padding="0,0,0,10">
+                        <DockPanel LastChildFill="True">
+                            <materialDesign:PackIcon
+                                Width="61"
+                                Height="61"
+                                DockPanel.Dock="Left"
+                                Foreground="#E3E3E3"
+                                Kind="PhotoLibrary" />
+                            <Label
+                                Margin="20,0,0,0"
+                                HorizontalContentAlignment="Left"
+                                Content="Сделки"
+                                Style="{DynamicResource LblMain}" />
                         </DockPanel>
                     </ListBoxItem>
 
                 </ListBox>
-                <ListBox x:Name="LBMenuProgram" Grid.Row="3" >
-                    <ListBoxItem Padding="0 0 0 10">
-                        <DockPanel LastChildFill="True" >
-                            <materialDesign:PackIcon Width="61" Height="61" DockPanel.Dock="Left"
-                                                     Foreground="#E3E3E3"
-                                                     Kind="About"/>
-                            <Label Content="О программе" HorizontalContentAlignment="Left"
-                                   Style="{DynamicResource LblMain}"
-                                   Margin="20 0 0 0"/>
+                <ListBox x:Name="LBMenuProgram" Grid.Row="3">
+                    <ListBoxItem Padding="0,0,0,10">
+                        <DockPanel LastChildFill="True">
+                            <materialDesign:PackIcon
+                                Width="61"
+                                Height="61"
+                                DockPanel.Dock="Left"
+                                Foreground="#E3E3E3"
+                                Kind="About" />
+                            <Label
+                                Margin="20,0,0,0"
+                                HorizontalContentAlignment="Left"
+                                Content="О программе"
+                                Style="{DynamicResource LblMain}" />
                         </DockPanel>
                     </ListBoxItem>
-                    <ListBoxItem Padding="0 0 0 10">
-                        <DockPanel LastChildFill="True" >
-                            <materialDesign:PackIcon Width="61" Height="61" DockPanel.Dock="Left"
-                                                     Foreground="#E3E3E3"
-                                                     Kind="Logout"/>
-                            <Label Content="Сменить пользователя" HorizontalContentAlignment="Left"
-                                   Style="{DynamicResource LblMain}"
-                                   Margin="20 0 0 0"/>
+                    <ListBoxItem Padding="0,0,0,10">
+                        <DockPanel LastChildFill="True">
+                            <materialDesign:PackIcon
+                                Width="61"
+                                Height="61"
+                                DockPanel.Dock="Left"
+                                Foreground="#E3E3E3"
+                                Kind="Logout" />
+                            <Label
+                                Margin="20,0,0,0"
+                                HorizontalContentAlignment="Left"
+                                Content="Сменить пользователя"
+                                Style="{DynamicResource LblMain}" />
                         </DockPanel>
                     </ListBoxItem>
                 </ListBox>
