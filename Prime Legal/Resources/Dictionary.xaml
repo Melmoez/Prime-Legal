@@ -32,6 +32,14 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
     </Style>
+    <Style BasedOn="{StaticResource LblDefoltWhite}" TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Foreground" Value="#3F3F3F" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+    </Style>
     <Style BasedOn="{StaticResource MaterialDesignFilledTextBox}" TargetType="TextBox">
         <Setter Property="FontSize" Value="14" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -40,6 +48,7 @@
         <Setter Property="Background" Value="White" />
         <Setter Property="FontFamily" Value="Roboto" />
         <Setter Property="Padding" Value="0" />
+        <Setter Property="Height" Value="37" />
         <Setter Property="BorderThickness" Value="2" />
         <Setter Property="BorderBrush" Value="#FFA6A6A6" />
         <Setter Property="CaretBrush" Value="Black" />
@@ -52,6 +61,7 @@
         <Setter Property="Foreground" Value="Black" />
         <Setter Property="Background" Value="White" />
         <Setter Property="FontFamily" Value="Roboto" />
+        <Setter Property="Height" Value="37" />
         <Setter Property="BorderThickness" Value="2" />
         <Setter Property="BorderBrush" Value="#FFA6A6A6" />
         <Setter Property="Padding" Value="0" />
@@ -72,9 +82,22 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Foreground" Value="#E3E3E3" />
+        <Setter Property="Height" Value="37" />
         <Setter Property="FontFamily" Value="Roboto" />
         <Setter Property="Background" Value="#01549A" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="Padding" Value="0" />
+    </Style>
+    <Style BasedOn="{StaticResource MaterialDesignComboBox}" TargetType="ComboBox">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Background" Value="White" />
+        <Setter Property="FontFamily" Value="Roboto" />
+        <Setter Property="Padding" Value="15,0,15,0" />
+        <Setter Property="Height" Value="37" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="BorderBrush" Value="#FFA6A6A6" />
     </Style>
 </ResourceDictionary>

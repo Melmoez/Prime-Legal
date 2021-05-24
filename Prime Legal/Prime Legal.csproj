@@ -157,6 +157,9 @@
     <Compile Include="Pages\Authorization\PageEmailInput.xaml.cs">
       <DependentUpon>PageEmailInput.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Users\PageUser.xaml.cs">
+      <DependentUpon>PageUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Services\ActionWindowClass.cs" />
     <Compile Include="Services\DataClass.cs" />
     <Compile Include="Services\RandomClass.cs" />
@@ -216,6 +219,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Authorization\PageEmailInput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Users\PageUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

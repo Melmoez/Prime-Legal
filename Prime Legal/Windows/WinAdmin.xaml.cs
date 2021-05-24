@@ -1,4 +1,6 @@
-﻿using Prime_Legal.Services;
+﻿using Prime_Legal.Pages.Authorization;
+using Prime_Legal.Pages.Users;
+using Prime_Legal.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +28,8 @@ namespace Prime_Legal.Windows
             InitializeComponent();
             BtnClose.Click += (sender, e) => { ActionWindowClass.CloseStateButton(); };
             BtnMinimize.Click += (sender, e) => { ActionWindowClass.MinimizedStateButton(this); };
-            DoubleAnimation buttonAnimation = new DoubleAnimation();
+            FrameMain.Navigate(new PageUser());
+            ActionWindowClass.MainFrame = FrameMain;
         }
 
         private void BtnOpenMenu_Click(object sender, RoutedEventArgs e)
