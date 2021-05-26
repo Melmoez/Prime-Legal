@@ -151,6 +151,9 @@
     <Compile Include="Pages\Authorization\PageChangePassword.xaml.cs">
       <DependentUpon>PageChangePassword.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Authorization\PageEditUser.xaml.cs">
+      <DependentUpon>PageEditUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Authorization\PageEmailCode.xaml.cs">
       <DependentUpon>PageEmailCode.xaml</DependentUpon>
     </Compile>
@@ -211,6 +214,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Authorization\PageChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Authorization\PageEditUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

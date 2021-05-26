@@ -1,5 +1,4 @@
-﻿using Prime_Legal.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,23 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Prime_Legal.Pages.Users
+namespace Prime_Legal.Pages.Authorization
 {
     /// <summary>
-    /// Логика взаимодействия для PageUser.xaml
+    /// Логика взаимодействия для PageEditUser.xaml
     /// </summary>
-    public partial class PageUser : Page
+    public partial class PageEditUser : Page
     {
-        public PageUser()
+        public PageEditUser()
         {
             InitializeComponent();
-            LBUser.ItemsSource = DataClass.GetContext().User.OrderBy(u => u.Login).ToArray();
-        }
-
-        private void BtnEdit_Click(object sender, RoutedEventArgs e)
-        {
-
-            MessageBox.Show(LBUser.SelectedIndex.ToString());
         }
     }
 }
