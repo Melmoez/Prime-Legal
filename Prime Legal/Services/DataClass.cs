@@ -9,7 +9,7 @@ namespace Prime_Legal.Services
 {
     public class DataClass : PrimeLegalEstateEntities
     {
-        public static PrimeLegalEstateEntities context;
+        public static PrimeLegalEstateEntities context = null;
 
         public DataClass() : base() { }
 

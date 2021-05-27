@@ -91,21 +91,25 @@
                 materialDesign:HintAssist.IsFloating="False"
                 materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                 materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                Background="White" />
+                Background="White"
+                />
             <TextBox
                 Margin="10"
                 materialDesign:HintAssist.Hint="Пароль"
                 materialDesign:HintAssist.IsFloating="False"
                 materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                 materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                Background="White" />
-            <ComboBox
+                Background="White"
+                />
+            <ComboBox x:Name="Cbb"
                 Margin="10"
                 materialDesign:HintAssist.Hint="Роль"
                 materialDesign:HintAssist.IsFloating="False"
                 materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                 materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
-                Background="White" />
+                Background="White"
+                                          DisplayMemberPath="Name"
+                    SelectedItem="{Binding Role}"/>
             <Button Content="Фильтр" x:Name="BtnFilter" />
         </UniformGrid>
         <Label
@@ -224,16 +228,18 @@
                     materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                     materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                     Background="White"
-                    Text="{Binding Login}" />
+                    Text="{Binding Login}"
+                    />
                 <TextBox
                     x:Name="PbPassword"
                     Margin="0,50,0,0"
-                    materialDesign:HintAssist.Hint="Логин"
+                    materialDesign:HintAssist.Hint="Пароль"
                     materialDesign:HintAssist.IsFloating="False"
                     materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                     materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                     Background="White"
-                    Text="{Binding Password}" />
+                    Text="{Binding Password}"
+                    />
                 <ComboBox
                     x:Name="CBRole"
                     Margin="0,50,0,0"
@@ -242,8 +248,9 @@
                     materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                     materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
                     Background="White"
-                    DisplayMemberPath="Name"
-                    Text="{Binding Role}" />
+                     DisplayMemberPath="Name"
+                    SelectedItem="{Binding Role}"
+ />
             </StackPanel>
             <UniformGrid Grid.Row="2" Columns="2">
                 <Button
@@ -253,11 +260,13 @@
                 <Button
                     x:Name="BtnSave"
                     Margin="5"
-                    Content="Сохранить" />
+                    Content="Сохранить" 
+                    Click="BtnSave_Click"/>
             </UniformGrid>
         </Grid>
         <Grid
             x:Name="GridEditUser"
+            Visibility="Collapsed"
             Grid.RowSpan="3"
             Margin="1850,0,-376,0"
             RenderTransformOrigin="0.5,0.5"
@@ -289,7 +298,7 @@
                     materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                     materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                     Background="White"
-                    Text="{Binding Login}" />
+                     />
                 <TextBox
                     x:Name="PbPasswordEdit"
                     Margin="0,50,0,0"
@@ -298,7 +307,7 @@
                     materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                     materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                     Background="White"
-                    Text="{Binding Password}" />
+                     />
                 <ComboBox
                     x:Name="CBRoleEdit"
                     Margin="0,50,0,0"
@@ -308,7 +317,7 @@
                     materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
                     Background="White"
                     DisplayMemberPath="Name"
-                    Text="{Binding Role}" />
+                     />
             </StackPanel>
             <UniformGrid Grid.Row="2" Columns="2">
                 <Button

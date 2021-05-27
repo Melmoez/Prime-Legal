@@ -27,33 +27,50 @@ namespace TestPL
             InitializeComponent();
         }
 
-        private void Runtb2_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("");
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void add_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void BtnGo_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                string a = "melmoes1233@mail.ru";
-                var client = new SmtpClient("smtp.mail.ru", 25);
-                client.Credentials = new NetworkCredential(a, "Ilyame123");
-                client.EnableSsl = true;
-                client.Send(a, TbEmail.Text, "Тест", "sfa");
+        //private void Runtb2_Click(object sender, RoutedEventArgs e)
+        //{
+        //    MessageBox.Show("");
+        //}
 
-                MessageBox.Show("ОООо Повезло повезло");
+        //private void Window_Loaded(object sender, RoutedEventArgs e)
+        //{
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //}
+
+        //private void BtnGo_Click(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        string a = "melmoes1233@mail.ru";
+        //        var client = new SmtpClient("smtp.mail.ru", 25);
+        //        client.Credentials = new NetworkCredential(a, "Ilyame123");
+        //        client.EnableSsl = true;
+        //        client.Send(a, TbEmail.Text, "Тест", "sfa");
+
+        //        MessageBox.Show("ОООо Повезло повезло");
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+
+        //EntityValidationErrors решение
+        //    catch (DbEntityValidationException ex)
+        //{
+        //    foreach (DbEntityValidationResult validationError in ex.EntityValidationErrors)
+        //    {
+        //        result += ("Object: " + validationError.Entry.Entity.ToString());
+        //        result += $"\n";
+        //        foreach (DbValidationError err in validationError.ValidationErrors)
+        //        {
+        //            result += (err.ErrorMessage + $"\n");
+        //        }
+        //    }
+        //    MessageBox.Show(result);
     }
-}
+        }

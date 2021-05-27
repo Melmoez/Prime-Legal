@@ -11,12 +11,9 @@
     Loaded="Window_Loaded"
     mc:Ignorable="d">
     <StackPanel>
-        <TextBox x:Name="TbEmail" />
-        <Button
-            x:Name="BtnGo"
-            Click="BtnGo_Click"
-            Content="го" />
-        <TextBox x:Name="TbCode" />
-        <Button x:Name="BtnGo2" Content="го2" />
+        <TextBox x:Name="TbLogin" />
+        <TextBox x:Name="TbPassword" />
+        <ComboBox x:Name="cbRole" />
+        <Button x:Name="add" Click="add_Click" />
     </StackPanel>
 </Window>

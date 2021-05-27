@@ -100,6 +100,12 @@
                 Content="Войти" />
         </UniformGrid>
         <ProgressBar
-    IsIndeterminate="True" Grid.Column="1" Grid.Row="6" Foreground="White" Background="#FF01549A" BorderBrush="#FF01549A" Visibility="Collapsed" />
+            Grid.Row="6"
+            Grid.Column="1"
+            Background="#FF01549A"
+            BorderBrush="#FF01549A"
+            Foreground="White"
+            IsIndeterminate="True"
+            Visibility="Collapsed" />
     </Grid>
 </Page>
