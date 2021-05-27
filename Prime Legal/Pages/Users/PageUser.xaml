@@ -91,26 +91,25 @@
                 materialDesign:HintAssist.IsFloating="False"
                 materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                 materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                Background="White"
-                />
+                Background="White" />
             <TextBox
                 Margin="10"
                 materialDesign:HintAssist.Hint="Пароль"
                 materialDesign:HintAssist.IsFloating="False"
                 materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                 materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                Background="White"
-                />
-            <ComboBox x:Name="Cbb"
+                Background="White" />
+            <ComboBox
+                x:Name="Cbb"
                 Margin="10"
                 materialDesign:HintAssist.Hint="Роль"
                 materialDesign:HintAssist.IsFloating="False"
                 materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                 materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
                 Background="White"
-                                          DisplayMemberPath="Name"
-                    SelectedItem="{Binding Role}"/>
-            <Button Content="Фильтр" x:Name="BtnFilter" />
+                DisplayMemberPath="Name"
+                SelectedItem="{Binding Role}" />
+            <Button x:Name="BtnFilter" Content="Фильтр" />
         </UniformGrid>
         <Label
             Grid.Row="1"
@@ -123,45 +122,50 @@
                 <SolidColorBrush Opacity="0.4" Color="#FF3F3F3F" />
             </Label.Foreground>
         </Label>
-        <UniformGrid Width="200"
+        <UniformGrid
+            Grid.Row="1"
+            Width="200"
             Margin="0,0,50,0"
-                     Grid.Row="1" Columns="3"
-            HorizontalAlignment="Right">
+            HorizontalAlignment="Right"
+            Columns="3">
             <Button
-            x:Name="button"
-            Grid.Row="1"
-            Width="50"
-            HorizontalAlignment="Right">
+                x:Name="button"
+                Grid.Row="1"
+                Width="50"
+                HorizontalAlignment="Right"
+                Click="button_Click">
                 <materialDesign:PackIcon
-                Width="38"
-                Height="29"
-                materialDesign:ButtonAssist.CornerRadius="0"
-                Kind="Plus" />
+                    Width="38"
+                    Height="29"
+                    materialDesign:ButtonAssist.CornerRadius="0"
+                    Kind="Plus" />
             </Button>
             <Button
-            x:Name="BtnEdit"
-            Grid.Row="1"
-            Width="50"
-            HorizontalAlignment="Right">
+                x:Name="BtnEdit"
+                Grid.Row="1"
+                Width="50"
+                HorizontalAlignment="Right"
+                Click="BtnEdit_Click_1">
                 <materialDesign:PackIcon
-                Width="38"
-                Height="29"
-                materialDesign:ButtonAssist.CornerRadius="0"
-                Kind="Edit" />
+                    Width="38"
+                    Height="29"
+                    materialDesign:ButtonAssist.CornerRadius="0"
+                    Kind="Edit" />
             </Button>
             <Button
-            x:Name="BtnDelete"
-            Grid.Row="1"
-            Width="50"
-            HorizontalAlignment="Right">
+                x:Name="BtnDelete"
+                Grid.Row="1"
+                Width="50"
+                HorizontalAlignment="Right"
+                Click="BtnDelete_Click">
                 <materialDesign:PackIcon
-                Width="38"
-                Height="29"
-                materialDesign:ButtonAssist.CornerRadius="0"
-                Kind="Delete" />
+                    Width="38"
+                    Height="29"
+                    materialDesign:ButtonAssist.CornerRadius="0"
+                    Kind="Delete" />
             </Button>
         </UniformGrid>
-        
+
         <ListView x:Name="LBUser" Grid.Row="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -228,8 +232,7 @@
                     materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                     materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                     Background="White"
-                    Text="{Binding Login}"
-                    />
+                    Text="{Binding Login}" />
                 <TextBox
                     x:Name="PbPassword"
                     Margin="0,50,0,0"
@@ -238,8 +241,7 @@
                     materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                     materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                     Background="White"
-                    Text="{Binding Password}"
-                    />
+                    Text="{Binding Password}" />
                 <ComboBox
                     x:Name="CBRole"
                     Margin="0,50,0,0"
@@ -248,9 +250,8 @@
                     materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                     materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
                     Background="White"
-                     DisplayMemberPath="Name"
-                    SelectedItem="{Binding Role}"
- />
+                    DisplayMemberPath="Name"
+                    SelectedItem="{Binding Role}" />
             </StackPanel>
             <UniformGrid Grid.Row="2" Columns="2">
                 <Button
@@ -260,17 +261,16 @@
                 <Button
                     x:Name="BtnSave"
                     Margin="5"
-                    Content="Сохранить" 
-                    Click="BtnSave_Click"/>
+                    Click="BtnSave_Click"
+                    Content="Сохранить" />
             </UniformGrid>
         </Grid>
         <Grid
             x:Name="GridEditUser"
-            Visibility="Collapsed"
             Grid.RowSpan="3"
             Margin="1850,0,-376,0"
             RenderTransformOrigin="0.5,0.5"
-            >
+            Visibility="Visible">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform />
@@ -298,7 +298,7 @@
                     materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                     materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                     Background="White"
-                     />
+                    Text="{Binding Login}" />
                 <TextBox
                     x:Name="PbPasswordEdit"
                     Margin="0,50,0,0"
@@ -307,7 +307,7 @@
                     materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                     materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                     Background="White"
-                     />
+                    Text="{Binding Password}" />
                 <ComboBox
                     x:Name="CBRoleEdit"
                     Margin="0,50,0,0"
@@ -317,7 +317,7 @@
                     materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
                     Background="White"
                     DisplayMemberPath="Name"
-                     />
+                    SelectedItem="{Binding Role}" />
             </StackPanel>
             <UniformGrid Grid.Row="2" Columns="2">
                 <Button
@@ -327,6 +327,7 @@
                 <Button
                     x:Name="BtnSaveEdit"
                     Margin="5"
+                    Click="BtnSaveEdit_Click"
                     Content="Сохранить" />
             </UniformGrid>
         </Grid>

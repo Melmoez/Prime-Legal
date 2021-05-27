@@ -23,33 +23,25 @@ namespace Prime_Legal.Pages.Users
     /// </summary>
     public partial class PageUser : Page
     {
-        User user = new User();
+        User user;
         public PageUser()
         {
             InitializeComponent();
-            DataContext = user;
+            
             LBUser.ItemsSource = DataClass.GetContext().User.OrderBy(u => u.Login).ToArray();
             Cbb.ItemsSource = DataClass.GetContext().Role.ToArray();
             CBRole.ItemsSource = DataClass.GetContext().Role.ToArray();
-
-
-        }
-
-        private void BtnEdit_Click(object sender, RoutedEventArgs e)
-        {
-
-            MessageBox.Show(LBUser.SelectedIndex.ToString());
+            CBRoleEdit.ItemsSource = DataClass.GetContext().Role.ToArray();
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             try
-            { 
-                
-                
+            {
                 DataClass.GetContext().User.Add(user);
                 MessageBox.Show(user.Login + user.Password + user.IdRole);
                 DataClass.GetContext().SaveChanges();
+                DataClass.context = null;
                 LBUser.ItemsSource = DataClass.GetContext().User.OrderBy(u => u.Login).ToArray();
             }
             catch (DbEntityValidationException ex)
@@ -68,5 +60,49 @@ namespace Prime_Legal.Pages.Users
                 MessageBox.Show(result);
             }
         }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                DataClass.GetContext().User.Remove(LBUser.SelectedItem as User);
+                DataClass.GetContext().SaveChanges();
+                LBUser.ItemsSource = DataClass.GetContext().User.OrderBy(u => u.Login).ToArray();
+            }
+            catch ( Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void BtnEdit_Click_1(object sender, RoutedEventArgs e)
+        {
+            DataContext = LBUser.SelectedItem as User;
+            
+        }
+
+        private void BtnSaveEdit_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                DataClass.GetContext().SaveChanges();
+                DataClass.context = null;
+                TbLoginEdit.Clear();
+                PbPasswordEdit.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            user = null;
+            user = new User();
+            DataContext = user;
+        }
+
     }
 }

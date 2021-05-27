@@ -118,7 +118,10 @@
                     x:Name="LBMenu"
                     Grid.Row="2"
                     Margin="0,30,0,0">
-                    <ListBoxItem Padding="0,0,0,10" materialDesign:HintAssist.Hint="Пользователи">
+                    <ListBoxItem
+                        Padding="0,0,0,10"
+                        materialDesign:HintAssist.Hint="Пользователи"
+                        Selected="ListBoxItem_Selected">
                         <DockPanel LastChildFill="True">
                             <materialDesign:PackIcon
                                 Width="61"

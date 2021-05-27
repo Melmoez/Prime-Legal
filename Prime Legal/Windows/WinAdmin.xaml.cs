@@ -65,5 +65,10 @@ namespace Prime_Legal.Windows
             RectangleMenu.BeginAnimation(Rectangle.WidthProperty, LineMenuClose);
             GridHamburger.BeginAnimation(Grid.WidthProperty, GridMenuClose);
         }
+
+        private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
+        {
+            FrameMain.Navigate(new PageUser());
+        }
     }
 }
