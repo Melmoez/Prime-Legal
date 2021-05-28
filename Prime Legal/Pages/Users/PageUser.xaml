@@ -57,7 +57,7 @@
             <BeginStoryboard Storyboard="{StaticResource StoryboardAddUser}" />
         </EventTrigger>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="BtnEdit">
-            <BeginStoryboard Storyboard="{StaticResource StoryboardEditUser}" />
+            <BeginStoryboard x:Name="CloseEdit" Storyboard="{StaticResource StoryboardEditUser}" />
         </EventTrigger>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="BtnCancelEdit">
             <BeginStoryboard x:Name="CloseMenu_BeginStoryboard3" Storyboard="{StaticResource CloseMenuEdit}" />

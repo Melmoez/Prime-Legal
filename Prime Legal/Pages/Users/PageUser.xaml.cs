@@ -12,6 +12,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -41,7 +42,6 @@ namespace Prime_Legal.Pages.Users
                 DataClass.GetContext().User.Add(user);
                 MessageBox.Show(user.Login + user.Password + user.IdRole);
                 DataClass.GetContext().SaveChanges();
-                DataClass.context = null;
                 LBUser.ItemsSource = DataClass.GetContext().User.OrderBy(u => u.Login).ToArray();
             }
             catch (DbEntityValidationException ex)
@@ -86,9 +86,6 @@ namespace Prime_Legal.Pages.Users
             try
             {
                 DataClass.GetContext().SaveChanges();
-                DataClass.context = null;
-                TbLoginEdit.Clear();
-                PbPasswordEdit.Clear();
             }
             catch (Exception ex)
             {
@@ -97,9 +94,13 @@ namespace Prime_Legal.Pages.Users
             
         }
 
+        private void BeginStoryboard(BeginStoryboard closeEdit)
+        {
+            throw new NotImplementedException();
+        }
+
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            user = null;
             user = new User();
             DataContext = user;
         }
