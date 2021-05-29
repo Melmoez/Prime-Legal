@@ -1,11 +1,10 @@
-﻿<Page
-    x:Class="Prime_Legal.Pages.Users.PageUser"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:Prime_Legal.Pages.Users"
-    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+﻿<Page x:Class="Prime_Legal.Pages.Staff.PageStaff"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Prime_Legal.Pages.Staff"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     Title="PageUser"
     d:DesignHeight="1080"
     d:DesignWidth="1850"
@@ -169,33 +168,71 @@
         <ListView x:Name="LBUser" Grid.Row="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Width="1830" Height="60">
+                    <Grid Width="1830" Height="auto" MinHeight="60">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1699" />
+                            <ColumnDefinition Width="300" />
+                            <ColumnDefinition Width="300" />
+                            <ColumnDefinition Width="500" />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <Border
-                            Grid.ColumnSpan="2"
+                            Grid.ColumnSpan="5"
                             BorderBrush="Black"
                             BorderThickness="2" />
-                        <StackPanel Orientation="Horizontal">
-                            <Label Margin="20,0,0,0">
-                                <TextBlock Text="Логин: ">
-                                    <Run FontWeight="Bold" Text="{Binding Login}" />
+                        <StackPanel Orientation="Vertical" Margin="10" Grid.Column="1">
+                            <Label Margin="10">
+                                <TextBlock Text="Фамилия: ">
+                                    <Run FontWeight="Bold" Text="{Binding LName}" />
                                 </TextBlock>
                             </Label>
-                            <Label Margin="70,0,0,0">
-                                <TextBlock Text="Пароль: ">
-                                    <Run FontWeight="Bold" Text="{Binding Password}" />
+                            <Label Margin="10">
+                                <TextBlock Text="Имя: ">
+                                    <Run FontWeight="Bold" Text="{Binding FName}" />
                                 </TextBlock>
                             </Label>
-                            <Label Margin="70,0,0,0">
-                                <TextBlock Text="Роль: ">
-                                    <Run FontWeight="Bold" Text="{Binding Role.Name}" />
+                            <Label Margin="10">
+                                <TextBlock Text="Отчество: ">
+                                    <Run FontWeight="Bold" Text="{Binding MName, TargetNullValue=Отсутствует}" />
                                 </TextBlock>
                             </Label>
                         </StackPanel>
-
+                        <StackPanel Orientation="Vertical" Grid.Column="2" Margin="10">
+                            <Label Margin="10">
+                                <TextBlock Text="Должность: ">
+                                    <Run FontWeight="Bold" Text="{Binding Position.Name}" />
+                                </TextBlock>
+                            </Label>
+                            <Label Margin="10">
+                                <TextBlock Text="Дата рождения: ">
+                                    <Run FontWeight="Bold" Text="{Binding BirthDate, StringFormat=dd.MM.yyyy}" />
+                                </TextBlock>
+                            </Label>
+                            <Label Margin="10">
+                                <TextBlock Text="Оклад: ">
+                                    <Run FontWeight="Bold" Text="{Binding Salary}" />
+                                    <Run Text=" руб." FontWeight="Bold"/>
+                                </TextBlock>
+                            </Label>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" Grid.Column="3" Margin="10">
+                            <Label Margin="10">
+                                <TextBlock Text="Email: ">
+                                    <Run FontWeight="Bold" Text="{Binding User.Login}" />
+                                </TextBlock>
+                            </Label>
+                            <Label Margin="10">
+                                <TextBlock Text="Телефон: ">
+                                    <Run FontWeight="Bold" Text="{Binding Phone}" />
+                                </TextBlock>
+                            </Label>
+                            <Label Margin="10">
+                                <TextBlock Text="Пасспорт: ">
+                                    <Run FontWeight="Bold" Text="{Binding Passport.Number}" />
+                                    <Run Text=" "/>
+                                    <Run FontWeight="Bold" Text="{Binding Passport.Serial}" />
+                                </TextBlock>
+                            </Label>
+                        </StackPanel>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

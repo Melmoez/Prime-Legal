@@ -117,7 +117,8 @@
                 <ListBox
                     x:Name="LBMenu"
                     Grid.Row="2"
-                    Margin="0,30,0,0">
+                    Margin="0,30,0,0"
+                    SelectedIndex="0">
                     <ListBoxItem
                         Padding="0,0,0,10"
                         materialDesign:HintAssist.Hint="Пользователи"
@@ -136,7 +137,10 @@
                                 Style="{DynamicResource LblMain}" />
                         </DockPanel>
                     </ListBoxItem>
-                    <ListBoxItem Padding="0,0,0,10" materialDesign:HintAssist.Hint="Сотрудники">
+                    <ListBoxItem
+                        Padding="0,0,0,10"
+                        materialDesign:HintAssist.Hint="Сотрудники"
+                        Selected="ListBoxItem_Selected_1">
                         <DockPanel LastChildFill="True">
                             <materialDesign:PackIcon
                                 Width="61"

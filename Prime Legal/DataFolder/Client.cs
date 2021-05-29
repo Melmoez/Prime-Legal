@@ -26,16 +26,17 @@ namespace Prime_Legal.DataFolder
         public string FName { get; set; }
         public string LName { get; set; }
         public string MName { get; set; }
-        public Nullable<long> INN { get; set; }
+        public long INN { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public Nullable<int> IdPassport { get; set; }
+        public int IdPassport { get; set; }
         public string SNILS { get; set; }
-        public Nullable<System.DateTime> BirthDate { get; set; }
+        public System.DateTime BirthDate { get; set; }
         public Nullable<int> IdTypeClient { get; set; }
         public Nullable<int> IdCompany { get; set; }
     
         public virtual Company Company { get; set; }
+        public virtual Passport Passport { get; set; }
         public virtual TypeClient TypeClient { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Deal> Deal { get; set; }
@@ -43,6 +44,5 @@ namespace Prime_Legal.DataFolder
         public virtual ICollection<Deal> Deal1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<State> State { get; set; }
-        public virtual Passport Passport { get; set; }
     }
 }

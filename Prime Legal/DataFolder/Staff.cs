@@ -19,15 +19,14 @@ namespace Prime_Legal.DataFolder
         public string FName { get; set; }
         public string LName { get; set; }
         public string Phone { get; set; }
-        public string Email { get; set; }
         public int IdPassport { get; set; }
         public System.DateTime BirthDate { get; set; }
         public decimal Salary { get; set; }
         public int IdPosition { get; set; }
         public int IdUser { get; set; }
     
-        public virtual User User { get; set; }
         public virtual Passport Passport { get; set; }
         public virtual Position Position { get; set; }
+        public virtual User User { get; set; }
     }
 }

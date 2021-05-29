@@ -25,9 +25,6 @@ namespace Prime_Legal.DataFolder
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<Staff> Staff { get; set; }
-        public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Adress> Adress { get; set; }
         public virtual DbSet<City> City { get; set; }
         public virtual DbSet<Client> Client { get; set; }
@@ -36,12 +33,15 @@ namespace Prime_Legal.DataFolder
         public virtual DbSet<Passport> Passport { get; set; }
         public virtual DbSet<Position> Position { get; set; }
         public virtual DbSet<Renovation> Renovation { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Room> Room { get; set; }
+        public virtual DbSet<Staff> Staff { get; set; }
         public virtual DbSet<State> State { get; set; }
         public virtual DbSet<Street> Street { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TypeClient> TypeClient { get; set; }
         public virtual DbSet<TypeDeal> TypeDeal { get; set; }
         public virtual DbSet<TypeState> TypeState { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }
