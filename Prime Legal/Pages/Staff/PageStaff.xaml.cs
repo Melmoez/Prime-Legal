@@ -25,6 +25,8 @@ namespace Prime_Legal.Pages.Staff
         {
             InitializeComponent();
             LBUser.ItemsSource = DataClass.GetContext().Staff.ToList();
+            CBPosition.ItemsSource = DataClass.GetContext().Position.ToList();
+            CBUser.ItemsSource = DataClass.GetContext().User.ToList();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)

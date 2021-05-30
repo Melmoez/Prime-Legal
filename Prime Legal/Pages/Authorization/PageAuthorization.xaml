@@ -99,7 +99,7 @@
             x:Name="BtnJoin"
             Grid.Row="5"
             Grid.Column="1"
-            Margin="0,30,30,30"
+            Margin="0,30,30,25"
             materialDesign:ButtonAssist.CornerRadius="4"
             BorderBrush="Transparent"
             Click="BtnJoin_Click"

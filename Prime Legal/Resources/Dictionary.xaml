@@ -54,6 +54,18 @@
         <Setter Property="CaretBrush" Value="Black" />
 
     </Style>
+    <Style BasedOn="{StaticResource MaterialDesignOutlinedDatePicker}" TargetType="DatePicker">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Background" Value="White" />
+        <Setter Property="FontFamily" Value="Roboto" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Height" Value="37" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="BorderBrush" Value="#FFA6A6A6" />
+    </Style>
     <Style BasedOn="{StaticResource MaterialDesignFilledPasswordBox}" TargetType="PasswordBox">
         <Setter Property="FontSize" Value="14" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
