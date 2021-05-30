@@ -21,12 +21,15 @@ namespace Prime_Legal.Pages.Staff
     /// </summary>
     public partial class PageStaff : Page
     {
+        DataFolder.Staff staffer;
         public PageStaff()
         {
             InitializeComponent();
+            staffer = new DataFolder.Staff();
             LBUser.ItemsSource = DataClass.GetContext().Staff.ToList();
             CBPosition.ItemsSource = DataClass.GetContext().Position.ToList();
             CBUser.ItemsSource = DataClass.GetContext().User.ToList();
+            DataContext = staffer;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -51,7 +54,13 @@ namespace Prime_Legal.Pages.Staff
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-
+            DataClass.context.Passport.Add(new DataFolder.Passport() 
+            {
+                Serial = TbSerial.Text,
+                Number = TBNumber.Text 
+            });
+            DataClass.GetContext().Staff.Add(staffer);
+            DataClass.GetContext().SaveChanges();
         }
     }
 }
