@@ -25,31 +25,42 @@ namespace Prime_Legal.Pages.Staff
         public PageStaff()
         {
             InitializeComponent();
-            staffer = new DataFolder.Staff();
             LBUser.ItemsSource = DataClass.GetContext().Staff.ToList();
             CBPosition.ItemsSource = DataClass.GetContext().Position.ToList();
             CBUser.ItemsSource = DataClass.GetContext().User.ToList();
-            DataContext = staffer;
+            CBPositionEdit.ItemsSource = DataClass.GetContext().Position.ToList();
+            CBUserEdit.ItemsSource = DataClass.GetContext().User.ToList();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-
+            staffer = new DataFolder.Staff();
+            DataContext = staffer;
         }
 
         private void BtnEdit_Click_1(object sender, RoutedEventArgs e)
         {
-
+            DataContext = LBUser.SelectedItem as DataFolder.Staff;
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            DataClass.GetContext().Staff.Remove(LBUser.SelectedItem as DataFolder.Staff);
+            DataClass.GetContext().SaveChanges();
+            LBUser.ItemsSource = DataClass.GetContext().Staff.ToArray();
         }
 
         private void BtnSaveEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                DataClass.GetContext().SaveChanges();
+                LBUser.ItemsSource = DataClass.GetContext().Staff.ToArray();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
@@ -61,6 +72,7 @@ namespace Prime_Legal.Pages.Staff
             });
             DataClass.GetContext().Staff.Add(staffer);
             DataClass.GetContext().SaveChanges();
+            LBUser.ItemsSource = DataClass.GetContext().Staff.ToArray();
         }
     }
 }

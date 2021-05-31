@@ -90,15 +90,8 @@ namespace Prime_Legal.Pages.Users
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            
+            }   
         }
-
-        private void BeginStoryboard(BeginStoryboard closeEdit)
-        {
-            throw new NotImplementedException();
-        }
-
         private void button_Click(object sender, RoutedEventArgs e)
         {
             user = new User();
