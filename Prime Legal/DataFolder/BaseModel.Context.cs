@@ -26,7 +26,6 @@ namespace Prime_Legal.DataFolder
         }
     
         public virtual DbSet<Adress> Adress { get; set; }
-        public virtual DbSet<City> City { get; set; }
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Company> Company { get; set; }
         public virtual DbSet<Deal> Deal { get; set; }
@@ -37,7 +36,6 @@ namespace Prime_Legal.DataFolder
         public virtual DbSet<Room> Room { get; set; }
         public virtual DbSet<Staff> Staff { get; set; }
         public virtual DbSet<State> State { get; set; }
-        public virtual DbSet<Street> Street { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TypeClient> TypeClient { get; set; }
         public virtual DbSet<TypeDeal> TypeDeal { get; set; }

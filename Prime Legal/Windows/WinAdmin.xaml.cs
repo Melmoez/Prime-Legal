@@ -1,4 +1,5 @@
 ﻿using Prime_Legal.Pages.Authorization;
+using Prime_Legal.Pages.Deal;
 using Prime_Legal.Pages.Staff;
 using Prime_Legal.Pages.Users;
 using Prime_Legal.Services;
@@ -76,6 +77,12 @@ namespace Prime_Legal.Windows
         {
             ActionWindowClass.MainFrame.NavigationService.RemoveBackEntry();
             FrameMain.Navigate(new PageStaff());
+        }
+
+        private void ListBoxItem_Selected_2(object sender, RoutedEventArgs e)
+        {
+            ActionWindowClass.MainFrame.NavigationService.RemoveBackEntry();
+            FrameMain.Navigate(new PageDealList());
         }
     }
 }
