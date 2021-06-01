@@ -22,13 +22,8 @@ namespace Prime_Legal.DataFolder
         }
     
         public int Id { get; set; }
-        public int IdStreet { get; set; }
-        public int IdCity { get; set; }
-        public string Home { get; set; }
-        public Nullable<int> NumberApartament { get; set; }
+        public string Name { get; set; }
     
-        public virtual City City { get; set; }
-        public virtual Street Street { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Company> Company { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
