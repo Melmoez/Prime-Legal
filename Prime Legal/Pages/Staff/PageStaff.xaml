@@ -276,115 +276,114 @@
             </Grid.RowDefinitions>
             <Rectangle Grid.RowSpan="3" Fill="#3D3D3D" />
             <Label Content="Добавить сотрудника" Style="{DynamicResource LblMain}" />
-            <StackPanel Grid.Row="1"
-                Margin="20">
+            <StackPanel Grid.Row="1" Margin="20">
                 <TextBox
-                        x:Name="TbLName"
-                        Margin="10"
-                        Padding="15,0,0,0"
-                        materialDesign:HintAssist.Hint="Фамилия:"
-                        materialDesign:HintAssist.IsFloating="False"
-                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                        materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                        Background="White"
-                        Text="{Binding LName}" />
+                    x:Name="TbLName"
+                    Margin="10"
+                    Padding="15,0,0,0"
+                    materialDesign:HintAssist.Hint="Фамилия:"
+                    materialDesign:HintAssist.IsFloating="False"
+                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                    materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                    Background="White"
+                    Text="{Binding LName}" />
                 <TextBox
-                        x:Name="TbFname"
-                        Margin="10"
-                        Padding="15,0,0,0"
-                        materialDesign:HintAssist.Hint="Имя"
-                        materialDesign:HintAssist.IsFloating="False"
-                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                        materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                        Background="White"
-                        Text="{Binding FName}" />
+                    x:Name="TbFname"
+                    Margin="10"
+                    Padding="15,0,0,0"
+                    materialDesign:HintAssist.Hint="Имя"
+                    materialDesign:HintAssist.IsFloating="False"
+                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                    materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                    Background="White"
+                    Text="{Binding FName}" />
                 <TextBox
-                        x:Name="TbMname"
-                        Margin="10"
-                        Padding="15,0,0,0"
-                        materialDesign:HintAssist.Hint="Отчество"
-                        materialDesign:HintAssist.IsFloating="False"
-                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                        materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                        Background="White"
-                        Text="{Binding MName}" />
+                    x:Name="TbMname"
+                    Margin="10"
+                    Padding="15,0,0,0"
+                    materialDesign:HintAssist.Hint="Отчество"
+                    materialDesign:HintAssist.IsFloating="False"
+                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                    materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                    Background="White"
+                    Text="{Binding MName}" />
                 <TextBox
-                        x:Name="TbPhone"
-                        Margin="10"
-                        Padding="15,0,0,0"
-                        materialDesign:HintAssist.Hint="Номер телефона:"
-                        materialDesign:HintAssist.IsFloating="False"
-                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                        materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                        Background="White"
-                        Text="{Binding Phone}" />
+                    x:Name="TbPhone"
+                    Margin="10"
+                    Padding="15,0,0,0"
+                    materialDesign:HintAssist.Hint="Номер телефона:"
+                    materialDesign:HintAssist.IsFloating="False"
+                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                    materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                    Background="White"
+                    Text="{Binding Phone}" />
                 <TextBox
-                        x:Name="TbSerial"
-                        Margin="10"
-                        Padding="15,0,0,0"
-                        materialDesign:HintAssist.Hint="Серия пасспорта:"
-                        materialDesign:HintAssist.IsFloating="False"
-                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                        materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                        Background="White"
-                        Text="{Binding Passport.Serial}" />
+                    x:Name="TbSerial"
+                    Margin="10"
+                    Padding="15,0,0,0"
+                    materialDesign:HintAssist.Hint="Серия пасспорта:"
+                    materialDesign:HintAssist.IsFloating="False"
+                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                    materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                    Background="White"
+                    Text="{Binding Passport.Serial}" />
                 <TextBox
-                        x:Name="TBNumber"
-                        Margin="10"
-                        Padding="15,0,0,0"
-                        materialDesign:HintAssist.Hint="Номер пасспорта:"
-                        materialDesign:HintAssist.IsFloating="False"
-                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                        materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                        Background="White"
-                        Text="{Binding Passport.Number}" />
+                    x:Name="TBNumber"
+                    Margin="10"
+                    Padding="15,0,0,0"
+                    materialDesign:HintAssist.Hint="Номер пасспорта:"
+                    materialDesign:HintAssist.IsFloating="False"
+                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                    materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                    Background="White"
+                    Text="{Binding Passport.Number}" />
                 <Grid
-                        Height="37"
-                        Margin="10"
-                        Background="White">
+                    Height="37"
+                    Margin="10"
+                    Background="White">
                     <Border BorderBrush="#FFA6A6A6" BorderThickness="2" />
                     <DatePicker
-                            x:Name="TbDate"
-                            Padding="16,0"
-                            materialDesign:HintAssist.Hint="День рождения:"
-                            materialDesign:HintAssist.IsFloating="False"
-                            materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                            materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
-                            BorderBrush="#FFA6A6A6"
-                            BorderThickness="2"
-                            Foreground="Black"
-                            IsEnabled="True"
-                            SelectedDate="{Binding BirthDate}" />
+                        x:Name="TbDate"
+                        Padding="16,0"
+                        materialDesign:HintAssist.Hint="День рождения:"
+                        materialDesign:HintAssist.IsFloating="False"
+                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                        materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
+                        BorderBrush="#FFA6A6A6"
+                        BorderThickness="2"
+                        Foreground="Black"
+                        IsEnabled="True"
+                        SelectedDate="{Binding BirthDate}" />
                 </Grid>
                 <TextBox
-                        x:Name="TbSalary"
-                        Margin="10"
-                        materialDesign:HintAssist.Hint="Заработная плата:"
-                        materialDesign:HintAssist.IsFloating="False"
-                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                        materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                        Background="White"
-                        Text="{Binding Salary}" />
+                    x:Name="TbSalary"
+                    Margin="10"
+                    materialDesign:HintAssist.Hint="Заработная плата:"
+                    materialDesign:HintAssist.IsFloating="False"
+                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                    materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                    Background="White"
+                    Text="{Binding Salary}" />
                 <ComboBox
-                        x:Name="CBPosition"
-                        Margin="10"
-                        materialDesign:HintAssist.Hint="Должность"
-                        materialDesign:HintAssist.IsFloating="False"
-                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                        materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
-                        Background="White"
-                        DisplayMemberPath="Name"
-                        SelectedItem="{Binding Position}" />
+                    x:Name="CBPosition"
+                    Margin="10"
+                    materialDesign:HintAssist.Hint="Должность"
+                    materialDesign:HintAssist.IsFloating="False"
+                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                    materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
+                    Background="White"
+                    DisplayMemberPath="Name"
+                    SelectedItem="{Binding Position}" />
                 <ComboBox
-                        x:Name="CBUser"
-                        Margin="10"
-                        materialDesign:HintAssist.Hint="Логин:"
-                        materialDesign:HintAssist.IsFloating="False"
-                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                        materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
-                        Background="White"
-                        DisplayMemberPath="Login"
-                        SelectedItem="{Binding User}" />
+                    x:Name="CBUser"
+                    Margin="10"
+                    materialDesign:HintAssist.Hint="Логин:"
+                    materialDesign:HintAssist.IsFloating="False"
+                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                    materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
+                    Background="White"
+                    DisplayMemberPath="Login"
+                    SelectedItem="{Binding User}" />
             </StackPanel>
             <UniformGrid Grid.Row="2" Columns="2">
                 <Button
@@ -418,95 +417,94 @@
             </Grid.RowDefinitions>
             <Rectangle Grid.RowSpan="3" Fill="#3D3D3D" />
             <Label Content="Изменить пользователя" Style="{DynamicResource LblMain}" />
-            <StackPanel Grid.Row="1"
-                Margin="20">
+            <StackPanel Grid.Row="1" Margin="20">
                 <TextBox
-                        x:Name="TbLNameEdit"
-                        Margin="10"
-                        Padding="15,0,0,0"
-                        materialDesign:HintAssist.Hint="Фамилия:"
-                        materialDesign:HintAssist.IsFloating="False"
-                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                        materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                        Background="White"
-                        Text="{Binding LName}" />
+                    x:Name="TbLNameEdit"
+                    Margin="10"
+                    Padding="15,0,0,0"
+                    materialDesign:HintAssist.Hint="Фамилия:"
+                    materialDesign:HintAssist.IsFloating="False"
+                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                    materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                    Background="White"
+                    Text="{Binding LName}" />
                 <TextBox
-                        x:Name="TbFnameEdit"
-                        Margin="10"
-                        Padding="15,0,0,0"
-                        materialDesign:HintAssist.Hint="Имя"
-                        materialDesign:HintAssist.IsFloating="False"
-                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                        materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                        Background="White"
-                        Text="{Binding FName}" />
+                    x:Name="TbFnameEdit"
+                    Margin="10"
+                    Padding="15,0,0,0"
+                    materialDesign:HintAssist.Hint="Имя"
+                    materialDesign:HintAssist.IsFloating="False"
+                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                    materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                    Background="White"
+                    Text="{Binding FName}" />
                 <TextBox
-                        x:Name="TbMnameEdit"
-                        Margin="10"
-                        Padding="15,0,0,0"
-                        materialDesign:HintAssist.Hint="Отчество"
-                        materialDesign:HintAssist.IsFloating="False"
-                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                        materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                        Background="White"
-                        Text="{Binding MName}" />
+                    x:Name="TbMnameEdit"
+                    Margin="10"
+                    Padding="15,0,0,0"
+                    materialDesign:HintAssist.Hint="Отчество"
+                    materialDesign:HintAssist.IsFloating="False"
+                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                    materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                    Background="White"
+                    Text="{Binding MName}" />
                 <TextBox
-                        x:Name="TbPhoneEdit"
-                        Margin="10"
-                        Padding="15,0,0,0"
-                        materialDesign:HintAssist.Hint="Номер телефона:"
-                        materialDesign:HintAssist.IsFloating="False"
-                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                        materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                        Background="White"
-                        Text="{Binding Phone}" />
+                    x:Name="TbPhoneEdit"
+                    Margin="10"
+                    Padding="15,0,0,0"
+                    materialDesign:HintAssist.Hint="Номер телефона:"
+                    materialDesign:HintAssist.IsFloating="False"
+                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                    materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                    Background="White"
+                    Text="{Binding Phone}" />
                 <Grid
-                        Height="37"
-                        Margin="10"
-                        Background="White">
+                    Height="37"
+                    Margin="10"
+                    Background="White">
                     <Border BorderBrush="#FFA6A6A6" BorderThickness="2" />
                     <DatePicker
-                            x:Name="TbDateEdit"
-                            Padding="16,0"
-                            materialDesign:HintAssist.Hint="День рождения:"
-                            materialDesign:HintAssist.IsFloating="False"
-                            materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                            materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
-                            BorderBrush="#FFA6A6A6"
-                            BorderThickness="2"
-                            Foreground="Black"
-                            IsEnabled="True"
-                            SelectedDate="{Binding BirthDate}" />
+                        x:Name="TbDateEdit"
+                        Padding="16,0"
+                        materialDesign:HintAssist.Hint="День рождения:"
+                        materialDesign:HintAssist.IsFloating="False"
+                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                        materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
+                        BorderBrush="#FFA6A6A6"
+                        BorderThickness="2"
+                        Foreground="Black"
+                        IsEnabled="True"
+                        SelectedDate="{Binding BirthDate}" />
                 </Grid>
                 <TextBox
-                        x:Name="TbSalaryEdit"
-                        Margin="10"
-                        materialDesign:HintAssist.Hint="Заработная плата:"
-                        materialDesign:HintAssist.IsFloating="False"
-                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                        materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                        Background="White"
-                        Text="{Binding Salary}" />
+                    x:Name="TbSalaryEdit"
+                    Margin="10"
+                    materialDesign:HintAssist.Hint="Заработная плата:"
+                    materialDesign:HintAssist.IsFloating="False"
+                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                    materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                    Background="White"
+                    Text="{Binding Salary}" />
                 <ComboBox
-                        x:Name="CBPositionEdit"
-                        Margin="10"
-                        materialDesign:HintAssist.Hint="Должность"
-                        materialDesign:HintAssist.IsFloating="False"
-                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                        materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
-                        Background="White"
-                        DisplayMemberPath="Name"
-                        SelectedItem="{Binding Position}" />
+                    x:Name="CBPositionEdit"
+                    Margin="10"
+                    materialDesign:HintAssist.Hint="Должность"
+                    materialDesign:HintAssist.IsFloating="False"
+                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                    materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
+                    Background="White"
+                    DisplayMemberPath="Name"
+                    SelectedItem="{Binding Position}" />
                 <ComboBox
-                        x:Name="CBUserEdit"
-                        Margin="10"
-                        materialDesign:HintAssist.Hint="Логин:"
-                        materialDesign:HintAssist.IsFloating="False"
-                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                        materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
-                        Background="White"
-                        DisplayMemberPath="Login"
-                        SelectedItem="{Binding User}" />
+                    x:Name="CBUserEdit"
+                    Margin="10"
+                    materialDesign:HintAssist.Hint="Логин:"
+                    materialDesign:HintAssist.IsFloating="False"
+                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                    materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
+                    Background="White"
+                    DisplayMemberPath="Login"
+                    SelectedItem="{Binding User}" />
             </StackPanel>
             <UniformGrid Grid.Row="2" Columns="2">
                 <Button
