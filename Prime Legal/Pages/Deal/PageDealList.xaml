@@ -195,7 +195,7 @@
                             Margin="10"
                             Orientation="Vertical">
                             <Label Margin="10">
-                                <TextBlock Text="Фамилия: ">
+                                <TextBlock Text="Фамилия клиента: ">
                                     <Run FontWeight="Bold" Text="{Binding Client.LName}" />
                                 </TextBlock>
                             </Label>
