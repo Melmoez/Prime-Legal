@@ -1,4 +1,5 @@
-﻿using Prime_Legal.Services;
+﻿using Prime_Legal.DataFolder;
+using Prime_Legal.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,13 @@ namespace Prime_Legal.Pages.Deal
     /// </summary>
     public partial class PageDealList : Page
     {
+        Client client;
         public PageDealList()
         {
+            client = new Client();
             InitializeComponent(); 
             LBUser.ItemsSource = DataClass.GetContext().Deal.ToList();
+            DataContext = client;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -49,7 +53,17 @@ namespace Prime_Legal.Pages.Deal
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-
+            if ( RBfiz.IsChecked == true )
+            {
+                client.IdTypeClient = 1;
+                DataClass.GetContext().Passport.Add(new Passport() { Serial = TbSerial.Text, Number = TBNumber.Text });
+                DataClass.GetContext().Client.Add(client);
+                DataClass.GetContext().SaveChanges();
+            }
+        }
+        private void RBfiz_Checked(object sender, RoutedEventArgs e)
+        {
+            SPfiz.IsEnabled = true;
         }
     }
 }
