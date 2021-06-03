@@ -22,10 +22,10 @@ namespace Prime_Legal.DataFolder
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public Nullable<int> IdAdress { get; set; }
-        public Nullable<long> R_S { get; set; }
-        public Nullable<long> BIK { get; set; }
-        public Nullable<long> INN { get; set; }
+        public int IdAdress { get; set; }
+        public long RS { get; set; }
+        public long BIK { get; set; }
+        public long INN { get; set; }
     
         public virtual Adress Adress { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

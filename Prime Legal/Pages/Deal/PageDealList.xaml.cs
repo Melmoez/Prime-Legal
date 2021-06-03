@@ -2,6 +2,7 @@
 using Prime_Legal.Services;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,13 +54,43 @@ namespace Prime_Legal.Pages.Deal
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            if ( RBfiz.IsChecked == true )
+            try
             {
-                client.IdTypeClient = 1;
-                DataClass.GetContext().Passport.Add(new Passport() { Serial = TbSerial.Text, Number = TBNumber.Text });
-                DataClass.GetContext().Client.Add(client);
-                DataClass.GetContext().SaveChanges();
+                if (RBfiz.IsChecked == true)
+                {
+                    client.IdTypeClient = 1;
+                    DataClass.GetContext().Passport.Add(new Passport() { Serial = TbSerial.Text, Number = TBNumber.Text });
+                    DataClass.GetContext().Client.Add(client);
+                    DataClass.GetContext().SaveChanges();
+                }
+                else if (RBur.IsChecked == true)
+                {
+                    client.IdTypeClient = 2;
+                    DataClass.GetContext().Passport.Add(new Passport() { Serial = TbSerial.Text, Number = TBNumber.Text });
+                    DataClass.GetContext().Adress.Add(new Adress() { Name = TBAddressUR.Text });
+                    DataClass.GetContext().Company.Add(new Company() { Name = TbNameUR.Text, BIK = Convert.ToInt64(TBBIKUR.Text), INN = Convert.ToInt64(TBINNUR.Text), RS = Convert.ToInt64(TBRSUR.Text) });
+                    
+                    DataClass.GetContext().Client.Add(client);
+                    DataClass.GetContext().SaveChanges();
+                }
+                LBUser.ItemsSource = DataClass.GetContext().Deal.ToList();
             }
+            catch (DbEntityValidationException ex)
+            {
+                string result = "";
+                foreach (DbEntityValidationResult validationError in ex.EntityValidationErrors)
+                {
+
+                    result += ("Object: " + validationError.Entry.Entity.ToString());
+                    result += $"\n";
+                    foreach (DbValidationError err in validationError.ValidationErrors)
+                    {
+                        result += (err.ErrorMessage + $"\n");
+                    }
+                }
+                MessageBox.Show(result);
+            }
+           
         }
         private void RBfiz_Checked(object sender, RoutedEventArgs e)
         {

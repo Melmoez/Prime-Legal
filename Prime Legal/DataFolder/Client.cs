@@ -26,14 +26,14 @@ namespace Prime_Legal.DataFolder
         public string FName { get; set; }
         public string LName { get; set; }
         public string MName { get; set; }
-        public long INN { get; set; }
+        public Nullable<long> INN { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
         public int IdPassport { get; set; }
         public string SNILS { get; set; }
-        public System.DateTime BirthDate { get; set; }
+        public Nullable<System.DateTime> BirthDate { get; set; }
         public Nullable<int> IdTypeClient { get; set; }
-        public Nullable<int> IdCompany { get; set; }
+        public int IdCompany { get; set; }
     
         public virtual Company Company { get; set; }
         public virtual Passport Passport { get; set; }

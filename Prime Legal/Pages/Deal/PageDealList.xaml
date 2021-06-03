@@ -326,7 +326,7 @@
                             Margin="20,0"
                             IsEnabled="{Binding IsChecked, ElementName=RBfiz}"
                             Orientation="Vertical"
-                            Visibility="Visible">
+                            Visibility="Collapsed">
                             <TextBox
                                 x:Name="TbLName"
                                 Grid.Row="1"
@@ -459,7 +459,7 @@
                         <StackPanel
                             x:Name="SPur"
                             Margin="20,0"
-                            Visibility="Collapsed"
+                            Visibility="Visible"
                             IsEnabled="{Binding IsChecked, ElementName=RBur}"
                             Orientation="Vertical">
                             <TextBox
@@ -569,9 +569,9 @@
                                 materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                                 materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                                 Background="White"
-                                Text="{Binding Adress.Name}" />
+                                Text="{Binding Company.Adress.Name}" />
                             <TextBox
-                                x:Name="TBINN"
+                                x:Name="TBINNUR"
                                 Grid.Row="1"
                                 Height="Auto"
                                 Margin="0,10,0,10"
@@ -602,7 +602,7 @@
                                 materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                                 materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                                 Background="White"
-                                Text="{Binding Company.R/s}" />
+                                Text="{Binding Company.RS}" />
 
                         </StackPanel>
 

@@ -20,25 +20,25 @@
           <Property Name="FName" Type="nvarchar" MaxLength="55" Nullable="false" />
           <Property Name="LName" Type="nvarchar" MaxLength="55" Nullable="false" />
           <Property Name="MName" Type="nvarchar" MaxLength="55" />
-          <Property Name="INN" Type="bigint" Nullable="false" />
+          <Property Name="INN" Type="bigint" />
           <Property Name="Phone" Type="nvarchar" MaxLength="12" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="55" />
           <Property Name="IdPassport" Type="int" Nullable="false" />
-          <Property Name="SNILS" Type="nvarchar" MaxLength="13" Nullable="false" />
-          <Property Name="BirthDate" Type="date" Nullable="false" />
+          <Property Name="SNILS" Type="nvarchar" MaxLength="13" />
+          <Property Name="BirthDate" Type="date" />
           <Property Name="IdTypeClient" Type="int" />
-          <Property Name="IdCompany" Type="int" />
+          <Property Name="IdCompany" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Company">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="55" />
-          <Property Name="IdAdress" Type="int" />
-          <Property Name="R/S" Type="bigint" />
-          <Property Name="BIK" Type="bigint" />
-          <Property Name="INN" Type="bigint" />
+          <Property Name="Name" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="IdAdress" Type="int" Nullable="false" />
+          <Property Name="RS" Type="bigint" Nullable="false" />
+          <Property Name="BIK" Type="bigint" Nullable="false" />
+          <Property Name="INN" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="Deal">
           <Key>
@@ -157,7 +157,7 @@
           <Property Name="LastJoin" Type="datetime" />
         </EntityType>
         <Association Name="FK_Client_Company">
-          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
           <End Role="Client" Type="Self.Client" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Company">
@@ -193,7 +193,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Company_Adress">
-          <End Role="Adress" Type="Self.Adress" Multiplicity="0..1" />
+          <End Role="Adress" Type="Self.Adress" Multiplicity="1" />
           <End Role="Company" Type="Self.Company" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Adress">
@@ -468,14 +468,14 @@
           <Property Name="FName" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LName" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MName" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
-          <Property Name="INN" Type="Int64" Nullable="false" />
+          <Property Name="INN" Type="Int64" />
           <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
           <Property Name="IdPassport" Type="Int32" Nullable="false" />
-          <Property Name="SNILS" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SNILS" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Precision="0" />
           <Property Name="IdTypeClient" Type="Int32" />
-          <Property Name="IdCompany" Type="Int32" />
+          <Property Name="IdCompany" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Company" Relationship="Self.FK_Client_Company" FromRole="Client" ToRole="Company" />
           <NavigationProperty Name="Passport" Relationship="Self.FK_Client_Passport" FromRole="Client" ToRole="Passport" />
           <NavigationProperty Name="TypeClient" Relationship="Self.FK_Client_TypeClient" FromRole="Client" ToRole="TypeClient" />
@@ -488,11 +488,11 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
-          <Property Name="IdAdress" Type="Int32" />
-          <Property Name="R_S" Type="Int64" />
-          <Property Name="BIK" Type="Int64" />
-          <Property Name="INN" Type="Int64" />
+          <Property Name="Name" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdAdress" Type="Int32" Nullable="false" />
+          <Property Name="RS" Type="Int64" Nullable="false" />
+          <Property Name="BIK" Type="Int64" Nullable="false" />
+          <Property Name="INN" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Adress" Relationship="Self.FK_Company_Adress" FromRole="Company" ToRole="Adress" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Client_Company" FromRole="Company" ToRole="Client" />
         </EntityType>
@@ -637,7 +637,7 @@
           <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_User" FromRole="User" ToRole="Staff" />
         </EntityType>
         <Association Name="FK_Company_Adress">
-          <End Role="Adress" Type="Self.Adress" Multiplicity="0..1" />
+          <End Role="Adress" Type="Self.Adress" Multiplicity="1" />
           <End Role="Company" Type="Self.Company" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Adress">
@@ -661,7 +661,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Client_Company">
-          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
           <End Role="Client" Type="Self.Client" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Company">
@@ -964,7 +964,7 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IdAdress" ColumnName="IdAdress" />
-                <ScalarProperty Name="R_S" ColumnName="R/S" />
+                <ScalarProperty Name="RS" ColumnName="RS" />
                 <ScalarProperty Name="BIK" ColumnName="BIK" />
                 <ScalarProperty Name="INN" ColumnName="INN" />
               </MappingFragment>
