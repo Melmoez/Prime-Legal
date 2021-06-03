@@ -26,20 +26,33 @@ namespace Prime_Legal.Pages.Deal
         Client client;
         public PageDealList()
         {
-            client = new Client();
+            
             InitializeComponent(); 
-            LBUser.ItemsSource = DataClass.GetContext().Deal.ToList();
-            DataContext = client;
+            LBUser.ItemsSource = DataClass.GetContext().Client.ToList();
+            
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-
+            //client = new Client();
+            //DataContext = client;
         }
 
         private void BtnEdit_Click_1(object sender, RoutedEventArgs e)
         {
-
+            Client clienter = LBUser.SelectedItem as Client;
+            DataContext = clienter;
+            if (clienter.IdTypeClient == 1)
+            {
+                TbDate.SelectedDate = DateTime.Now;
+                SPfiz.Visibility = Visibility.Visible;
+                SPur.Visibility = Visibility.Collapsed;
+            }
+            else if (clienter.IdTypeClient == 2)
+            {
+                SPfiz.Visibility = Visibility.Collapsed;
+                SPur.Visibility = Visibility.Visible;
+            }
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
@@ -49,7 +62,8 @@ namespace Prime_Legal.Pages.Deal
 
         private void BtnSaveEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            DataClass.GetContext().SaveChanges();
+            LBUser.ItemsSource = DataClass.GetContext().Deal.ToList();
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
