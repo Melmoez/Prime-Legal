@@ -65,5 +65,18 @@ namespace Prime_Legal.Pages.Deal
         {
             SPfiz.IsEnabled = true;
         }
+
+        private void RBfiz_Click(object sender, RoutedEventArgs e)
+        {
+            TbDate.SelectedDate = DateTime.Now;
+            SPfiz.Visibility = Visibility.Visible;
+            SPur.Visibility = Visibility.Collapsed;
+        }
+
+        private void RBur_Click(object sender, RoutedEventArgs e)
+        {
+            SPfiz.Visibility = Visibility.Collapsed;
+            SPur.Visibility = Visibility.Visible;
+        }
     }
 }

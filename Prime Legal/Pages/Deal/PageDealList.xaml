@@ -296,162 +296,322 @@
                     Margin="20,0"
                     VerticalAlignment="Center">
                     <RadioButton
-                        GroupName="Face"
-                        Grid.Row="1"
-                        IsChecked="False"
                         x:Name="RBfiz"
-                        Height="Auto"
-                        Margin="0,10,0,0"
-                        Background="White"
-                        Content="Физическое лицо" Checked="RBfiz_Checked" />
-                    <RadioButton
-                        GroupName="Face"
                         Grid.Row="1"
                         Height="Auto"
-                        IsChecked="False"
-                        x:Name="RBur"
                         Margin="0,10,0,0"
                         Background="White"
-                        Content="Юридическое лицо" />
+                        Checked="RBfiz_Checked"
+                        Content="Физическое лицо"
+                        GroupName="Face"
+                        IsChecked="False" Click="RBfiz_Click" />
+                    <RadioButton
+                        x:Name="RBur"
+                        Grid.Row="1"
+                        Height="Auto"
+                        Margin="0,10,0,0"
+                        Background="White"
+                        Content="Юридическое лицо"
+                        GroupName="Face"
+                        IsChecked="False" Click="RBur_Click" />
                 </StackPanel>
 
                 <ScrollViewer
                     Grid.Row="1"
                     BorderBrush="White"
                     Foreground="White">
-                    <StackPanel
-                        x:Name="SPfiz"
-                        Margin="20,0"
-                        IsEnabled="{Binding IsChecked, ElementName=RBfiz}"
-                        Orientation="Vertical">
-                        <TextBox
-                            x:Name="TbLName"
-                            Grid.Row="1"
-                            Height="37"
-                            Margin="0,10,0,10"
-                            Padding="15,0,0,0"
-                            materialDesign:HintAssist.Hint="Фамилия:"
-                            materialDesign:HintAssist.IsFloating="False"
-                            materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                            materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                            Background="White"
-                            Text="{Binding LName}" />
-                        <TextBox
-                            x:Name="TbFname"
-                            Grid.Row="1"
-                            Height="37"
-                            Margin="0,10,0,10"
-                            Padding="15,0,0,0"
-                            materialDesign:HintAssist.Hint="Имя"
-                            materialDesign:HintAssist.IsFloating="False"
-                            materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                            materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                            Background="White"
-                            Text="{Binding FName}" />
-                        <TextBox
-                            x:Name="TbMname"
-                            Grid.Row="1"
-                            Height="37"
-                            Margin="0,10,0,10"
-                            Padding="15,0,0,0"
-                            materialDesign:HintAssist.Hint="Отчество"
-                            materialDesign:HintAssist.IsFloating="False"
-                            materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                            materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                            Background="White"
-                            Text="{Binding MName}" />
-                        <TextBox
-                            x:Name="TbPhone"
-                            Grid.Row="1"
-                            Height="37"
-                            Margin="0,10,0,10"
-                            Padding="15,0,0,0"
-                            materialDesign:HintAssist.Hint="Номер телефона:"
-                            materialDesign:HintAssist.IsFloating="False"
-                            materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                            materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                            Background="White"
-                            Text="{Binding Phone}" />
-                        <TextBox
-                            x:Name="TbINN"
-                            Grid.Row="1"
-                            Height="37"
-                            Margin="0,10,0,10"
-                            Padding="15,0,0,0"
-                            materialDesign:HintAssist.Hint="ИНН:"
-                            materialDesign:HintAssist.IsFloating="False"
-                            materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                            materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                            Background="White"
-                            Text="{Binding INN}" />
-                        <TextBox
-                            x:Name="TbEmail"
-                            Grid.Row="1"
-                            Height="37"
-                            Margin="0,10,0,10"
-                            Padding="15,0,0,0"
-                            materialDesign:HintAssist.Hint="Email:"
-                            materialDesign:HintAssist.IsFloating="False"
-                            materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                            materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                            Background="White"
-                            Text="{Binding Email}" />
-                        <TextBox
-                            x:Name="TbSerial"
-                            Grid.Row="1"
-                            Height="37"
-                            Margin="0,10,0,10"
-                            Padding="15,0,0,0"
-                            materialDesign:HintAssist.Hint="Серия пасспорта:"
-                            materialDesign:HintAssist.IsFloating="False"
-                            materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                            materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                            Background="White"
-                            Text="{Binding Passport.Serial}" />
-                        <TextBox
-                            x:Name="TBNumber"
-                            Grid.Row="1"
-                            Height="37"
-                            Margin="0,10,0,10"
-                            Padding="15,0,0,0"
-                            materialDesign:HintAssist.Hint="Номер пасспорта:"
-                            materialDesign:HintAssist.IsFloating="False"
-                            materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                            materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                            Background="White"
-                            Text="{Binding Passport.Number}" />
-                        <Grid
-                            Grid.Row="1"
-                            Margin="0,10,0,10"
-                            Background="White">
-                            <Border BorderBrush="#FFA6A6A6" BorderThickness="2" />
-                            <DatePicker
-                                x:Name="TbDate"
-                                Padding="16,0"
-                                materialDesign:HintAssist.Hint="День рождения:"
+                    <UniformGrid>
+                        <StackPanel
+                            x:Name="SPfiz"
+                            Margin="20,0"
+                            IsEnabled="{Binding IsChecked, ElementName=RBfiz}"
+                            Orientation="Vertical"
+                            Visibility="Visible">
+                            <TextBox
+                                x:Name="TbLName"
+                                Grid.Row="1"
+                                Height="37"
+                                Margin="0,10,0,10"
+                                Padding="15,0,0,0"
+                                materialDesign:HintAssist.Hint="Фамилия:"
                                 materialDesign:HintAssist.IsFloating="False"
                                 materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                                materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
-                                BorderBrush="#FFA6A6A6"
-                                BorderThickness="2"
-                                Foreground="Black"
-                                IsEnabled="True"
-                                DisplayDate="10/10/2001"
-                                SelectedDate="{Binding BirthDate, TargetNullValue=01/01/2001}" />
-                        </Grid>
-                        <TextBox
-                            x:Name="TbSNILS"
-                            Grid.Row="1"
-                            Height="Auto"
-                            Margin="0,10,0,10"
-                            materialDesign:HintAssist.Hint="СНИЛС:"
-                            materialDesign:HintAssist.IsFloating="False"
-                            materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                            materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                            Background="White"
-                            Text="{Binding SNILS}" />
-                        
-                    </StackPanel>
+                                materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                Background="White"
+                                Text="{Binding LName}" />
+                            <TextBox
+                                x:Name="TbFname"
+                                Grid.Row="1"
+                                Height="37"
+                                Margin="0,10,0,10"
+                                Padding="15,0,0,0"
+                                materialDesign:HintAssist.Hint="Имя"
+                                materialDesign:HintAssist.IsFloating="False"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                Background="White"
+                                Text="{Binding FName}" />
+                            <TextBox
+                                x:Name="TbMname"
+                                Grid.Row="1"
+                                Height="37"
+                                Margin="0,10,0,10"
+                                Padding="15,0,0,0"
+                                materialDesign:HintAssist.Hint="Отчество"
+                                materialDesign:HintAssist.IsFloating="False"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                Background="White"
+                                Text="{Binding MName}" />
+                            <TextBox
+                                x:Name="TbPhone"
+                                Grid.Row="1"
+                                Height="37"
+                                Margin="0,10,0,10"
+                                Padding="15,0,0,0"
+                                materialDesign:HintAssist.Hint="Номер телефона:"
+                                materialDesign:HintAssist.IsFloating="False"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                Background="White"
+                                Text="{Binding Phone}" />
+                            <TextBox
+                                x:Name="TbINN"
+                                Grid.Row="1"
+                                Height="37"
+                                Margin="0,10,0,10"
+                                Padding="15,0,0,0"
+                                materialDesign:HintAssist.Hint="ИНН:"
+                                materialDesign:HintAssist.IsFloating="False"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                Background="White"
+                                Text="{Binding INN}" />
+                            <TextBox
+                                x:Name="TbEmail"
+                                Grid.Row="1"
+                                Height="37"
+                                Margin="0,10,0,10"
+                                Padding="15,0,0,0"
+                                materialDesign:HintAssist.Hint="Email:"
+                                materialDesign:HintAssist.IsFloating="False"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                Background="White"
+                                Text="{Binding Email}" />
+                            <TextBox
+                                x:Name="TbSerial"
+                                Grid.Row="1"
+                                Height="37"
+                                Margin="0,10,0,10"
+                                Padding="15,0,0,0"
+                                materialDesign:HintAssist.Hint="Серия пасспорта:"
+                                materialDesign:HintAssist.IsFloating="False"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                Background="White"
+                                Text="{Binding Passport.Serial}" />
+                            <TextBox
+                                x:Name="TBNumber"
+                                Grid.Row="1"
+                                Height="37"
+                                Margin="0,10,0,10"
+                                Padding="15,0,0,0"
+                                materialDesign:HintAssist.Hint="Номер пасспорта:"
+                                materialDesign:HintAssist.IsFloating="False"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                Background="White"
+                                Text="{Binding Passport.Number}" />
+                            <Grid
+                                Grid.Row="1"
+                                Margin="0,10,0,10"
+                                Background="White">
+                                <Border BorderBrush="#FFA6A6A6" BorderThickness="2" />
+                                <DatePicker
+                                    x:Name="TbDate"
+                                    Padding="16,0"
+                                    materialDesign:HintAssist.Hint="День рождения:"
+                                    materialDesign:HintAssist.IsFloating="False"
+                                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
+                                    BorderBrush="#FFA6A6A6"
+                                    BorderThickness="2"
+                                    DisplayDate="10/10/2001"
+                                    Foreground="Black"
+                                    IsEnabled="True"
+                                    SelectedDate="{Binding BirthDate, TargetNullValue=01/01/2001}" />
+                            </Grid>
+                            <TextBox
+                                x:Name="TbSNILS"
+                                Grid.Row="1"
+                                Height="Auto"
+                                Margin="0,10,0,10"
+                                materialDesign:HintAssist.Hint="СНИЛС:"
+                                materialDesign:HintAssist.IsFloating="False"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                Background="White"
+                                Text="{Binding SNILS}" />
+
+                        </StackPanel>
+
+                        <StackPanel
+                            x:Name="SPur"
+                            Margin="20,0"
+                            Visibility="Collapsed"
+                            IsEnabled="{Binding IsChecked, ElementName=RBur}"
+                            Orientation="Vertical">
+                            <TextBox
+                                x:Name="TbLNameUR"
+                                Grid.Row="1"
+                                Height="37"
+                                Margin="0,10,0,10"
+                                Padding="15,0,0,0"
+                                materialDesign:HintAssist.Hint="Фамилия:"
+                                materialDesign:HintAssist.IsFloating="False"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                Background="White"
+                                Text="{Binding LName}" />
+                            <TextBox
+                                x:Name="TbFnameUR"
+                                Grid.Row="1"
+                                Height="37"
+                                Margin="0,10,0,10"
+                                Padding="15,0,0,0"
+                                materialDesign:HintAssist.Hint="Имя"
+                                materialDesign:HintAssist.IsFloating="False"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                Background="White"
+                                Text="{Binding FName}" />
+                            <TextBox
+                                x:Name="TbMnameUR"
+                                Grid.Row="1"
+                                Height="37"
+                                Margin="0,10,0,10"
+                                Padding="15,0,0,0"
+                                materialDesign:HintAssist.Hint="Отчество"
+                                materialDesign:HintAssist.IsFloating="False"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                Background="White"
+                                Text="{Binding MName}" />
+                            <TextBox
+                                x:Name="TbPhoneUR"
+                                Grid.Row="1"
+                                Height="37"
+                                Margin="0,10,0,10"
+                                Padding="15,0,0,0"
+                                materialDesign:HintAssist.Hint="Номер телефона:"
+                                materialDesign:HintAssist.IsFloating="False"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                Background="White"
+                                Text="{Binding Phone}" />
+                            <TextBox
+                                x:Name="TbNameUR"
+                                Grid.Row="1"
+                                Height="37"
+                                Margin="0,10,0,10"
+                                Padding="15,0,0,0"
+                                materialDesign:HintAssist.Hint="Название компании:"
+                                materialDesign:HintAssist.IsFloating="False"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                Background="White"
+                                Text="{Binding Company.Name}" />
+                            <TextBox
+                                x:Name="TbEmailUR"
+                                Grid.Row="1"
+                                Height="37"
+                                Margin="0,10,0,10"
+                                Padding="15,0,0,0"
+                                materialDesign:HintAssist.Hint="Email:"
+                                materialDesign:HintAssist.IsFloating="False"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                Background="White"
+                                Text="{Binding Email}" />
+                            <TextBox
+                                x:Name="TbSerialUR"
+                                Grid.Row="1"
+                                Height="37"
+                                Margin="0,10,0,10"
+                                Padding="15,0,0,0"
+                                materialDesign:HintAssist.Hint="Серия пасспорта:"
+                                materialDesign:HintAssist.IsFloating="False"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                Background="White"
+                                Text="{Binding Passport.Serial}" />
+                            <TextBox
+                                x:Name="TBNumberUR"
+                                Grid.Row="1"
+                                Height="37"
+                                Margin="0,10,0,10"
+                                Padding="15,0,0,0"
+                                materialDesign:HintAssist.Hint="Номер пасспорта:"
+                                materialDesign:HintAssist.IsFloating="False"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                Background="White"
+                                Text="{Binding Passport.Number}" />
+
+                            <TextBox
+                                x:Name="TBAddressUR"
+                                Grid.Row="1"
+                                Height="Auto"
+                                Margin="0,10,0,10"
+                                materialDesign:HintAssist.Hint="Адрес:"
+                                materialDesign:HintAssist.IsFloating="False"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                Background="White"
+                                Text="{Binding Adress.Name}" />
+                            <TextBox
+                                x:Name="TBINN"
+                                Grid.Row="1"
+                                Height="Auto"
+                                Margin="0,10,0,10"
+                                materialDesign:HintAssist.Hint="ИНН:"
+                                materialDesign:HintAssist.IsFloating="False"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                Background="White"
+                                Text="{Binding Company.INN}" />
+                            <TextBox
+                                x:Name="TBBIKUR"
+                                Grid.Row="1"
+                                Height="Auto"
+                                Margin="0,10,0,10"
+                                materialDesign:HintAssist.Hint="БИК:"
+                                materialDesign:HintAssist.IsFloating="False"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                Background="White"
+                                Text="{Binding Company.BIK}" />
+                            <TextBox
+                                x:Name="TBRSUR"
+                                Grid.Row="1"
+                                Height="Auto"
+                                Margin="0,10,0,10"
+                                materialDesign:HintAssist.Hint="Расчетный счет:"
+                                materialDesign:HintAssist.IsFloating="False"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                Background="White"
+                                Text="{Binding Company.R/s}" />
+
+                        </StackPanel>
+
+                    </UniformGrid>
+
+
+
+
+
                 </ScrollViewer>
 
             </Grid>
