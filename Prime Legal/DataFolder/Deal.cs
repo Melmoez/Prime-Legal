@@ -18,10 +18,8 @@ namespace Prime_Legal.DataFolder
         public int IdClient { get; set; }
         public Nullable<int> IdTypeDeal { get; set; }
         public Nullable<int> IdState { get; set; }
-        public Nullable<int> IdOwner { get; set; }
     
         public virtual Client Client { get; set; }
-        public virtual Client Client1 { get; set; }
         public virtual State State { get; set; }
         public virtual TypeDeal TypeDeal { get; set; }
     }

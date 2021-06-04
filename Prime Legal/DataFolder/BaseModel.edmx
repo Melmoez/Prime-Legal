@@ -48,7 +48,6 @@
           <Property Name="IdClient" Type="int" Nullable="false" />
           <Property Name="IdTypeDeal" Type="int" />
           <Property Name="IdState" Type="int" />
-          <Property Name="IdOwner" Type="int" />
         </EntityType>
         <EntityType Name="Passport">
           <Key>
@@ -213,18 +212,6 @@
             </Principal>
             <Dependent Role="Deal">
               <PropertyRef Name="IdClient" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Deal_Client1">
-          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
-          <End Role="Deal" Type="Self.Deal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Deal">
-              <PropertyRef Name="IdOwner" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -397,10 +384,6 @@
             <End Role="Client" EntitySet="Client" />
             <End Role="Deal" EntitySet="Deal" />
           </AssociationSet>
-          <AssociationSet Name="FK_Deal_Client1" Association="Self.FK_Deal_Client1">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="Deal" EntitySet="Deal" />
-          </AssociationSet>
           <AssociationSet Name="FK_Deal_State" Association="Self.FK_Deal_State">
             <End Role="State" EntitySet="State" />
             <End Role="Deal" EntitySet="Deal" />
@@ -480,7 +463,6 @@
           <NavigationProperty Name="Passport" Relationship="Self.FK_Client_Passport" FromRole="Client" ToRole="Passport" />
           <NavigationProperty Name="TypeClient" Relationship="Self.FK_Client_TypeClient" FromRole="Client" ToRole="TypeClient" />
           <NavigationProperty Name="Deal" Relationship="Self.FK_Deal_Client" FromRole="Client" ToRole="Deal" />
-          <NavigationProperty Name="Deal1" Relationship="Self.FK_Deal_Client1" FromRole="Client" ToRole="Deal" />
           <NavigationProperty Name="State" Relationship="Self.FK_State_Client" FromRole="Client" ToRole="State" />
         </EntityType>
         <EntityType Name="Company">
@@ -504,9 +486,7 @@
           <Property Name="IdClient" Type="Int32" Nullable="false" />
           <Property Name="IdTypeDeal" Type="Int32" />
           <Property Name="IdState" Type="Int32" />
-          <Property Name="IdOwner" Type="Int32" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Deal_Client" FromRole="Deal" ToRole="Client" />
-          <NavigationProperty Name="Client1" Relationship="Self.FK_Deal_Client1" FromRole="Deal" ToRole="Client" />
           <NavigationProperty Name="State" Relationship="Self.FK_Deal_State" FromRole="Deal" ToRole="State" />
           <NavigationProperty Name="TypeDeal" Relationship="Self.FK_Deal_TypeDeal" FromRole="Deal" ToRole="TypeDeal" />
         </EntityType>
@@ -708,18 +688,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Deal_Client1">
-          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
-          <End Role="Deal" Type="Self.Deal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Deal">
-              <PropertyRef Name="IdOwner" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_State_Client">
           <End Role="Client" Type="Self.Client" Multiplicity="1" />
           <End Role="State" Type="Self.State" Multiplicity="*" />
@@ -881,10 +849,6 @@
             <End Role="Client" EntitySet="Client" />
             <End Role="Deal" EntitySet="Deal" />
           </AssociationSet>
-          <AssociationSet Name="FK_Deal_Client1" Association="Self.FK_Deal_Client1">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="Deal" EntitySet="Deal" />
-          </AssociationSet>
           <AssociationSet Name="FK_State_Client" Association="Self.FK_State_Client">
             <End Role="Client" EntitySet="Client" />
             <End Role="State" EntitySet="State" />
@@ -977,7 +941,6 @@
                 <ScalarProperty Name="IdClient" ColumnName="IdClient" />
                 <ScalarProperty Name="IdTypeDeal" ColumnName="IdTypeDeal" />
                 <ScalarProperty Name="IdState" ColumnName="IdState" />
-                <ScalarProperty Name="IdOwner" ColumnName="IdOwner" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

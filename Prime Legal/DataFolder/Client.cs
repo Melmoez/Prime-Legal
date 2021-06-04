@@ -18,7 +18,6 @@ namespace Prime_Legal.DataFolder
         public Client()
         {
             this.Deal = new HashSet<Deal>();
-            this.Deal1 = new HashSet<Deal>();
             this.State = new HashSet<State>();
         }
     
@@ -40,8 +39,6 @@ namespace Prime_Legal.DataFolder
         public virtual TypeClient TypeClient { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Deal> Deal { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Deal> Deal1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<State> State { get; set; }
     }

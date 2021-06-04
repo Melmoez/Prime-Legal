@@ -24,18 +24,24 @@ namespace Prime_Legal.Pages.Deal
     public partial class PageDealList : Page
     {
         Client client;
+        DataFolder.Deal deal;
+        State state;
         public PageDealList()
         {
             
-            InitializeComponent(); 
+            InitializeComponent();
+            CBTypeState.ItemsSource = DataClass.GetContext().TypeState.ToArray();
+            CBRenovation.ItemsSource = DataClass.GetContext().Renovation.ToArray();
+            CBRoom.ItemsSource = DataClass.GetContext().Room.ToArray();
+            CBTypeDeal.ItemsSource = DataClass.GetContext().TypeDeal.ToArray();
             LBUser.ItemsSource = DataClass.GetContext().Client.ToList();
             
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            //client = new Client();
-            //DataContext = client;
+            state = new DataFolder.State();
+            DataContext = state;
         }
 
         private void BtnEdit_Click_1(object sender, RoutedEventArgs e)
@@ -122,6 +128,47 @@ namespace Prime_Legal.Pages.Deal
         {
             SPfiz.Visibility = Visibility.Collapsed;
             SPur.Visibility = Visibility.Visible;
+        }
+
+        private void BtnNextState_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string a;
+                string b;
+                DataClass.GetContext().Adress.Add(new Adress() { Name = TBAdressState.Text });
+                state.IdOwner = 2;
+                a = TBCadastrialNumber.Text;
+                b = CBTypeDeal.Text;
+                MessageBox.Show(b);
+                DataClass.GetContext().State.Add(state);
+                DataClass.GetContext().SaveChanges();
+
+                DataClass.context = null;
+                deal = new DataFolder.Deal();
+                DataContext = deal;
+                deal.IdState = DataClass.GetContext().State.FirstOrDefault(s => s.CadastralNumber == a).Id;
+                deal.IdClient = 2;
+                deal.IdTypeDeal = DataClass.GetContext().TypeDeal.FirstOrDefault(td => td.Name == b).Id;
+                DataClass.GetContext().Deal.Add(deal);
+                DataClass.GetContext().SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                string result = "";
+                foreach (DbEntityValidationResult validationError in ex.EntityValidationErrors)
+                {
+                    
+                    result += ("Object: " + validationError.Entry.Entity.ToString());
+                    result += $"\n";
+                    foreach (DbValidationError err in validationError.ValidationErrors)
+                    {
+                        result += (err.ErrorMessage + $"\n");
+                    }
+                }
+                MessageBox.Show(result);
+            }
+
         }
     }
 }
