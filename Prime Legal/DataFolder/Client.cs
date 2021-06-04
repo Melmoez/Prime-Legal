@@ -32,7 +32,7 @@ namespace Prime_Legal.DataFolder
         public string SNILS { get; set; }
         public Nullable<System.DateTime> BirthDate { get; set; }
         public Nullable<int> IdTypeClient { get; set; }
-        public int IdCompany { get; set; }
+        public Nullable<int> IdCompany { get; set; }
     
         public virtual Company Company { get; set; }
         public virtual Passport Passport { get; set; }

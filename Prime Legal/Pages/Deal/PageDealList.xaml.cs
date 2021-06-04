@@ -26,6 +26,8 @@ namespace Prime_Legal.Pages.Deal
         Client client;
         DataFolder.Deal deal;
         State state;
+        string c;
+        string d;
         public PageDealList()
         {
             
@@ -40,8 +42,10 @@ namespace Prime_Legal.Pages.Deal
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            state = new DataFolder.State();
-            DataContext = state;
+            client = new DataFolder.Client();
+            DataContext = client;
+            gridAddClient.Visibility = Visibility.Visible;
+            gridAddState.Visibility = Visibility.Collapsed;
         }
 
         private void BtnEdit_Click_1(object sender, RoutedEventArgs e)
@@ -81,7 +85,11 @@ namespace Prime_Legal.Pages.Deal
                     client.IdTypeClient = 1;
                     DataClass.GetContext().Passport.Add(new Passport() { Serial = TbSerial.Text, Number = TBNumber.Text });
                     DataClass.GetContext().Client.Add(client);
+                    c = TbFname.Text;
+                    d = TbLName.Text;
                     DataClass.GetContext().SaveChanges();
+                    gridAddClient.Visibility = Visibility.Collapsed;
+                    gridAddState.Visibility = Visibility.Visible;
                 }
                 else if (RBur.IsChecked == true)
                 {
@@ -89,11 +97,16 @@ namespace Prime_Legal.Pages.Deal
                     DataClass.GetContext().Passport.Add(new Passport() { Serial = TbSerial.Text, Number = TBNumber.Text });
                     DataClass.GetContext().Adress.Add(new Adress() { Name = TBAddressUR.Text });
                     DataClass.GetContext().Company.Add(new Company() { Name = TbNameUR.Text, BIK = Convert.ToInt64(TBBIKUR.Text), INN = Convert.ToInt64(TBINNUR.Text), RS = Convert.ToInt64(TBRSUR.Text) });
-                    
+                    c = TbFnameUR.Text;
+                    d = TbLNameUR.Text;
                     DataClass.GetContext().Client.Add(client);
                     DataClass.GetContext().SaveChanges();
+                    gridAddClient.Visibility = Visibility.Collapsed;
+                    gridAddState.Visibility = Visibility.Visible;
                 }
                 LBUser.ItemsSource = DataClass.GetContext().Deal.ToList();
+                state = new DataFolder.State();
+                DataContext = state;
             }
             catch (DbEntityValidationException ex)
             {
@@ -137,7 +150,7 @@ namespace Prime_Legal.Pages.Deal
                 string a;
                 string b;
                 DataClass.GetContext().Adress.Add(new Adress() { Name = TBAdressState.Text });
-                state.IdOwner = 2;
+                state.IdOwner = DataClass.GetContext().Client.FirstOrDefault(clie => clie.FName == c && clie.LName == d).Id; ;
                 a = TBCadastrialNumber.Text;
                 b = CBTypeDeal.Text;
                 MessageBox.Show(b);
@@ -148,7 +161,7 @@ namespace Prime_Legal.Pages.Deal
                 deal = new DataFolder.Deal();
                 DataContext = deal;
                 deal.IdState = DataClass.GetContext().State.FirstOrDefault(s => s.CadastralNumber == a).Id;
-                deal.IdClient = 2;
+                deal.IdClient = DataClass.GetContext().Client.FirstOrDefault(clie => clie.FName == c && clie.LName == d).Id;
                 deal.IdTypeDeal = DataClass.GetContext().TypeDeal.FirstOrDefault(td => td.Name == b).Id;
                 DataClass.GetContext().Deal.Add(deal);
                 DataClass.GetContext().SaveChanges();

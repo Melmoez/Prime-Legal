@@ -27,7 +27,7 @@
           <Property Name="SNILS" Type="nvarchar" MaxLength="13" />
           <Property Name="BirthDate" Type="date" />
           <Property Name="IdTypeClient" Type="int" />
-          <Property Name="IdCompany" Type="int" Nullable="false" />
+          <Property Name="IdCompany" Type="int" />
         </EntityType>
         <EntityType Name="Company">
           <Key>
@@ -156,7 +156,7 @@
           <Property Name="LastJoin" Type="datetime" />
         </EntityType>
         <Association Name="FK_Client_Company">
-          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
           <End Role="Client" Type="Self.Client" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Company">
@@ -458,7 +458,7 @@
           <Property Name="SNILS" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
           <Property Name="BirthDate" Type="DateTime" Precision="0" />
           <Property Name="IdTypeClient" Type="Int32" />
-          <Property Name="IdCompany" Type="Int32" Nullable="false" />
+          <Property Name="IdCompany" Type="Int32" />
           <NavigationProperty Name="Company" Relationship="Self.FK_Client_Company" FromRole="Client" ToRole="Company" />
           <NavigationProperty Name="Passport" Relationship="Self.FK_Client_Passport" FromRole="Client" ToRole="Passport" />
           <NavigationProperty Name="TypeClient" Relationship="Self.FK_Client_TypeClient" FromRole="Client" ToRole="TypeClient" />
@@ -641,7 +641,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Client_Company">
-          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
           <End Role="Client" Type="Self.Client" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Company">

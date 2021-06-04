@@ -68,7 +68,7 @@
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="BtnCancel">
             <BeginStoryboard x:Name="CloseMenu_BeginStoryboard" Storyboard="{StaticResource CloseMenu}" />
         </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="BtnSave">
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="BtnNextState">
             <BeginStoryboard x:Name="CloseMenu_BeginStoryboard1" Storyboard="{StaticResource CloseMenu}" />
         </EventTrigger>
     </Page.Triggers>
@@ -280,7 +280,7 @@
                 </TransformGroup>
             </Grid.RenderTransform>
 
-            <Grid x:Name="gridAddClient" Visibility="Collapsed">
+            <Grid x:Name="gridAddClient" Visibility="Visible">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="8*" />
                     <RowDefinition Height="26*" />
@@ -637,7 +637,7 @@
 
 
 
-            <Grid x:Name="gridAddState" Visibility="Visible">
+            <Grid x:Name="gridAddState" Visibility="Collapsed">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="8*" />
                     <RowDefinition Height="26*" />
@@ -741,7 +741,7 @@
                         x:Name="BtnNextState"
                         Margin="5"
                         
-                        Content="Далее" Click="BtnNextState_Click" />
+                        Content="Сохранить" Click="BtnNextState_Click" />
                 </UniformGrid>
             </Grid>
         </Grid>

@@ -170,7 +170,10 @@
                                 Style="{DynamicResource LblMain}" />
                         </DockPanel>
                     </ListBoxItem>
-                    <ListBoxItem Padding="0,0,0,10" materialDesign:HintAssist.Hint="Сделки" Selected="ListBoxItem_Selected_2">
+                    <ListBoxItem
+                        Padding="0,0,0,10"
+                        materialDesign:HintAssist.Hint="Сделки"
+                        Selected="ListBoxItem_Selected_2">
                         <DockPanel LastChildFill="True">
                             <materialDesign:PackIcon
                                 Width="61"
