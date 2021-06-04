@@ -36,7 +36,7 @@ namespace Prime_Legal.Pages.Deal
             CBRenovation.ItemsSource = DataClass.GetContext().Renovation.ToArray();
             CBRoom.ItemsSource = DataClass.GetContext().Room.ToArray();
             CBTypeDeal.ItemsSource = DataClass.GetContext().TypeDeal.ToArray();
-            LBUser.ItemsSource = DataClass.GetContext().Client.ToList();
+            LBUser.ItemsSource = DataClass.GetContext().Deal.ToList();
             
         }
 
