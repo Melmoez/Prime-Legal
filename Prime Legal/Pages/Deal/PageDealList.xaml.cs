@@ -36,6 +36,9 @@ namespace Prime_Legal.Pages.Deal
             CBRenovation.ItemsSource = DataClass.GetContext().Renovation.ToArray();
             CBRoom.ItemsSource = DataClass.GetContext().Room.ToArray();
             CBTypeDeal.ItemsSource = DataClass.GetContext().TypeDeal.ToArray();
+            CBRenovationEdit.ItemsSource = DataClass.GetContext().Renovation.ToArray();
+            CBRoomEdit.ItemsSource = DataClass.GetContext().Room.ToArray();
+            CBTypeDealEdit.ItemsSource = DataClass.GetContext().TypeDeal.ToArray();
             LBUser.ItemsSource = DataClass.GetContext().Deal.ToList();
             
         }
@@ -50,18 +53,18 @@ namespace Prime_Legal.Pages.Deal
 
         private void BtnEdit_Click_1(object sender, RoutedEventArgs e)
         {
-            Client clienter = LBUser.SelectedItem as Client;
-            DataContext = clienter;
-            if (clienter.IdTypeClient == 1)
+            DataFolder.Deal dealer = LBUser.SelectedItem as DataFolder.Deal;
+            DataContext = dealer;
+            if (dealer.Client.IdTypeClient == 1)
             {
                 TbDate.SelectedDate = DateTime.Now;
-                SPfiz.Visibility = Visibility.Visible;
-                SPur.Visibility = Visibility.Collapsed;
+                SPfizEdit.Visibility = Visibility.Visible;
+                SPurEdit.Visibility = Visibility.Collapsed;
             }
-            else if (clienter.IdTypeClient == 2)
+            else if (dealer.Client.IdTypeClient == 2)
             {
-                SPfiz.Visibility = Visibility.Collapsed;
-                SPur.Visibility = Visibility.Visible;
+                SPfizEdit.Visibility = Visibility.Collapsed;
+                SPurEdit.Visibility = Visibility.Visible;
             }
         }
 
