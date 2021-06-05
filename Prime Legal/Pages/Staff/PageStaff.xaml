@@ -155,9 +155,7 @@
             <Button
                 x:Name="BtnDelete"
                 Grid.Row="1"
-                Width="50"
-                HorizontalAlignment="Right"
-                Click="BtnDelete_Click">
+                Click="BtnDelete_Click" Margin="17,66,0,66">
                 <materialDesign:PackIcon
                     Width="38"
                     Height="29"
@@ -179,12 +177,21 @@
                             <ColumnDefinition Width="500" />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <materialDesign:PackIcon
-                            Width="125"
-                            Height="125"
-                            Margin="30,0"
-                            VerticalAlignment="Center"
-                            Kind="User" />
+                        <Image
+                            x:Name="ImgPhoto"
+                            Width="150"
+                            Margin="10"
+                            Height="150">
+                            <Image.Source>
+                                <Binding Path="Photo">
+                                    <Binding.TargetNullValue>
+                                        <ImageSource>
+                                            /resources/Defoltuser.jpeg
+                                        </ImageSource>
+                                    </Binding.TargetNullValue>
+                                </Binding>
+                            </Image.Source>
+                        </Image>
                         <Border
                             Grid.ColumnSpan="5"
                             BorderBrush="Black"
@@ -384,6 +391,10 @@
                     Background="White"
                     DisplayMemberPath="Login"
                     SelectedItem="{Binding User}" />
+                <Button
+                        x:Name="BtnLoadImage"
+                        Click="BtnLoadImage_Click"
+                        Content="Добавить аватар сотрудника" />
             </StackPanel>
             <UniformGrid Grid.Row="2" Columns="2">
                 <Button
@@ -416,7 +427,7 @@
                 <RowDefinition Height="11*" />
             </Grid.RowDefinitions>
             <Rectangle Grid.RowSpan="3" Fill="#3D3D3D" />
-            <Label Content="Изменить пользователя" Style="{DynamicResource LblMain}" />
+            <Label Content="Изменить данные сотрудника" Style="{DynamicResource LblMain}" />
             <StackPanel Grid.Row="1" Margin="20">
                 <TextBox
                     x:Name="TbLNameEdit"
@@ -505,6 +516,10 @@
                     Background="White"
                     DisplayMemberPath="Login"
                     SelectedItem="{Binding User}" />
+                <Button
+                        x:Name="BtnLoadImageEdit" Margin="10"
+                        Click="BtnLoadImageEdit_Click"
+                        Content="Добавить аватар сотрудника" />
             </StackPanel>
             <UniformGrid Grid.Row="2" Columns="2">
                 <Button

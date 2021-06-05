@@ -27,6 +27,7 @@ namespace Prime_Legal.Pages.Deal
         Client client;
         string fn;
         DataFolder.Deal deal;
+        DataFolder.Deal dealing;
         State state;
         string c;
         string d;
@@ -62,6 +63,7 @@ namespace Prime_Legal.Pages.Deal
 
                 DataFolder.Deal dealer = LBUser.SelectedItem as DataFolder.Deal;
                 DataContext = dealer;
+                dealing = dealer;
                 if (dealer.Client.IdTypeClient == 1)
                 {
                     TbDate.SelectedDate = DateTime.Now;
@@ -82,11 +84,14 @@ namespace Prime_Legal.Pages.Deal
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            DataClass.GetContext().Deal.Remove(LBUser.SelectedItem as DataFolder.Deal);
+            DataClass.GetContext().SaveChanges();
+            LBUser.ItemsSource = DataClass.GetContext().Deal.ToList();
         }
 
         private void BtnSaveEdit_Click(object sender, RoutedEventArgs e)
         {
+            dealing.Photo = File.ReadAllBytes(fn);
             DataClass.GetContext().SaveChanges();
             LBUser.ItemsSource = DataClass.GetContext().Deal.ToList();
         }
@@ -181,6 +186,7 @@ namespace Prime_Legal.Pages.Deal
                 deal.IdTypeDeal = DataClass.GetContext().TypeDeal.FirstOrDefault(td => td.Name == b).Id;
                 DataClass.GetContext().Deal.Add(deal);
                 DataClass.GetContext().SaveChanges();
+                LBUser.ItemsSource = DataClass.GetContext().Deal.ToList();
             }
             catch (DbEntityValidationException ex)
             {
@@ -201,6 +207,31 @@ namespace Prime_Legal.Pages.Deal
         }
 
         private void BtnLoadImage_Click(object sender, RoutedEventArgs e)
+        {
+            // Create OpenFileDialog 
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
+
+
+            // Set filter for file extension and default file extension 
+            dlg.DefaultExt = ".png";
+            dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+
+            // Get the selected file name and display in a TextBox 
+            if (result == true)
+            {
+                // Open document 
+                string filename = dlg.FileName;
+                fn = filename;
+            }
+        }
+
+        private void BtnLoadImageEdit_Click(object sender, RoutedEventArgs e)
         {
             // Create OpenFileDialog 
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();

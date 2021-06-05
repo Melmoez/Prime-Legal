@@ -1,6 +1,7 @@
 ﻿using Prime_Legal.Services;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,8 @@ namespace Prime_Legal.Pages.Staff
     public partial class PageStaff : Page
     {
         DataFolder.Staff staffer;
+        DataFolder.Staff staffing;
+        string fn;
         public PageStaff()
         {
             InitializeComponent();
@@ -40,7 +43,9 @@ namespace Prime_Legal.Pages.Staff
 
         private void BtnEdit_Click_1(object sender, RoutedEventArgs e)
         {
-            DataContext = LBUser.SelectedItem as DataFolder.Staff;
+
+            staffing = LBUser.SelectedItem as DataFolder.Staff;
+            DataContext = staffing;
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
@@ -54,6 +59,7 @@ namespace Prime_Legal.Pages.Staff
         {
             try
             {
+                staffing.Photo = File.ReadAllBytes(fn);
                 DataClass.GetContext().SaveChanges();
                 LBUser.ItemsSource = DataClass.GetContext().Staff.ToArray();
             }
@@ -65,14 +71,44 @@ namespace Prime_Legal.Pages.Staff
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            DataClass.context.Passport.Add(new DataFolder.Passport() 
+            DataClass.context.Passport.Add(new DataFolder.Passport()
             {
                 Serial = TbSerial.Text,
-                Number = TBNumber.Text 
+                Number = TBNumber.Text
             });
+            staffer.Photo = File.ReadAllBytes(fn);
             DataClass.GetContext().Staff.Add(staffer);
             DataClass.GetContext().SaveChanges();
             LBUser.ItemsSource = DataClass.GetContext().Staff.ToArray();
+        }
+
+        private void BtnLoadImageEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnLoadImage_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
+
+
+            // Set filter for file extension and default file extension 
+            dlg.DefaultExt = ".png";
+            dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+
+            // Get the selected file name and display in a TextBox 
+            if (result == true)
+            {
+                // Open document 
+                string filename = dlg.FileName;
+                fn = filename;
+            }
         }
     }
 }

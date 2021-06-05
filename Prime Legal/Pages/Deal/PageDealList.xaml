@@ -119,7 +119,7 @@
             Content="Для просмотра подробной информации, необходимо два раза нажать на запись"
             Style="{DynamicResource LblDefoltWhite}">
             <Label.Foreground>
-                <SolidColorBrush Opacity="0.4" Color="#FF3F3F3F" />
+                <SolidColorBrush Opacity="0.8" Color="#FF01549A" />
             </Label.Foreground>
         </Label>
         <UniformGrid
@@ -182,6 +182,7 @@
                         <Image
                             x:Name="ImgPhoto"
                             Width="150"
+                            Margin="10"
                             Height="150">
                             <Image.Source>
                                 <Binding Path="Photo">
@@ -770,7 +771,7 @@
             Grid.RowSpan="3"
             Margin="1850,0,-376,0"
             RenderTransformOrigin="0.5,0.5"
-            Visibility="Collapsed">
+            Visibility="Visible">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform />
@@ -996,6 +997,10 @@
                             Background="White"
                             DisplayMemberPath="Name"
                             SelectedItem="{Binding TypeDeal}" />
+                        <Button
+                        x:Name="BtnLoadImageEdit"
+                        Click="BtnLoadImageEdit_Click"
+                        Content="Добавить план квартиры" />
                     </StackPanel>
 
                     <StackPanel
@@ -1144,7 +1149,10 @@
                             materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                             Background="White"
                             Text="{Binding Company.RS}" />
-
+                        <Button
+                        x:Name="BtnLoadImageUrEdit"
+                        Click="BtnLoadImageEdit_Click"
+                        Content="Добавить план квартиры" />
                     </StackPanel>
 
                 </UniformGrid>

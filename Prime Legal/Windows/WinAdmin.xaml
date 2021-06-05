@@ -120,7 +120,7 @@
                     Margin="0,30,0,0"
                     SelectedIndex="0">
                     <ListBoxItem
-                        Padding="0,0,0,10"
+                        Padding="0,5,0,5"
                         materialDesign:HintAssist.Hint="Пользователи"
                         Selected="ListBoxItem_Selected">
                         <DockPanel LastChildFill="True">
@@ -138,7 +138,7 @@
                         </DockPanel>
                     </ListBoxItem>
                     <ListBoxItem
-                        Padding="0,0,0,10"
+                        Padding="0,5,0,5"
                         materialDesign:HintAssist.Hint="Сотрудники"
                         Selected="ListBoxItem_Selected_1">
                         <DockPanel LastChildFill="True">
@@ -155,23 +155,8 @@
                                 Style="{DynamicResource LblMain}" />
                         </DockPanel>
                     </ListBoxItem>
-                    <ListBoxItem Padding="0,0,0,10" materialDesign:HintAssist.Hint="Клиенты">
-                        <DockPanel LastChildFill="True">
-                            <materialDesign:PackIcon
-                                Width="61"
-                                Height="61"
-                                DockPanel.Dock="Left"
-                                Foreground="#E3E3E3"
-                                Kind="Mood" />
-                            <Label
-                                Margin="20,0,0,0"
-                                HorizontalContentAlignment="Left"
-                                Content="Клиенты"
-                                Style="{DynamicResource LblMain}" />
-                        </DockPanel>
-                    </ListBoxItem>
                     <ListBoxItem
-                        Padding="0,0,0,10"
+                        Padding="0,5,0,5"
                         materialDesign:HintAssist.Hint="Сделки"
                         Selected="ListBoxItem_Selected_2">
                         <DockPanel LastChildFill="True">
@@ -191,7 +176,7 @@
 
                 </ListBox>
                 <ListBox x:Name="LBMenuProgram" Grid.Row="3">
-                    <ListBoxItem Padding="0,0,0,10" materialDesign:HintAssist.Hint="О программе">
+                    <ListBoxItem Padding="0,5,0,5" materialDesign:HintAssist.Hint="О программе">
                         <DockPanel LastChildFill="True">
                             <materialDesign:PackIcon
                                 Width="61"
@@ -206,7 +191,7 @@
                                 Style="{DynamicResource LblMain}" />
                         </DockPanel>
                     </ListBoxItem>
-                    <ListBoxItem Padding="0,0,0,10" materialDesign:HintAssist.Hint="Сменить пользователя">
+                    <ListBoxItem Padding="1,0,0,10" materialDesign:HintAssist.Hint="Сменить пользователя">
                         <DockPanel LastChildFill="True">
                             <materialDesign:PackIcon
                                 Width="61"
