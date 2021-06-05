@@ -3,6 +3,7 @@ using Prime_Legal.Services;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,13 +25,15 @@ namespace Prime_Legal.Pages.Deal
     public partial class PageDealList : Page
     {
         Client client;
+        string fn;
         DataFolder.Deal deal;
         State state;
         string c;
         string d;
+
         public PageDealList()
         {
-            
+
             InitializeComponent();
             CBTypeState.ItemsSource = DataClass.GetContext().TypeState.ToArray();
             CBRenovation.ItemsSource = DataClass.GetContext().Renovation.ToArray();
@@ -40,7 +43,7 @@ namespace Prime_Legal.Pages.Deal
             CBRoomEdit.ItemsSource = DataClass.GetContext().Room.ToArray();
             CBTypeDealEdit.ItemsSource = DataClass.GetContext().TypeDeal.ToArray();
             LBUser.ItemsSource = DataClass.GetContext().Deal.ToList();
-            
+
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -53,18 +56,27 @@ namespace Prime_Legal.Pages.Deal
 
         private void BtnEdit_Click_1(object sender, RoutedEventArgs e)
         {
-            DataFolder.Deal dealer = LBUser.SelectedItem as DataFolder.Deal;
-            DataContext = dealer;
-            if (dealer.Client.IdTypeClient == 1)
+            try
             {
-                TbDate.SelectedDate = DateTime.Now;
-                SPfizEdit.Visibility = Visibility.Visible;
-                SPurEdit.Visibility = Visibility.Collapsed;
+
+
+                DataFolder.Deal dealer = LBUser.SelectedItem as DataFolder.Deal;
+                DataContext = dealer;
+                if (dealer.Client.IdTypeClient == 1)
+                {
+                    TbDate.SelectedDate = DateTime.Now;
+                    SPfizEdit.Visibility = Visibility.Visible;
+                    SPurEdit.Visibility = Visibility.Collapsed;
+                }
+                else if (dealer.Client.IdTypeClient == 2)
+                {
+                    SPfizEdit.Visibility = Visibility.Collapsed;
+                    SPurEdit.Visibility = Visibility.Visible;
+                }
             }
-            else if (dealer.Client.IdTypeClient == 2)
+            catch (Exception ex)
             {
-                SPfizEdit.Visibility = Visibility.Collapsed;
-                SPurEdit.Visibility = Visibility.Visible;
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -126,7 +138,7 @@ namespace Prime_Legal.Pages.Deal
                 }
                 MessageBox.Show(result);
             }
-           
+
         }
         private void RBfiz_Checked(object sender, RoutedEventArgs e)
         {
@@ -163,6 +175,7 @@ namespace Prime_Legal.Pages.Deal
                 DataClass.context = null;
                 deal = new DataFolder.Deal();
                 DataContext = deal;
+                deal.Photo = File.ReadAllBytes(fn);
                 deal.IdState = DataClass.GetContext().State.FirstOrDefault(s => s.CadastralNumber == a).Id;
                 deal.IdClient = DataClass.GetContext().Client.FirstOrDefault(clie => clie.FName == c && clie.LName == d).Id;
                 deal.IdTypeDeal = DataClass.GetContext().TypeDeal.FirstOrDefault(td => td.Name == b).Id;
@@ -174,7 +187,7 @@ namespace Prime_Legal.Pages.Deal
                 string result = "";
                 foreach (DbEntityValidationResult validationError in ex.EntityValidationErrors)
                 {
-                    
+
                     result += ("Object: " + validationError.Entry.Entity.ToString());
                     result += $"\n";
                     foreach (DbValidationError err in validationError.ValidationErrors)
@@ -185,6 +198,31 @@ namespace Prime_Legal.Pages.Deal
                 MessageBox.Show(result);
             }
 
+        }
+
+        private void BtnLoadImage_Click(object sender, RoutedEventArgs e)
+        {
+            // Create OpenFileDialog 
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
+
+
+            // Set filter for file extension and default file extension 
+            dlg.DefaultExt = ".png";
+            dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+
+            // Get the selected file name and display in a TextBox 
+            if (result == true)
+            {
+                // Open document 
+                string filename = dlg.FileName;
+                fn = filename;
+            }
         }
     }
 }

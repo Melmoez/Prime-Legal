@@ -18,6 +18,7 @@ namespace Prime_Legal.DataFolder
         public int IdClient { get; set; }
         public Nullable<int> IdTypeDeal { get; set; }
         public Nullable<int> IdState { get; set; }
+        public byte[] Photo { get; set; }
     
         public virtual Client Client { get; set; }
         public virtual State State { get; set; }

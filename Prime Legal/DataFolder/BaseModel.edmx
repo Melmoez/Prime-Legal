@@ -48,6 +48,7 @@
           <Property Name="IdClient" Type="int" Nullable="false" />
           <Property Name="IdTypeDeal" Type="int" />
           <Property Name="IdState" Type="int" />
+          <Property Name="Photo" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Passport">
           <Key>
@@ -99,6 +100,7 @@
           <Property Name="Salary" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="IdPosition" Type="int" Nullable="false" />
           <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="Photo" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="State">
           <Key>
@@ -486,6 +488,7 @@
           <Property Name="IdClient" Type="Int32" Nullable="false" />
           <Property Name="IdTypeDeal" Type="Int32" />
           <Property Name="IdState" Type="Int32" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Deal_Client" FromRole="Deal" ToRole="Client" />
           <NavigationProperty Name="State" Relationship="Self.FK_Deal_State" FromRole="Deal" ToRole="State" />
           <NavigationProperty Name="TypeDeal" Relationship="Self.FK_Deal_TypeDeal" FromRole="Deal" ToRole="TypeDeal" />
@@ -546,6 +549,7 @@
           <Property Name="Salary" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="IdPosition" Type="Int32" Nullable="false" />
           <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Passport" Relationship="Self.FK_Staff_Passport" FromRole="Staff" ToRole="Passport" />
           <NavigationProperty Name="Position" Relationship="Self.FK_Staff_Position" FromRole="Staff" ToRole="Position" />
           <NavigationProperty Name="User" Relationship="Self.FK_Staff_User" FromRole="Staff" ToRole="User" />
@@ -941,6 +945,7 @@
                 <ScalarProperty Name="IdClient" ColumnName="IdClient" />
                 <ScalarProperty Name="IdTypeDeal" ColumnName="IdTypeDeal" />
                 <ScalarProperty Name="IdState" ColumnName="IdState" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -998,6 +1003,7 @@
                 <ScalarProperty Name="Salary" ColumnName="Salary" />
                 <ScalarProperty Name="IdPosition" ColumnName="IdPosition" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

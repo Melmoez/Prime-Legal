@@ -262,6 +262,10 @@
     <Resource Include="Resources\Logo.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Defolt.jpg" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
     <Content Include="DataFolder\BaseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BaseModel.edmx</DependentUpon>

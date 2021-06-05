@@ -24,6 +24,7 @@ namespace Prime_Legal.DataFolder
         public decimal Salary { get; set; }
         public int IdPosition { get; set; }
         public int IdUser { get; set; }
+        public byte[] Photo { get; set; }
     
         public virtual Passport Passport { get; set; }
         public virtual Position Position { get; set; }

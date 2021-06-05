@@ -179,12 +179,20 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <materialDesign:PackIcon
-                            Width="125"
-                            Height="125"
-                            Margin="30,0"
-                            VerticalAlignment="Center"
-                            Kind="User" />
+                        <Image
+                            x:Name="ImgPhoto"
+                            Width="150"
+                            Height="150">
+                            <Image.Source>
+                                <Binding Path="Photo">
+                                    <Binding.TargetNullValue>
+                                        <ImageSource>
+                                            /Resources/Defolt.jpg
+                                        </ImageSource>
+                                    </Binding.TargetNullValue>
+                                </Binding>
+                            </Image.Source>
+                        </Image>
                         <Border
                             Grid.ColumnSpan="5"
                             BorderBrush="Black"
@@ -270,7 +278,7 @@
             Grid.RowSpan="3"
             Margin="1850,0,-376,0"
             RenderTransformOrigin="0.5,0.5"
-            Visibility="Collapsed">
+            Visibility="Visible">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform />
@@ -645,17 +653,17 @@
                 </Grid.RowDefinitions>
                 <Rectangle Grid.RowSpan="3" Fill="#3D3D3D" />
                 <Label Content="Добавить новую недвижимость" Style="{DynamicResource LblMain}" />
-                <StackPanel Grid.Row="1" Margin="20 0">
+                <StackPanel Grid.Row="1" Margin="20,0">
                     <ComboBox
-                    x:Name="CBTypeState"
-                    Margin="0 10 0 10"
-                    materialDesign:HintAssist.Hint="Тип недвижимости:"
-                    materialDesign:HintAssist.IsFloating="False"
-                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                    materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
-                    Background="White"
-                    DisplayMemberPath="Name"
-                    SelectedItem="{Binding TypeState}" />
+                        x:Name="CBTypeState"
+                        Margin="0,10,0,10"
+                        materialDesign:HintAssist.Hint="Тип недвижимости:"
+                        materialDesign:HintAssist.IsFloating="False"
+                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                        materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
+                        Background="White"
+                        DisplayMemberPath="Name"
+                        SelectedItem="{Binding TypeState}" />
                     <TextBox
                         x:Name="TBAdressState"
                         Grid.Row="1"
@@ -701,42 +709,45 @@
                         Background="White"
                         Text="{Binding TotalArea}" />
                     <ComboBox
-                    x:Name="CBRenovation"
-                    Margin="0 10 0 10"
-                    materialDesign:HintAssist.Hint="Ремонт:"
-                    materialDesign:HintAssist.IsFloating="False"
-                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                    materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
-                    Background="White"
-                    DisplayMemberPath="Name"
-                    SelectedItem="{Binding Renovation}" />
+                        x:Name="CBRenovation"
+                        Margin="0,10,0,10"
+                        materialDesign:HintAssist.Hint="Ремонт:"
+                        materialDesign:HintAssist.IsFloating="False"
+                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                        materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
+                        Background="White"
+                        DisplayMemberPath="Name"
+                        SelectedItem="{Binding Renovation}" />
                     <ComboBox
-                    x:Name="CBRoom"
-                    Margin="0 10 0 10"
-                    materialDesign:HintAssist.Hint="Количество комнат:"
-                    materialDesign:HintAssist.IsFloating="False"
-                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                    materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
-                    Background="White"
-                    DisplayMemberPath="Name"
-                    SelectedItem="{Binding Room}" />
+                        x:Name="CBRoom"
+                        Margin="0,10,0,10"
+                        materialDesign:HintAssist.Hint="Количество комнат:"
+                        materialDesign:HintAssist.IsFloating="False"
+                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                        materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
+                        Background="White"
+                        DisplayMemberPath="Name"
+                        SelectedItem="{Binding Room}" />
                     <ComboBox
-                    x:Name="CBTypeDeal"
-                    Margin="0 10 0 10"
-                    materialDesign:HintAssist.Hint="Тип сделки:"
-                    materialDesign:HintAssist.IsFloating="False"
-                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                    materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
-                    Background="White"
-                    DisplayMemberPath="Name"
-                    SelectedItem="{Binding Deal.TypeDeal.Name}" />
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                        x:Name="CBTypeDeal"
+                        Margin="0,10,0,10"
+                        materialDesign:HintAssist.Hint="Тип сделки:"
+                        materialDesign:HintAssist.IsFloating="False"
+                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                        materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
+                        Background="White"
+                        DisplayMemberPath="Name"
+                        SelectedItem="{Binding Deal.TypeDeal.Name}" />
+                    <Button
+                        x:Name="BtnLoadImage"
+                        Click="BtnLoadImage_Click"
+                        Content="Добавить план квартиры" />
+
+
+
+
+
+
                 </StackPanel>
 
                 <UniformGrid Grid.Row="2" Columns="2">
@@ -747,19 +758,19 @@
                     <Button
                         x:Name="BtnNextState"
                         Margin="5"
-                        
-                        Content="Сохранить" Click="BtnNextState_Click" />
+                        Click="BtnNextState_Click"
+                        Content="Сохранить" />
                 </UniformGrid>
             </Grid>
         </Grid>
-        
-        
+
+
         <Grid
             x:Name="GridEditUser"
             Grid.RowSpan="3"
             Margin="1850,0,-376,0"
             RenderTransformOrigin="0.5,0.5"
-            Visibility="Visible">
+            Visibility="Collapsed">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform />
@@ -774,7 +785,7 @@
                 <RowDefinition Height="11*" />
             </Grid.RowDefinitions>
             <Rectangle Grid.RowSpan="3" Fill="#3D3D3D" />
-            <Label Content="Изменить пользователя" Style="{DynamicResource LblMain}" />
+            <Label Content="Изменить сделку" Style="{DynamicResource LblMain}" />
             <ScrollViewer
                 Grid.Row="1"
                 BorderBrush="White"
@@ -912,79 +923,79 @@
                             Background="White"
                             Text="{Binding Client.SNILS}" />
                         <TextBox
-                        x:Name="TBAdressStateEdit"
-                        Grid.Row="1"
-                        Height="Auto"
-                        Margin="0,10,0,10"
-                        materialDesign:HintAssist.Hint="Адрес:"
-                        materialDesign:HintAssist.IsFloating="False"
-                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                        materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                        Background="White"
-                        Text="{Binding State.Adress.Name}" />
+                            x:Name="TBAdressStateEdit"
+                            Grid.Row="1"
+                            Height="Auto"
+                            Margin="0,10,0,10"
+                            materialDesign:HintAssist.Hint="Адрес:"
+                            materialDesign:HintAssist.IsFloating="False"
+                            materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                            materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                            Background="White"
+                            Text="{Binding State.Adress.Name}" />
                         <TextBox
-                        x:Name="TBCadastrialNumberEdit"
-                        Grid.Row="1"
-                        Height="Auto"
-                        Margin="0,10,0,10"
-                        materialDesign:HintAssist.Hint="Кадастровый номер:"
-                        materialDesign:HintAssist.IsFloating="False"
-                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                        materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                        Background="White"
-                        Text="{Binding State.CadastralNumber}" />
+                            x:Name="TBCadastrialNumberEdit"
+                            Grid.Row="1"
+                            Height="Auto"
+                            Margin="0,10,0,10"
+                            materialDesign:HintAssist.Hint="Кадастровый номер:"
+                            materialDesign:HintAssist.IsFloating="False"
+                            materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                            materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                            Background="White"
+                            Text="{Binding State.CadastralNumber}" />
                         <TextBox
-                        x:Name="TBFloorEdit"
-                        Grid.Row="1"
-                        Height="Auto"
-                        Margin="0,10,0,10"
-                        materialDesign:HintAssist.Hint="Этаж:"
-                        materialDesign:HintAssist.IsFloating="False"
-                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                        materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                        Background="White"
-                        Text="{Binding State.Floor}" />
+                            x:Name="TBFloorEdit"
+                            Grid.Row="1"
+                            Height="Auto"
+                            Margin="0,10,0,10"
+                            materialDesign:HintAssist.Hint="Этаж:"
+                            materialDesign:HintAssist.IsFloating="False"
+                            materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                            materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                            Background="White"
+                            Text="{Binding State.Floor}" />
                         <TextBox
-                        x:Name="TBTotalAreaEdit"
-                        Grid.Row="1"
-                        Height="Auto"
-                        Margin="0,10,0,10"
-                        materialDesign:HintAssist.Hint="Общая площадь:"
-                        materialDesign:HintAssist.IsFloating="False"
-                        materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                        materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                        Background="White"
-                        Text="{Binding State.TotalArea}" />
+                            x:Name="TBTotalAreaEdit"
+                            Grid.Row="1"
+                            Height="Auto"
+                            Margin="0,10,0,10"
+                            materialDesign:HintAssist.Hint="Общая площадь:"
+                            materialDesign:HintAssist.IsFloating="False"
+                            materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                            materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                            Background="White"
+                            Text="{Binding State.TotalArea}" />
                         <ComboBox
-                    x:Name="CBRenovationEdit"
-                    Margin="0 10 0 10"
-                    materialDesign:HintAssist.Hint="Ремонт:"
-                    materialDesign:HintAssist.IsFloating="False"
-                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                    materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
-                    Background="White"
-                    DisplayMemberPath="Name"
-                    SelectedItem="{Binding State.Renovation}" />
+                            x:Name="CBRenovationEdit"
+                            Margin="0,10,0,10"
+                            materialDesign:HintAssist.Hint="Ремонт:"
+                            materialDesign:HintAssist.IsFloating="False"
+                            materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
+                            Background="White"
+                            DisplayMemberPath="Name"
+                            SelectedItem="{Binding State.Renovation}" />
                         <ComboBox
-                    x:Name="CBRoomEdit"
-                    Margin="0 10 0 10"
-                    materialDesign:HintAssist.Hint="Количество комнат:"
-                    materialDesign:HintAssist.IsFloating="False"
-                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                    materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
-                    Background="White"
-                    DisplayMemberPath="Name"
-                    SelectedItem="{Binding State.Room}" />
+                            x:Name="CBRoomEdit"
+                            Margin="0,10,0,10"
+                            materialDesign:HintAssist.Hint="Количество комнат:"
+                            materialDesign:HintAssist.IsFloating="False"
+                            materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
+                            Background="White"
+                            DisplayMemberPath="Name"
+                            SelectedItem="{Binding State.Room}" />
                         <ComboBox
-                    x:Name="CBTypeDealEdit"
-                    Margin="0 10 0 10"
-                    materialDesign:HintAssist.Hint="Тип сделки:"
-                    materialDesign:HintAssist.IsFloating="False"
-                    materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
-                    materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
-                    Background="White"
-                    DisplayMemberPath="Name"
-                    SelectedItem="{Binding TypeDeal}" />
+                            x:Name="CBTypeDealEdit"
+                            Margin="0,10,0,10"
+                            materialDesign:HintAssist.Hint="Тип сделки:"
+                            materialDesign:HintAssist.IsFloating="False"
+                            materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
+                            materialDesign:TextFieldAssist.UnderlineBrush="#FFA6A6A6"
+                            Background="White"
+                            DisplayMemberPath="Name"
+                            SelectedItem="{Binding TypeDeal}" />
                     </StackPanel>
 
                     <StackPanel
