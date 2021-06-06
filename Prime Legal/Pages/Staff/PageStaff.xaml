@@ -524,6 +524,9 @@
                     Content="Сохранить" />
             </UniformGrid>
         </Grid>
-        <Label FontSize="16" x:Name="lblText" Content=""/>
+        <Label
+            x:Name="lblText"
+            Content=""
+            FontSize="16" />
     </Grid>
 </Page>

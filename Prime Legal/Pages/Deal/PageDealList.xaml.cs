@@ -256,5 +256,11 @@ namespace Prime_Legal.Pages.Deal
                 fn = filename;
             }
         }
+
+        private void LBUser_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ActionWindowClass.MainFrame.NavigationService.RemoveBackEntry();
+            ActionWindowClass.MainFrame.Navigate(new PageDealDouble(LBUser.SelectedItem as DataFolder.Deal));
+        }
     }
 }
