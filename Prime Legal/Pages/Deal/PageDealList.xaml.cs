@@ -185,6 +185,7 @@ namespace Prime_Legal.Pages.Deal
                 deal.IdClient = DataClass.GetContext().Client.FirstOrDefault(clie => clie.FName == c && clie.LName == d).Id;
                 deal.IdTypeDeal = DataClass.GetContext().TypeDeal.FirstOrDefault(td => td.Name == b).Id;
                 deal.IdStaff = ActionWindowClass.staffUser.Id;
+                deal.DateCreate = DateTime.Now;
                 DataClass.GetContext().Deal.Add(deal);
                 DataClass.GetContext().SaveChanges();
                 LBUser.ItemsSource = DataClass.GetContext().Deal.ToList();

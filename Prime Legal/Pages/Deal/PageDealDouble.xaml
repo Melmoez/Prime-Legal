@@ -13,16 +13,16 @@
     <Grid>
         <Grid Width="1500" Height="800">
             <Grid.RowDefinitions>
-                <RowDefinition Height="739*"/>
-                <RowDefinition Height="61*"/>
+                <RowDefinition Height="739*" />
+                <RowDefinition Height="61*" />
             </Grid.RowDefinitions>
-            
+
             <Rectangle
+                Grid.RowSpan="2"
                 Fill="#3D3D3D"
                 RadiusX="20"
-                RadiusY="20"
-                Grid.RowSpan="2"/>
-            
+                RadiusY="20" />
+
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="601*" />
@@ -39,184 +39,328 @@
                         </Binding>
                     </Image.Source>
                 </Image>
-                <ScrollViewer Grid.Column="1" Margin="20 20 0 0">
+                <ScrollViewer Grid.Column="1" Margin="20,20,0,0">
 
 
                     <StackPanel Grid.Column="1" Orientation="Vertical">
-                        <Label x:Name="lblFIOClient" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblFIOClient"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="ФИО клиента: " />
-                                <Run Text="{Binding Client.LName}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding Client.LName}"
+                                    TextDecorations="Underline" />
                                 <Run Text=" " />
-                                <Run Text="{Binding Client.FName}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding Client.FName}"
+                                    TextDecorations="Underline" />
                                 <Run Text=" " />
-                                <Run Text="{Binding Client.MName}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding Client.MName}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
 
-                        <Label x:Name="lblINNClient" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblINNClient"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="ИНН клиента: " />
-                                <Run Text="{Binding Client.INN}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding Client.INN}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
 
-                        <Label x:Name="lblPhoneClient" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblPhoneClient"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="Телефон клиента: " />
-                                <Run Text="{Binding Client.Phone}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding Client.Phone}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
 
-                        <Label x:Name="lblEmailClient" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblEmailClient"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="Email клиента: " />
-                                <Run Text="{Binding Client.Email, TargetNullValue=Отсутствует}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding Client.Email}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
 
-                        <Label x:Name="lblPassportClient" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblPassportClient"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="Пасспорт клиента: " />
-                                <Run Text="{Binding Client.Passport.Serial, TargetNullValue=Отсутствует}" TextDecorations="Underline" />
-                                <Run Text=" "  />
-                                <Run Text="{Binding Client.Passport.Number, TargetNullValue=Отсутствует}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding Client.Passport.Serial}"
+                                    TextDecorations="Underline" />
+                                <Run Text=" " />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding Client.Passport.Number}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
 
-                        <Label x:Name="lblSNILSClient" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblSNILSClient"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="СНИЛС клиента: " />
-                                <Run Text="{Binding Client.SNILS, TargetNullValue=Отсутствует}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding Client.SNILS}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
 
-                        <Label x:Name="lblDataClient" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblDataClient"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="Дата рождения клиента: " />
-                                <Run Text="{Binding Client.BirthDate, TargetNullValue=Отсутствует, StringFormat=dd.MM.yyyy}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding Client.BirthDate, StringFormat=dd.MM.yyyy}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
 
-                        <Label x:Name="lblTypeClient" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblTypeClient"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="Тип клиента: " />
-                                <Run Text="{Binding Client.TypeClient.Name, TargetNullValue=Отсутствует}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding Client.TypeClient.Name}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
 
-                        <Label x:Name="lblCompanyNameClient" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblCompanyNameClient"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="Название компании клиента: " />
-                                <Run Text="{Binding Client.Company.Name, TargetNullValue=Отсутствует}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding Client.Company.Name}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
 
-                        <Label x:Name="lblCompanyAdressClient" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblCompanyAdressClient"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="Адресс компании клиента: " />
-                                <Run Text="{Binding Client.Company.Adress.Name, TargetNullValue=Отсутствует}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding Client.Company.Adress.Name}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
 
-                        <Label x:Name="lblCompanyRSClient" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblCompanyRSClient"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="Расчетный счет компании клиента: " />
-                                <Run Text="{Binding Client.Company.RS, TargetNullValue=Отсутствует}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding Client.Company.RS}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
 
-                        <Label x:Name="lblCompanyBIKClient" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblCompanyBIKClient"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="БИК компании клиента: " />
-                                <Run Text="{Binding Client.Company.BIK, TargetNullValue=Отсутствует}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding Client.Company.BIK}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
 
-                        <Label x:Name="lblCompanyINNClient" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblCompanyINNClient"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="ИНН компании клиента: " />
-                                <Run Text="{Binding Client.Company.INN, TargetNullValue=Отсутствует}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding Client.Company.INN}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
 
-                        <Label x:Name="lblTypeState" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblTypeState"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="Тип недвижимости: " />
-                                <Run Text="{Binding State.TypeState.Name, TargetNullValue=Отсутствует}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding State.TypeState.Name}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
 
-                        <Label x:Name="lblAddressState" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblAdressState"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="Адресс недвижимости: " />
-                                <Run Text="{Binding State.Adress.Name, TargetNullValue=Отсутствует}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding State.Adress.Name}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
 
-                        <Label x:Name="lblAdressState" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
-                            <TextBlock>
-                                <Run Text="Адресс недвижимости: " />
-                                <Run Text="{Binding State.Adress.Name, TargetNullValue=Отсутствует}" TextDecorations="Underline" />
-                            </TextBlock>
-                        </Label>
-
-                        <Label x:Name="lblCadastrstalNumberState" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblCadastrstalNumberState"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="Кадастровый номер: " />
-                                <Run Text="{Binding State.CadastralNumber, TargetNullValue=Отсутствует}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding State.CadastralNumber}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
 
-                        <Label x:Name="lblFloorState" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblFloorState"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="Этаж: " />
-                                <Run Text="{Binding State.CadastralNumber, TargetNullValue=Отсутствует}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding State.Floor}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
 
-                        <Label x:Name="lblTotalAreaState" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblTotalAreaState"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="Общая площадь: " />
-                                <Run Text="{Binding State.TotalArea, TargetNullValue=Отсутствует}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding State.TotalArea}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
 
-                        <Label x:Name="lblRenovationState" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblRenovationState"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="Ремонт: " />
-                                <Run Text="{Binding State.Renovation.Name, TargetNullValue=Отсутствует}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding State.Renovation.Name}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
 
-                        <Label x:Name="lblRoomState" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblRoomState"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="Количество комнат: " />
-                                <Run Text="{Binding State.Room.Name, TargetNullValue=Отсутствует}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding State.Room.Name}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
 
-                        <Label x:Name="lblFIOStaff" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblFIOStaff"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="ФИО сотружника: " />
-                                <Run Text="{Binding Staff.LName}" TextDecorations="Underline" />
-                                <Run Text=" "  />
-                                <Run Text="{Binding Staff.FName}" TextDecorations="Underline" />
-                                <Run Text=" "  />
-                                <Run Text="{Binding Staff.MName}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding Staff.LName}"
+                                    TextDecorations="Underline" />
+                                <Run Text=" " />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding Staff.FName}"
+                                    TextDecorations="Underline" />
+                                <Run Text=" " />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding Staff.MName}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
 
-                        <Label x:Name="lblDateCreate" Margin="0,20,0,0" Style="{DynamicResource LblDefoltWhite1}">
+                        <Label
+                            x:Name="lblDateCreate"
+                            Margin="0,20,0,0"
+                            Style="{DynamicResource LblDefoltWhite1}">
                             <TextBlock>
                                 <Run Text="Дата создания: " />
-                                <Run Text="{Binding DateCreate, TargetNullValue=Отсутствует, StringFormat=dd.MM.yyyy}" TextDecorations="Underline" />
+                                <Run
+                                    FontWeight="Bold"
+                                    Text="{Binding DateCreate, StringFormat=dd.MM.yyyy}"
+                                    TextDecorations="Underline" />
                             </TextBlock>
                         </Label>
                     </StackPanel>
                 </ScrollViewer>
             </Grid>
-            <Button Grid.Row="1" Width="200" Content="Назад" Click="Button_Click"/>
+            <Button
+                Grid.Row="1"
+                Width="200"
+                Click="Button_Click"
+                Content="Назад" />
         </Grid>
 
     </Grid>

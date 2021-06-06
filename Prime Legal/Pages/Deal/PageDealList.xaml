@@ -165,7 +165,10 @@
             </Button>
         </UniformGrid>
 
-        <ListView x:Name="LBUser" Grid.Row="2" MouseDoubleClick="LBUser_MouseDoubleClick">
+        <ListView
+            x:Name="LBUser"
+            Grid.Row="2"
+            MouseDoubleClick="LBUser_MouseDoubleClick">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid
@@ -254,7 +257,7 @@
                             </Label>
                             <Label Margin="10">
                                 <TextBlock Text="Дата создания: ">
-                                    <Run FontWeight="Bold" Text="{Binding DateCreate, StringFormat=dd.MM.yyyy}"/>
+                                    <Run FontWeight="Bold" Text="{Binding DateCreate, StringFormat=dd.MM.yyyy}" />
                                 </TextBlock>
                             </Label>
                         </StackPanel>

@@ -57,8 +57,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Number" Type="nvarchar" MaxLength="4" Nullable="false" />
-          <Property Name="Serial" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="Serial" Type="nvarchar" MaxLength="4" Nullable="false" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
@@ -518,8 +518,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Serial" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Number" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Serial" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Client_Passport" FromRole="Passport" ToRole="Client" />
           <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_Passport" FromRole="Passport" ToRole="Staff" />
         </EntityType>
