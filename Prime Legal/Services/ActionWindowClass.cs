@@ -32,5 +32,7 @@ namespace Prime_Legal.Services
         public static Frame MainFrame { get; set; }
         public static User UserTransition { get; set; }
         public static Window CurrentWindow { get; set; }
+
+        public static Staff staffUser { get; set; }
     }
 }

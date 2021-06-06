@@ -151,6 +151,9 @@
     <Compile Include="Pages\Authorization\PageEmailInput.xaml.cs">
       <DependentUpon>PageEmailInput.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Deal\PageDealDouble.xaml.cs">
+      <DependentUpon>PageDealDouble.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Deal\PageDealList.xaml.cs">
       <DependentUpon>PageDealList.xaml</DependentUpon>
     </Compile>
@@ -218,6 +221,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Authorization\PageEmailInput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Deal\PageDealDouble.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

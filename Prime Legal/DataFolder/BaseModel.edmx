@@ -50,6 +50,7 @@
           <Property Name="IdState" Type="int" />
           <Property Name="Photo" Type="varbinary(max)" />
           <Property Name="DateCreate" Type="date" />
+          <Property Name="IdStaff" Type="int" />
         </EntityType>
         <EntityType Name="Passport">
           <Key>
@@ -215,6 +216,18 @@
             </Principal>
             <Dependent Role="Deal">
               <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deal_Staff">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+          <End Role="Deal" Type="Self.Deal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deal">
+              <PropertyRef Name="IdStaff" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -387,6 +400,10 @@
             <End Role="Client" EntitySet="Client" />
             <End Role="Deal" EntitySet="Deal" />
           </AssociationSet>
+          <AssociationSet Name="FK_Deal_Staff" Association="Self.FK_Deal_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="Deal" EntitySet="Deal" />
+          </AssociationSet>
           <AssociationSet Name="FK_Deal_State" Association="Self.FK_Deal_State">
             <End Role="State" EntitySet="State" />
             <End Role="Deal" EntitySet="Deal" />
@@ -493,6 +510,8 @@
           <NavigationProperty Name="State" Relationship="Self.FK_Deal_State" FromRole="Deal" ToRole="State" />
           <NavigationProperty Name="TypeDeal" Relationship="Self.FK_Deal_TypeDeal" FromRole="Deal" ToRole="TypeDeal" />
           <Property Name="DateCreate" Type="DateTime" Precision="0" />
+          <Property Name="IdStaff" Type="Int32" />
+          <NavigationProperty Name="Staff" Relationship="PrimeLegalEstateModel.FK_Deal_Staff" FromRole="Deal" ToRole="Staff" />
         </EntityType>
         <EntityType Name="Passport">
           <Key>
@@ -554,6 +573,7 @@
           <NavigationProperty Name="Passport" Relationship="Self.FK_Staff_Passport" FromRole="Staff" ToRole="Passport" />
           <NavigationProperty Name="Position" Relationship="Self.FK_Staff_Position" FromRole="Staff" ToRole="Position" />
           <NavigationProperty Name="User" Relationship="Self.FK_Staff_User" FromRole="Staff" ToRole="User" />
+          <NavigationProperty Name="Deal" Relationship="PrimeLegalEstateModel.FK_Deal_Staff" FromRole="Staff" ToRole="Deal" />
         </EntityType>
         <EntityType Name="State">
           <Key>
@@ -894,7 +914,23 @@
             <End Role="TypeState" EntitySet="TypeState" />
             <End Role="State" EntitySet="State" />
           </AssociationSet>
+          <AssociationSet Name="FK_Deal_Staff" Association="PrimeLegalEstateModel.FK_Deal_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="Deal" EntitySet="Deal" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Deal_Staff">
+          <End Type="PrimeLegalEstateModel.Staff" Role="Staff" Multiplicity="0..1" />
+          <End Type="PrimeLegalEstateModel.Deal" Role="Deal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deal">
+              <PropertyRef Name="IdStaff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -942,6 +978,7 @@
           <EntitySetMapping Name="Deal">
             <EntityTypeMapping TypeName="PrimeLegalEstateModel.Deal">
               <MappingFragment StoreEntitySet="Deal">
+                <ScalarProperty Name="IdStaff" ColumnName="IdStaff" />
                 <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdClient" ColumnName="IdClient" />

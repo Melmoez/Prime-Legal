@@ -14,6 +14,12 @@ namespace Prime_Legal.DataFolder
     
     public partial class Staff
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Staff()
+        {
+            this.Deal = new HashSet<Deal>();
+        }
+    
         public int Id { get; set; }
         public string MName { get; set; }
         public string FName { get; set; }
@@ -29,5 +35,7 @@ namespace Prime_Legal.DataFolder
         public virtual Passport Passport { get; set; }
         public virtual Position Position { get; set; }
         public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Deal> Deal { get; set; }
     }
 }

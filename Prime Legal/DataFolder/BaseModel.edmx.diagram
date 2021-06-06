@@ -37,6 +37,7 @@
         <AssociationConnector Association="PrimeLegalEstateModel.FK_State_Room" ManuallyRouted="false" />
         <AssociationConnector Association="PrimeLegalEstateModel.FK_Staff_User" ManuallyRouted="false" />
         <AssociationConnector Association="PrimeLegalEstateModel.FK_State_TypeState" ManuallyRouted="false" />
+        <AssociationConnector Association="PrimeLegalEstateModel.FK_Deal_Staff" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

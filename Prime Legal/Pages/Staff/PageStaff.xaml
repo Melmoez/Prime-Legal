@@ -111,17 +111,6 @@
                 SelectedItem="{Binding Role}" />
             <Button x:Name="BtnFilter" Content="Фильтр" />
         </UniformGrid>
-        <Label
-            Grid.Row="1"
-            Margin="0,0,50,0"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
-            Content="Для просмотра подробной информации, необходимо два раза нажать на запись"
-            Style="{DynamicResource LblDefoltWhite}">
-            <Label.Foreground>
-                <SolidColorBrush Opacity="0.4" Color="#FF3F3F3F" />
-            </Label.Foreground>
-        </Label>
         <UniformGrid
             Grid.Row="1"
             Width="200"
@@ -155,7 +144,8 @@
             <Button
                 x:Name="BtnDelete"
                 Grid.Row="1"
-                Click="BtnDelete_Click" Margin="17,66,0,66">
+                Margin="17,66,0,66"
+                Click="BtnDelete_Click">
                 <materialDesign:PackIcon
                     Width="38"
                     Height="29"
@@ -180,8 +170,8 @@
                         <Image
                             x:Name="ImgPhoto"
                             Width="150"
-                            Margin="10"
-                            Height="150">
+                            Height="150"
+                            Margin="10">
                             <Image.Source>
                                 <Binding Path="Photo">
                                     <Binding.TargetNullValue>
@@ -392,9 +382,9 @@
                     DisplayMemberPath="Login"
                     SelectedItem="{Binding User}" />
                 <Button
-                        x:Name="BtnLoadImage"
-                        Click="BtnLoadImage_Click"
-                        Content="Добавить аватар сотрудника" />
+                    x:Name="BtnLoadImage"
+                    Click="BtnLoadImage_Click"
+                    Content="Добавить аватар сотрудника" />
             </StackPanel>
             <UniformGrid Grid.Row="2" Columns="2">
                 <Button
@@ -517,9 +507,10 @@
                     DisplayMemberPath="Login"
                     SelectedItem="{Binding User}" />
                 <Button
-                        x:Name="BtnLoadImageEdit" Margin="10"
-                        Click="BtnLoadImageEdit_Click"
-                        Content="Добавить аватар сотрудника" />
+                    x:Name="BtnLoadImageEdit"
+                    Margin="10"
+                    Click="BtnLoadImageEdit_Click"
+                    Content="Добавить аватар сотрудника" />
             </StackPanel>
             <UniformGrid Grid.Row="2" Columns="2">
                 <Button
@@ -533,5 +524,6 @@
                     Content="Сохранить" />
             </UniformGrid>
         </Grid>
+        <Label FontSize="16" x:Name="lblText" Content=""/>
     </Grid>
 </Page>

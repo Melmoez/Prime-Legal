@@ -69,8 +69,10 @@ namespace Prime_Legal.Pages.Authorization
                     switch (user.IdRole)
                     {
                         case 1:
+                            ActionWindowClass.staffUser = DataClass.GetContext().Staff.FirstOrDefault(s => s.IdUser == user.Id);
                             new WinAdmin().Show();
                             winAuth.Close();
+                            
                             break;
                     }
                 }

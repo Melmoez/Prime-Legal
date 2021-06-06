@@ -182,8 +182,8 @@
                         <Image
                             x:Name="ImgPhoto"
                             Width="150"
-                            Margin="10"
-                            Height="150">
+                            Height="150"
+                            Margin="10">
                             <Image.Source>
                                 <Binding Path="Photo">
                                     <Binding.TargetNullValue>
@@ -253,10 +253,8 @@
                                 </TextBlock>
                             </Label>
                             <Label Margin="10">
-                                <TextBlock Text="Пасспорт: ">
-                                    <Run FontWeight="Bold" Text="{Binding Client.Passport.Number}" />
-                                    <Run Text=" " />
-                                    <Run FontWeight="Bold" Text="{Binding Client.Passport.Serial}" />
+                                <TextBlock Text="Дата создания: ">
+                                    <Run FontWeight="Bold" Text="{Binding DateCreate, StringFormat=dd.MM.yyyy}"/>
                                 </TextBlock>
                             </Label>
                         </StackPanel>
@@ -998,9 +996,9 @@
                             DisplayMemberPath="Name"
                             SelectedItem="{Binding TypeDeal}" />
                         <Button
-                        x:Name="BtnLoadImageEdit"
-                        Click="BtnLoadImageEdit_Click"
-                        Content="Добавить план квартиры" />
+                            x:Name="BtnLoadImageEdit"
+                            Click="BtnLoadImageEdit_Click"
+                            Content="Добавить план квартиры" />
                     </StackPanel>
 
                     <StackPanel
@@ -1150,9 +1148,9 @@
                             Background="White"
                             Text="{Binding Company.RS}" />
                         <Button
-                        x:Name="BtnLoadImageUrEdit"
-                        Click="BtnLoadImageEdit_Click"
-                        Content="Добавить план квартиры" />
+                            x:Name="BtnLoadImageUrEdit"
+                            Click="BtnLoadImageEdit_Click"
+                            Content="Добавить план квартиры" />
                     </StackPanel>
 
                 </UniformGrid>

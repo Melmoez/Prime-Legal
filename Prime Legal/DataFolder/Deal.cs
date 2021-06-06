@@ -20,9 +20,11 @@ namespace Prime_Legal.DataFolder
         public Nullable<int> IdState { get; set; }
         public byte[] Photo { get; set; }
         public Nullable<System.DateTime> DateCreate { get; set; }
+        public Nullable<int> IdStaff { get; set; }
     
         public virtual Client Client { get; set; }
         public virtual State State { get; set; }
         public virtual TypeDeal TypeDeal { get; set; }
+        public virtual Staff Staff { get; set; }
     }
 }

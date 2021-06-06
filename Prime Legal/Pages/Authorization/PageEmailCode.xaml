@@ -32,7 +32,7 @@
             Orientation="Horizontal">
             <Image Width="65" />
             <Label
-                Width="291"
+                Width="300"
                 Content="Восстановление аккаунта"
                 DockPanel.Dock="Left"
                 Style="{DynamicResource LblMain}" />
