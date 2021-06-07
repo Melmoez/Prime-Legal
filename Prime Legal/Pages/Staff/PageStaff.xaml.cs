@@ -33,6 +33,8 @@ namespace Prime_Legal.Pages.Staff
             CBUser.ItemsSource = DataClass.GetContext().User.ToList();
             CBPositionEdit.ItemsSource = DataClass.GetContext().Position.ToList();
             CBUserEdit.ItemsSource = DataClass.GetContext().User.ToList();
+            TbDate.SelectedDate = DateTime.Now;
+            TbDateEdit.SelectedDate = DateTime.Now;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -43,23 +45,46 @@ namespace Prime_Legal.Pages.Staff
 
         private void BtnEdit_Click_1(object sender, RoutedEventArgs e)
         {
-
-            staffing = LBUser.SelectedItem as DataFolder.Staff;
-            DataContext = staffing;
+            try
+            {
+                staffing = LBUser.SelectedItem as DataFolder.Staff;
+                DataContext = staffing;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            DataClass.GetContext().Staff.Remove(LBUser.SelectedItem as DataFolder.Staff);
-            DataClass.GetContext().SaveChanges();
-            LBUser.ItemsSource = DataClass.GetContext().Staff.ToArray();
+            try
+            {
+
+                DataClass.GetContext().Staff.Remove(LBUser.SelectedItem as DataFolder.Staff);
+                DataClass.GetContext().SaveChanges();
+                LBUser.ItemsSource = DataClass.GetContext().Staff.ToArray();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void BtnSaveEdit_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                try
+                {
+
                 staffing.Photo = File.ReadAllBytes(fn);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Фотографиия не была выбрана, Установленна стандартраная фотография", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information) ;
+                }
                 DataClass.GetContext().SaveChanges();
                 LBUser.ItemsSource = DataClass.GetContext().Staff.ToArray();
             }
@@ -71,20 +96,56 @@ namespace Prime_Legal.Pages.Staff
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+
+            
             DataClass.context.Passport.Add(new DataFolder.Passport()
             {
                 Serial = TbSerial.Text,
                 Number = TBNumber.Text
             });
-            staffer.Photo = File.ReadAllBytes(fn);
+                try
+                {
+                    staffer.Photo = File.ReadAllBytes(fn);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Фотографиия не была выбрана, Установленна стандартраная фотография", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            
             DataClass.GetContext().Staff.Add(staffer);
             DataClass.GetContext().SaveChanges();
             LBUser.ItemsSource = DataClass.GetContext().Staff.ToArray();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Вы не выбрали аватар для сотрудника. Сотруднику будет присвоен стандартный аватар", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void BtnLoadImageEdit_Click(object sender, RoutedEventArgs e)
         {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
+
+
+            // Set filter for file extension and default file extension 
+            dlg.DefaultExt = ".png";
+            dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+
+            // Get the selected file name and display in a TextBox 
+            if (result == true)
+            {
+                // Open document 
+                string filename = dlg.FileName;
+                fn = filename;
+            }
         }
 
         private void BtnLoadImage_Click(object sender, RoutedEventArgs e)
@@ -109,6 +170,11 @@ namespace Prime_Legal.Pages.Staff
                 string filename = dlg.FileName;
                 fn = filename;
             }
+        }
+
+        private void TbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            LBUser.ItemsSource = DataClass.GetContext().Staff.Where(s => string.Concat(s.LName," ", s.FName, " ", s.MName).StartsWith(TbSearch.Text)).ToArray();
         }
     }
 }

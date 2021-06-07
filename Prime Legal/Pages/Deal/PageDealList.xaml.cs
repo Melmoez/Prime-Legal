@@ -91,7 +91,15 @@ namespace Prime_Legal.Pages.Deal
 
         private void BtnSaveEdit_Click(object sender, RoutedEventArgs e)
         {
-            dealing.Photo = File.ReadAllBytes(fn);
+            try
+            {
+
+                dealing.Photo = File.ReadAllBytes(fn);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             DataClass.GetContext().SaveChanges();
             LBUser.ItemsSource = DataClass.GetContext().Deal.ToList();
         }
@@ -182,7 +190,15 @@ namespace Prime_Legal.Pages.Deal
                 DataClass.context = null;
                 deal = new DataFolder.Deal();
                 DataContext = deal;
-                deal.Photo = File.ReadAllBytes(fn);
+                try
+                {
+                    deal.Photo = File.ReadAllBytes(fn);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Фотографиия не была выбрана, Установленна стандартраная фотография", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+
                 deal.IdState = DataClass.GetContext().State.FirstOrDefault(s => s.CadastralNumber == a).Id;
                 deal.IdClient = DataClass.GetContext().Client.FirstOrDefault(clie => clie.FName == c && clie.LName == d).Id;
                 deal.IdTypeDeal = DataClass.GetContext().TypeDeal.FirstOrDefault(td => td.Name == b).Id;
@@ -246,35 +262,26 @@ namespace Prime_Legal.Pages.Deal
 
         private void BtnLoadImageEdit_Click(object sender, RoutedEventArgs e)
         {
-            try
+            // Create OpenFileDialog 
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
+
+
+            // Set filter for file extension and default file extension 
+            dlg.DefaultExt = ".png";
+            dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+
+            // Get the selected file name and display in a TextBox 
+            if (result == true)
             {
-
-
-                // Create OpenFileDialog 
-                Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-
-
-
-                // Set filter for file extension and default file extension 
-                dlg.DefaultExt = ".png";
-                dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
-
-
-                // Display OpenFileDialog by calling ShowDialog method 
-                Nullable<bool> result = dlg.ShowDialog();
-
-
-                // Get the selected file name and display in a TextBox 
-                if (result == true)
-                {
-                    // Open document 
-                    string filename = dlg.FileName;
-                    fn = filename;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                // Open document 
+                string filename = dlg.FileName;
+                fn = filename;
             }
 
         }
@@ -283,6 +290,11 @@ namespace Prime_Legal.Pages.Deal
         {
             ActionWindowClass.MainFrame.NavigationService.RemoveBackEntry();
             ActionWindowClass.MainFrame.Navigate(new PageDealDouble(LBUser.SelectedItem as DataFolder.Deal));
+        }
+
+        private void TbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            LBUser.ItemsSource = DataClass.GetContext().Deal.Where(s => s.State.CadastralNumber.StartsWith(TbSearch.Text)).ToArray();
         }
     }
 }

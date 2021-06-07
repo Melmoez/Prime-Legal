@@ -30,7 +30,6 @@ namespace Prime_Legal.Pages.Users
             InitializeComponent();
             
             LBUser.ItemsSource = DataClass.GetContext().User.OrderBy(u => u.Login).ToArray();
-            Cbb.ItemsSource = DataClass.GetContext().Role.ToArray();
             CBRole.ItemsSource = DataClass.GetContext().Role.ToArray();
             CBRoleEdit.ItemsSource = DataClass.GetContext().Role.ToArray();
         }
@@ -40,7 +39,6 @@ namespace Prime_Legal.Pages.Users
             try
             {
                 DataClass.GetContext().User.Add(user);
-                MessageBox.Show(user.Login + user.Password + user.IdRole);
                 DataClass.GetContext().SaveChanges();
                 LBUser.ItemsSource = DataClass.GetContext().User.OrderBy(u => u.Login).ToArray();
             }
@@ -77,8 +75,16 @@ namespace Prime_Legal.Pages.Users
 
         private void BtnEdit_Click_1(object sender, RoutedEventArgs e)
         {
-            DataContext = LBUser.SelectedItem as User;
-            
+            try
+            {
+
+                DataContext = LBUser.SelectedItem as User;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void BtnSaveEdit_Click(object sender, RoutedEventArgs e)
@@ -98,5 +104,9 @@ namespace Prime_Legal.Pages.Users
             DataContext = user;
         }
 
+        private void TbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            LBUser.ItemsSource = DataClass.GetContext().User.OrderBy(u => u.Login).Where(u => u.Login.StartsWith(TbSearch.Text)).ToArray();
+        }
     }
 }
