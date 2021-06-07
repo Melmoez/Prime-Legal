@@ -113,12 +113,14 @@ namespace Prime_Legal.Pages.Deal
                 }
                 else if (RBur.IsChecked == true)
                 {
+                    Company company;
                     client.IdTypeClient = 2;
                     DataClass.GetContext().Passport.Add(new Passport() { Serial = TbSerial.Text, Number = TBNumber.Text });
                     DataClass.GetContext().Adress.Add(new Adress() { Name = TBAddressUR.Text });
-                    DataClass.GetContext().Company.Add(new Company() { Name = TbNameUR.Text, BIK = Convert.ToInt64(TBBIKUR.Text), INN = Convert.ToInt64(TBINNUR.Text), RS = Convert.ToInt64(TBRSUR.Text) });
+                    company = DataClass.GetContext().Company.Add(new Company() { Name = TbNameUR.Text, BIK = Convert.ToInt64(TBBIKUR.Text), INN = Convert.ToInt64(TBINNUR.Text), RS = Convert.ToInt64(TBRSUR.Text) });
                     c = TbFnameUR.Text;
                     d = TbLNameUR.Text;
+                    client.IdCompany = company.Id;
                     DataClass.GetContext().Client.Add(client);
                     DataClass.GetContext().SaveChanges();
                     gridAddClient.Visibility = Visibility.Collapsed;
@@ -210,52 +212,71 @@ namespace Prime_Legal.Pages.Deal
 
         private void BtnLoadImage_Click(object sender, RoutedEventArgs e)
         {
-            // Create OpenFileDialog 
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-
-
-
-            // Set filter for file extension and default file extension 
-            dlg.DefaultExt = ".png";
-            dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
-
-
-            // Display OpenFileDialog by calling ShowDialog method 
-            Nullable<bool> result = dlg.ShowDialog();
-
-
-            // Get the selected file name and display in a TextBox 
-            if (result == true)
+            try
             {
-                // Open document 
-                string filename = dlg.FileName;
-                fn = filename;
+
+
+                // Create OpenFileDialog 
+                Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
+
+
+                // Set filter for file extension and default file extension 
+                dlg.DefaultExt = ".png";
+                dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+
+
+                // Display OpenFileDialog by calling ShowDialog method 
+                Nullable<bool> result = dlg.ShowDialog();
+
+
+                // Get the selected file name and display in a TextBox 
+                if (result == true)
+                {
+                    // Open document 
+                    string filename = dlg.FileName;
+                    fn = filename;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void BtnLoadImageEdit_Click(object sender, RoutedEventArgs e)
         {
-            // Create OpenFileDialog 
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-
-
-
-            // Set filter for file extension and default file extension 
-            dlg.DefaultExt = ".png";
-            dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
-
-
-            // Display OpenFileDialog by calling ShowDialog method 
-            Nullable<bool> result = dlg.ShowDialog();
-
-
-            // Get the selected file name and display in a TextBox 
-            if (result == true)
+            try
             {
-                // Open document 
-                string filename = dlg.FileName;
-                fn = filename;
+
+
+                // Create OpenFileDialog 
+                Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
+
+
+                // Set filter for file extension and default file extension 
+                dlg.DefaultExt = ".png";
+                dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+
+
+                // Display OpenFileDialog by calling ShowDialog method 
+                Nullable<bool> result = dlg.ShowDialog();
+
+
+                // Get the selected file name and display in a TextBox 
+                if (result == true)
+                {
+                    // Open document 
+                    string filename = dlg.FileName;
+                    fn = filename;
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void LBUser_MouseDoubleClick(object sender, MouseButtonEventArgs e)
