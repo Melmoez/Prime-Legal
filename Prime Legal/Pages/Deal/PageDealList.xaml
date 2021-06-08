@@ -92,14 +92,15 @@
                 materialDesign:HintAssist.IsFloating="False"
                 materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                 materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                Background="White" TextChanged="TbSearch_TextChanged" />
+                Background="White"
+                TextChanged="TbSearch_TextChanged" />
         </UniformGrid>
         <Label
             Grid.Row="1"
             Margin="0,0,50,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
-            Content="Для просмотра подробной информации, необходимо два раза нажать на запись"
+            Content="*Для просмотра подробной информации, необходимо два раза нажать на запись"
             Style="{DynamicResource LblDefoltWhite}">
             <Label.Foreground>
                 <SolidColorBrush Opacity="0.8" Color="#FF01549A" />
@@ -407,7 +408,8 @@
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                                     materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                                     Background="White"
-                                    Text="{Binding Passport.Serial}" MaxLength="4" />
+                                    MaxLength="4"
+                                    Text="{Binding Passport.Serial}" />
                                 <TextBox
                                     x:Name="TBNumber"
                                     Grid.Row="1"
@@ -419,7 +421,8 @@
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                                     materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                                     Background="White"
-                                    Text="{Binding Passport.Number}" MaxLength="6" />
+                                    MaxLength="6"
+                                    Text="{Binding Passport.Number}" />
                                 <Grid
                                     Grid.Row="1"
                                     Margin="0,10,0,10"
@@ -542,7 +545,8 @@
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                                     materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                                     Background="White"
-                                    Text="{Binding Passport.Serial}" MaxLength="4" />
+                                    MaxLength="4"
+                                    Text="{Binding Passport.Serial}" />
                                 <TextBox
                                     x:Name="TBNumberUR"
                                     Grid.Row="1"
@@ -554,7 +558,8 @@
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                                     materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                                     Background="White"
-                                    Text="{Binding Passport.Number}" MaxLength="6" />
+                                    MaxLength="6"
+                                    Text="{Binding Passport.Number}" />
 
                                 <TextBox
                                     x:Name="TBAddressUR"
@@ -637,7 +642,9 @@
                     <RowDefinition Height="11*" />
                 </Grid.RowDefinitions>
                 <Rectangle Grid.RowSpan="3" Fill="#3D3D3D" />
-                <Label Content="Добавить новую недвижимость" Style="{DynamicResource LblMain}" />
+                <Label Style="{DynamicResource LblMain}">
+                    <TextBlock Text="Добавить новую недвижимость" TextWrapping="Wrap" />
+                </Label>
                 <StackPanel Grid.Row="1" Margin="20,0">
                     <ComboBox
                         x:Name="CBTypeState"
@@ -864,7 +871,8 @@
                             materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                             materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                             Background="White"
-                            Text="{Binding Client.Passport.Serial}" MaxLength="4" />
+                            MaxLength="4"
+                            Text="{Binding Client.Passport.Serial}" />
                         <TextBox
                             x:Name="TBNumber2"
                             Grid.Row="1"
@@ -876,7 +884,8 @@
                             materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                             materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                             Background="White"
-                            Text="{Binding Client.Passport.Number}" MaxLength="6" />
+                            MaxLength="6"
+                            Text="{Binding Client.Passport.Number}" />
                         <Grid
                             Grid.Row="1"
                             Margin="0,10,0,10"

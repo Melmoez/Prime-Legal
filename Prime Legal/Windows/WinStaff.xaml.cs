@@ -1,7 +1,4 @@
-﻿using Prime_Legal.Pages.Authorization;
-using Prime_Legal.Pages.Deal;
-using Prime_Legal.Pages.Staff;
-using Prime_Legal.Pages.Users;
+﻿using Prime_Legal.Pages.Deal;
 using Prime_Legal.Services;
 using System;
 using System.Collections.Generic;
@@ -21,19 +18,18 @@ using System.Windows.Shapes;
 namespace Prime_Legal.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для WinAdmin.xaml
+    /// Логика взаимодействия для WinStaff.xaml
     /// </summary>
-    public partial class WinAdmin : Window
+    public partial class WinStaff : Window
     {
-        public WinAdmin()
+        public WinStaff()
         {
             InitializeComponent();
             BtnClose.Click += (sender, e) => { ActionWindowClass.CloseStateButton(); };
             BtnMinimize.Click += (sender, e) => { ActionWindowClass.MinimizedStateButton(this); };
-            FrameMain.Navigate(new PageUser());
+            FrameMain.Navigate(new PageDealList());
             ActionWindowClass.MainFrame = FrameMain;
         }
-
         private void BtnOpenMenu_Click(object sender, RoutedEventArgs e)
         {
             BtnOpenMenu.Visibility = Visibility.Collapsed;
@@ -68,17 +64,6 @@ namespace Prime_Legal.Windows
             GridHamburger.BeginAnimation(Grid.WidthProperty, GridMenuClose);
         }
 
-        private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
-        {
-            FrameMain.Navigate(new PageUser());
-        }
-
-        private void ListBoxItem_Selected_1(object sender, RoutedEventArgs e)
-        {
-            ActionWindowClass.MainFrame.NavigationService.RemoveBackEntry();
-            FrameMain.Navigate(new PageStaff());
-        }
-
         private void ListBoxItem_Selected_2(object sender, RoutedEventArgs e)
         {
             ActionWindowClass.MainFrame.NavigationService.RemoveBackEntry();
@@ -95,7 +80,7 @@ namespace Prime_Legal.Windows
         {
             LBMenuProgram.SelectedIndex = -1;
             new WinAbout().ShowDialog();
-            
+
         }
     }
 }

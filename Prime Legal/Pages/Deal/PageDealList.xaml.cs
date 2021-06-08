@@ -34,7 +34,6 @@ namespace Prime_Legal.Pages.Deal
 
         public PageDealList()
         {
-
             InitializeComponent();
             CBTypeState.ItemsSource = DataClass.GetContext().TypeState.ToArray();
             CBRenovation.ItemsSource = DataClass.GetContext().Renovation.ToArray();
@@ -84,9 +83,17 @@ namespace Prime_Legal.Pages.Deal
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            DataClass.GetContext().Deal.Remove(LBUser.SelectedItem as DataFolder.Deal);
-            DataClass.GetContext().SaveChanges();
-            LBUser.ItemsSource = DataClass.GetContext().Deal.ToList();
+            try
+            {
+                DataClass.GetContext().Deal.Remove(LBUser.SelectedItem as DataFolder.Deal);
+                DataClass.GetContext().SaveChanges();
+                LBUser.ItemsSource = DataClass.GetContext().Deal.ToList();
+            }
+            catch (Exception ex)
+            {
+                
+            }
+            
         }
 
         private void BtnSaveEdit_Click(object sender, RoutedEventArgs e)
@@ -98,7 +105,7 @@ namespace Prime_Legal.Pages.Deal
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Фотографиия не была выбрана, Установленна стандартраная фотография", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             DataClass.GetContext().SaveChanges();
             LBUser.ItemsSource = DataClass.GetContext().Deal.ToList();
@@ -123,7 +130,7 @@ namespace Prime_Legal.Pages.Deal
                 {
                     Company company;
                     client.IdTypeClient = 2;
-                    DataClass.GetContext().Passport.Add(new Passport() { Serial = TbSerial.Text, Number = TBNumber.Text });
+                    DataClass.GetContext().Passport.Add(new Passport() { Serial = TbSerialUR.Text, Number = TBNumberUR.Text });
                     DataClass.GetContext().Adress.Add(new Adress() { Name = TBAddressUR.Text });
                     company = DataClass.GetContext().Company.Add(new Company() { Name = TbNameUR.Text, BIK = Convert.ToInt64(TBBIKUR.Text), INN = Convert.ToInt64(TBINNUR.Text), RS = Convert.ToInt64(TBRSUR.Text) });
                     c = TbFnameUR.Text;
@@ -183,7 +190,6 @@ namespace Prime_Legal.Pages.Deal
                 state.IdOwner = DataClass.GetContext().Client.FirstOrDefault(clie => clie.FName == c && clie.LName == d).Id; ;
                 a = TBCadastrialNumber.Text;
                 b = CBTypeDeal.Text;
-                MessageBox.Show(b);
                 DataClass.GetContext().State.Add(state);
                 DataClass.GetContext().SaveChanges();
 
@@ -296,5 +302,6 @@ namespace Prime_Legal.Pages.Deal
         {
             LBUser.ItemsSource = DataClass.GetContext().Deal.Where(s => s.State.CadastralNumber.StartsWith(TbSearch.Text)).ToArray();
         }
+
     }
 }

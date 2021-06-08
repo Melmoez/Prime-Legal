@@ -9,6 +9,7 @@
     Title="Авторизация"
     Width="878"
     Height="494"
+    Icon="/Prime Legal;component/Resources/Logo.ico"
     Loaded="Window_Loaded"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
@@ -42,6 +43,11 @@
                 NavigationUIVisibility="Hidden" />
         </Grid>
         <Grid Grid.Column="2">
+            <Rectangle
+                Margin="342,-36,-14,464"
+                Fill="#FF3F3F3F"
+                RadiusX="10"
+                RadiusY="10" />
             <UniformGrid
                 Width="69"
                 Height="25"
@@ -58,7 +64,7 @@
                         Width="31"
                         Height="17"
                         VerticalContentAlignment="Bottom"
-                        Foreground="#FF3F3F3F"
+                        Foreground="#E3E3E3"
                         Kind="WindowMinimize" />
                 </Button>
                 <Button
@@ -71,7 +77,7 @@
                         Width="31"
                         Height="17"
                         VerticalContentAlignment="Bottom"
-                        Foreground="#FF3F3F3F"
+                        Foreground="#E3E3E3"
                         Kind="WindowClose" />
                 </Button>
             </UniformGrid>

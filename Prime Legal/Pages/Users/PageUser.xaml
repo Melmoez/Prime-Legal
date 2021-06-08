@@ -92,7 +92,8 @@
                 materialDesign:HintAssist.IsFloating="False"
                 materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                 materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                Background="White" TextChanged="TbSearch_TextChanged" />
+                Background="White"
+                TextChanged="TbSearch_TextChanged" />
         </UniformGrid>
         <UniformGrid
             Grid.Row="1"
@@ -128,7 +129,8 @@
                 x:Name="BtnDelete"
                 Grid.Row="1"
                 Width="50"
-                HorizontalAlignment="Right"
+                Margin="17,66,0,66"
+                HorizontalAlignment="Left"
                 Click="BtnDelete_Click">
                 <materialDesign:PackIcon
                     Width="38"

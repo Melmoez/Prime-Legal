@@ -74,6 +74,18 @@ namespace Prime_Legal.Pages.Authorization
                             winAuth.Close();
                             
                             break;
+                        case 2:
+                            ActionWindowClass.staffUser = DataClass.GetContext().Staff.FirstOrDefault(s => s.IdUser == user.Id);
+                            new WinManager().Show();
+                            winAuth.Close();
+
+                            break;
+                        case 3:
+                            ActionWindowClass.staffUser = DataClass.GetContext().Staff.FirstOrDefault(s => s.IdUser == user.Id);
+                            new WinStaff().Show();
+                            winAuth.Close();
+
+                            break;
                     }
                 }
 

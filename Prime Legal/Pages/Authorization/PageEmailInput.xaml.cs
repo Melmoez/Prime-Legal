@@ -37,31 +37,41 @@ namespace Prime_Legal.Pages.Authorization
 
         private void BtnNext_Click(object sender, RoutedEventArgs e)
         {
-            User user = DataClass.GetContext().User.FirstOrDefault(u => u.Login == TbLogin.Text);
-            if (user == null)
+            try
             {
-                RunError.Text = null;
-                RunError.Text = "Пользователя с таким логином не существует";
-                TbLogin.BorderBrush = Brushes.OrangeRed;
+
+
+                User user = DataClass.GetContext().User.FirstOrDefault(u => u.Login == TbLogin.Text);
+                if (user == null)
+                {
+                    RunError.Text = null;
+                    RunError.Text = "Пользователя с таким логином не существует";
+                    TbLogin.BorderBrush = Brushes.OrangeRed;
+                }
+                else
+                {
+                    try
+                    {
+                        string Code = RandomClass.Rand(6);
+                        string a = "primelegalestate@mail.ru";
+                        var client = new SmtpClient("smtp.mail.ru", 25);
+                        client.Credentials = new NetworkCredential(a, "WASD1337");
+                        client.EnableSsl = true;
+                        client.Send(a, TbLogin.Text, "Код для смены пароля", Code);
+                        RandomClass.Saver = Code;
+                        ActionWindowClass.MainFrame.Navigate(new PageEmailCode());
+                        ActionWindowClass.UserTransition = user;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
             }
-            else
+            catch (Exception ex)
             {
-                try
-                {
-                    string Code = RandomClass.Rand(6);
-                    string a = "primelegalestate@mail.ru";
-                    var client = new SmtpClient("smtp.mail.ru", 25);
-                    client.Credentials = new NetworkCredential(a, "WASD1337");
-                    client.EnableSsl = true;
-                    client.Send(a, TbLogin.Text, "Код для смены пароля", Code);
-                    RandomClass.Saver = Code;
-                    ActionWindowClass.MainFrame.Navigate(new PageEmailCode());
-                    ActionWindowClass.UserTransition = user;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+
+                MessageBox.Show(ex.Message);
             }
         }
     }

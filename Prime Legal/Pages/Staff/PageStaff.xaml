@@ -92,7 +92,8 @@
                 materialDesign:HintAssist.IsFloating="False"
                 materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                 materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                Background="White" TextChanged="TbSearch_TextChanged" />
+                Background="White"
+                TextChanged="TbSearch_TextChanged" />
         </UniformGrid>
         <UniformGrid
             Grid.Row="1"
@@ -306,7 +307,8 @@
                     materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                     materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                     Background="White"
-                    Text="{Binding Passport.Serial}" MaxLength="4" />
+                    MaxLength="4"
+                    Text="{Binding Passport.Serial}" />
                 <TextBox
                     x:Name="TBNumber"
                     Margin="10"
@@ -316,7 +318,8 @@
                     materialDesign:TextFieldAssist.TextFieldCornerRadius="0"
                     materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                     Background="White"
-                    Text="{Binding Passport.Number}" MaxLength="6" />
+                    MaxLength="6"
+                    Text="{Binding Passport.Number}" />
                 <Grid
                     Height="37"
                     Margin="10"

@@ -30,9 +30,15 @@ namespace Prime_Legal.Pages.Staff
             InitializeComponent();
             LBUser.ItemsSource = DataClass.GetContext().Staff.ToList();
             CBPosition.ItemsSource = DataClass.GetContext().Position.ToList();
-            CBUser.ItemsSource = DataClass.GetContext().User.ToList();
+            CBUser.ItemsSource = DataClass.GetContext().User.Where(u =>
+                                                        u.Login != u.Staff.FirstOrDefault(emp =>
+                                                        emp.User.Login == u.Login)
+                                                        .User.Login).ToList();
             CBPositionEdit.ItemsSource = DataClass.GetContext().Position.ToList();
-            CBUserEdit.ItemsSource = DataClass.GetContext().User.ToList();
+            CBUserEdit.ItemsSource = DataClass.GetContext().User.Where(u =>
+                                                        u.Login != u.Staff.FirstOrDefault(emp =>
+                                                        emp.User.Login == u.Login)
+                                                        .User.Login).ToList();
             TbDate.SelectedDate = DateTime.Now;
             TbDateEdit.SelectedDate = DateTime.Now;
         }
