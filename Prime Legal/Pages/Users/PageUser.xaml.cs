@@ -63,13 +63,20 @@ namespace Prime_Legal.Pages.Users
         {
             try
             {
-                DataClass.GetContext().User.Remove(LBUser.SelectedItem as User);
-                DataClass.GetContext().SaveChanges();
-                LBUser.ItemsSource = DataClass.GetContext().User.OrderBy(u => u.Login).ToArray();
+                if (MessageBoxResult.Yes ==
+                MessageBox.Show("Вы действительно хотите удалить эту запись?", "Вопрос",
+                MessageBoxButton.YesNo, MessageBoxImage.Question))
+                {
+                    DataClass.GetContext().User.Remove(LBUser.SelectedItem as DataFolder.User);
+                    DataClass.GetContext().SaveChanges();
+
+                    LBUser.ItemsSource = DataClass.GetContext().User.ToList();
+                }
+
             }
-            catch ( Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Ошибка с подключением к базе данных", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

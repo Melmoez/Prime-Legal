@@ -85,13 +85,20 @@ namespace Prime_Legal.Pages.Deal
         {
             try
             {
-                DataClass.GetContext().Deal.Remove(LBUser.SelectedItem as DataFolder.Deal);
-                DataClass.GetContext().SaveChanges();
-                LBUser.ItemsSource = DataClass.GetContext().Deal.ToList();
+                if (MessageBoxResult.Yes ==
+                MessageBox.Show("Вы действительно хотите удалить эту запись?", "Вопрос",
+                MessageBoxButton.YesNo, MessageBoxImage.Question))
+                {
+                    DataClass.GetContext().Deal.Remove(LBUser.SelectedItem as DataFolder.Deal);
+                    DataClass.GetContext().SaveChanges();
+
+                    LBUser.ItemsSource = DataClass.GetContext().Deal.ToList();
+                }
+               
             }
             catch (Exception ex)
             {
-                
+                MessageBox.Show("Ошибка с подключением к базе данных", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             
         }

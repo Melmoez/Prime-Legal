@@ -1,6 +1,7 @@
 ﻿using Prime_Legal.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,7 +34,7 @@ namespace Prime_Legal.Windows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Process.Start(@"..\..\Resources\Ruk.docx");
         }
     }
 }
