@@ -143,7 +143,7 @@
         <ListView x:Name="LBUser" Grid.Row="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Width="1830" Height="60">
+                    <Grid Width="1800" Height="60">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1699" />
                             <ColumnDefinition />

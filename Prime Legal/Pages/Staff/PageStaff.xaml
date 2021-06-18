@@ -142,7 +142,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid
-                        Width="1830"
+                        Width="1800"
                         Height="auto"
                         MinHeight="60">
                         <Grid.ColumnDefinitions>

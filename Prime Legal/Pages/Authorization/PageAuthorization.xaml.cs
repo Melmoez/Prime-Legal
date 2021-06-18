@@ -31,66 +31,75 @@ namespace Prime_Legal.Pages.Authorization
 
         private void BtnJoin_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(TbLogin.Text))
+            try
             {
-                Runtb.Text = null;
-                Runtb2.Inlines.Clear();
-                Runtb.Text += "Вы не ввели логин.";
-                Runtb2.Inlines.Add("Забыли пароль?");
-                TbLogin.BorderBrush = Brushes.OrangeRed;
-                PBPassword.BorderBrush = Brushes.OrangeRed;
-                TbLogin.Clear();
-                PBPassword.Clear();
-            }
-            else if (string.IsNullOrWhiteSpace(PBPassword.Password))
-            {
-                Runtb.Text = null;
-                Runtb2.Inlines.Clear();
-                Runtb.Text += "Вы не ввели пароль.";
-                Runtb2.Inlines.Add("Забыли пароль?");
-                PBPassword.BorderBrush = Brushes.OrangeRed;
-            }
-            else
-            {
-                var user = DataClass.GetContext().User.FirstOrDefault(u => u.Login == TbLogin.Text);
-                if ((user == null) || (user.Password != PBPassword.Password))
+
+
+                if (string.IsNullOrWhiteSpace(TbLogin.Text))
                 {
                     Runtb.Text = null;
                     Runtb2.Inlines.Clear();
-                    Runtb.Text += "Вы ввели неверный логин или пароль.";
+                    Runtb.Text += "Вы не ввели логин.";
                     Runtb2.Inlines.Add("Забыли пароль?");
                     TbLogin.BorderBrush = Brushes.OrangeRed;
                     PBPassword.BorderBrush = Brushes.OrangeRed;
                     TbLogin.Clear();
                     PBPassword.Clear();
                 }
+                else if (string.IsNullOrWhiteSpace(PBPassword.Password))
+                {
+                    Runtb.Text = null;
+                    Runtb2.Inlines.Clear();
+                    Runtb.Text += "Вы не ввели пароль.";
+                    Runtb2.Inlines.Add("Забыли пароль?");
+                    PBPassword.BorderBrush = Brushes.OrangeRed;
+                }
                 else
                 {
-                    switch (user.IdRole)
+                    var user = DataClass.GetContext().User.FirstOrDefault(u => u.Login == TbLogin.Text);
+                    if ((user == null) || (user.Password != PBPassword.Password))
                     {
-                        case 1:
-                            ActionWindowClass.staffUser = DataClass.GetContext().Staff.FirstOrDefault(s => s.IdUser == user.Id);
-                            new WinAdmin().Show();
-                            winAuth.Close();
-                            
-                            break;
-                        case 2:
-                            ActionWindowClass.staffUser = DataClass.GetContext().Staff.FirstOrDefault(s => s.IdUser == user.Id);
-                            new WinManager().Show();
-                            winAuth.Close();
-
-                            break;
-                        case 3:
-                            ActionWindowClass.staffUser = DataClass.GetContext().Staff.FirstOrDefault(s => s.IdUser == user.Id);
-                            new WinStaff().Show();
-                            winAuth.Close();
-
-                            break;
+                        Runtb.Text = null;
+                        Runtb2.Inlines.Clear();
+                        Runtb.Text += "Вы ввели неверный логин или пароль.";
+                        Runtb2.Inlines.Add("Забыли пароль?");
+                        TbLogin.BorderBrush = Brushes.OrangeRed;
+                        PBPassword.BorderBrush = Brushes.OrangeRed;
+                        TbLogin.Clear();
+                        PBPassword.Clear();
                     }
-                }
+                    else
+                    {
+                        switch (user.IdRole)
+                        {
+                            case 1:
+                                ActionWindowClass.staffUser = DataClass.GetContext().Staff.FirstOrDefault(s => s.IdUser == user.Id);
+                                new WinAdmin().Show();
+                                winAuth.Close();
 
+                                break;
+                            case 2:
+                                ActionWindowClass.staffUser = DataClass.GetContext().Staff.FirstOrDefault(s => s.IdUser == user.Id);
+                                new WinManager().Show();
+                                winAuth.Close();
+
+                                break;
+                            case 3:
+                                ActionWindowClass.staffUser = DataClass.GetContext().Staff.FirstOrDefault(s => s.IdUser == user.Id);
+                                new WinStaff().Show();
+                                winAuth.Close();
+
+                                break;
+                        }
+                    }
+
+                }
             }
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void Runtb2_Click(object sender, RoutedEventArgs e)
